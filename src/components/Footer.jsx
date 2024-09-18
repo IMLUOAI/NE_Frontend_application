@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import githubLogo from "../images/Vector.svg";
 import facebookLogo from "../images/iconmonstr-facebook-6.svg";
 
+
 const Footer = () => {
     return (
         <footer>
