@@ -1,6 +1,5 @@
-import { ModalWithForm } from "./ModalWithForm"
-
-
+import  ModalWithForm  from "./ModalWithForm"
+import useForm from "../hooks/useForm";
 
 
  const SignUpModal = ({

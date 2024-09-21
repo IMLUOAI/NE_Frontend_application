@@ -1,27 +1,30 @@
-import { Link } from "create-react-dom";
-import logoutIcon from "../images/Union.svg";
+import { Link } from "react-router-dom";
+import logoutIcon from "../images/Union.png";
+import headerLogo from "../images/NewsExplorer.npg";
 
-const Header = () => {
+
+const Header = ({ username= "", isAuthorized, handleProfileClick, onLoginModal}) => {
     return (
         <header className="header">
-            <div className="header__bar">
-            <h3 className="header__title">NewsExplorer</h3>
-             <a href="/">Home</a>
-            </div>
-            <div className="header__userName-bar">
+               <div className="header__bar">
+               <img src={headerLogo}className="header__logo" alt="logo" />
+                <a href="/" className="header__home-page">Home</a>
+               </div>
+            <div className="header__signin-bar">
                 {isAuthorized ? (
-                    <>
-                    <Link to="/profile" className="header__link" onClick="handleProfileClick">
-                        <h3 className="header__userName">{userName}</h3>
+                   < >
+                     <a href="/" className="header__savedarticle-page">Saved articles</a>
+                    <div className="header__user-bar">
+                    <Link to="/profile" className="header__link" onClick={handleProfileClick}>
+                        <h3 className="header__username">{username}</h3>
                     </Link>
                     <img src={logoutIcon} className="header__logout-icon" alt="logout" />
-                    </>
+                    </div>
+                    </ >
                 ) : (
-                    <nav className="header__signin-bar">
-                    <button type="button" className="header__signin-link" onClick={onLoginModal}>
+                    <button type="button" className="header__signin-button" onClick={onLoginModal}>
                         Sign in
                     </button>
-                    </nav>
                 )}
             </div>
         </header>
