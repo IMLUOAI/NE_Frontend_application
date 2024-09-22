@@ -1,4 +1,4 @@
-import "../blocks/ConfirmationModal.css"
+import "../blocks/confirmationModal.css"
 
 const ConfirmationModal = ({ confirmation, onClose, hanldeOpenSigninModal}) => {
 

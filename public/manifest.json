@@ -4,18 +4,18 @@
     "icons": [
       {
         "src": "NewsExplorer.png",
-        "sizes": "64x64 32x32 24x24 16x16",
+        "sizes": " 200x24 64x64 32x32 24x24 16x16",
         "type": "image/x-icon"
       },
       {
         "src": "NewsExplorer.png",
         "type": "image/png",
-        "sizes": "192x192"
+        "sizes": "200x24"
       },
       {
         "src": "NewsExplorer.png",
         "type": "image/png",
-        "sizes": "512x512"
+        "sizes": "200x24"
       }
     ],
     "start_url": ".",

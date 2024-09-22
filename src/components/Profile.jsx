@@ -1,7 +1,6 @@
 
 
-
-const Profile = () => {
+const Profile = ({userAvatar}) => {
 
 
     return (

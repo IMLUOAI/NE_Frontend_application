@@ -15,7 +15,7 @@
     width: 40px;
     height: 40px;
     border: none;
-    background-image: url('../../images/cross.svg');
+    background-image: url('../images/back.png');
     position: absolute;
     top: 233px;
     right: 459px;
