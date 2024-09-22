@@ -1,5 +1,4 @@
 import "../blocks/app.css";
-import currentUserContext from "../contexts/CurrentUserContext";
 import React, {useEffect, useState } from "react";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom"
 import Header from "./Header";
@@ -8,6 +7,7 @@ import Main from "./Main";
 import Footer from "./Footer";
 import ProtectedRoute from "../utils/ProtectedRoute";
 import ConfirmationModal from "./ConfirmationModal";
+import CurrentUserContext from "../contexts/CurrentUserContext";
 
 function App () {
     const [activeModal, setActiveModal] = useState("")
@@ -15,6 +15,7 @@ function App () {
     const [showConfirmationModal, setShowConfirmationModal] = useState(false);
 
 return (
+    <CurrentUserContext.Provider value={{ currentUser }} > 
     <div className="page__section">
         <Header />
        
@@ -52,6 +53,7 @@ return (
             <ConfirmationModal />
         )}
     </div>
+    </CurrentUserContext.Provider>
 )
         }
 

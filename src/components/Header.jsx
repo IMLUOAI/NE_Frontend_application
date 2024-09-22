@@ -1,14 +1,14 @@
 import "../blocks/header.css";
 import { Link } from "react-router-dom";
 import logoutIcon from "../images/Union.png";
-import headerLogo from "../images/NewsExplorer.png";
 
 
 const Header = ({ username= "", isAuthorized, handleProfileClick, onLoginModal}) => {
     return (
         <header className="header">
                <div className="header__bar">
-               <img src={headerLogo}className="header__logo" alt="logo" />
+               <h1 className="header__logo" alt="logo">NewsExplorer</h1>
+               {/* <img src={headerLogo}className="header__logo" alt="logo" /> */}
                 <a href="/" className="header__home-page">Home</a>
                </div>
             <div className="header__signin-bar">

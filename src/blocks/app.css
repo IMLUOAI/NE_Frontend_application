@@ -1,9 +1,6 @@
 .page__section{
     max-width: 1654px;
     height: 1644px;
-    background-image: url("../images/NewsExplorer.jpg");
-    background-size: cover;
-    background-position: center;
     margin: 0;
 }
 .page__section::before {

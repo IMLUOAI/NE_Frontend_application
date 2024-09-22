@@ -1,0 +1,69 @@
+.footer{
+ width: 1440px;
+ height:80px;
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ align-items: center;
+ margin: auto 0 0;
+}
+.footer__description{
+width:433px;
+height: 22px;
+font-family: "Roboto", sans-serif;
+font-size: 16px;
+font-weight: 400;
+line-height: 22px;
+text-align: left;
+ margin: 32px auto 26px 104px;
+color: #B6BCBF;
+
+}
+.footer__nav-bar{
+width: 163px;
+height: 24px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin: 32px auto 26px 524px;
+}
+.footer__home-page{
+width: 49px;
+height: 24px;
+color: #000;
+font-family: "Roboto", sans-serif;
+font-family: "Roboto", sans-serif;
+font-size: 18px;
+font-weight: 400;
+line-height: 24px;
+text-align: center;  
+}
+.footer__tripleten-link{
+width: 74px;
+height: 24px;
+color: #000;
+font-family: "Roboto", sans-serif;
+font-size: 18px;
+font-weight: 400;
+line-height: 24px;
+text-align: center;   
+}
+.footer__social-link {
+width:72px;
+height: 24px;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+margin: 32px 106px 26px auto;
+}
+.footer__logo-github{
+width: 20.21px;
+height: 19.71px;
+background-color: transparent;
+}
+.footer__logo-facebook{
+width: 20px;
+height: 20px;
+background-color: transparent;
+}

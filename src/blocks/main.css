@@ -1,0 +1,38 @@
+
+.main__section{
+    width: 1440px;
+    height: 576px;
+    border: 1px;
+    background-image: url("../images/NewsExplorer.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+}
+.main__content{
+    width: 608px;
+    height: 128px;
+    display: flex;
+    flex-direction: column;   
+    margin: 380px 416px 288px;
+}
+.mian__title{
+    width: 608px;
+    height: 128px;
+    font-family: "Roboto Slab", sans-serif;
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 64px;
+    text-align: left;
+}
+.main__description{
+    width: 608px;
+    height: 24px;
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+}
