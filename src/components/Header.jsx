@@ -1,6 +1,7 @@
+import "../blocks/header.css";
 import { Link } from "react-router-dom";
 import logoutIcon from "../images/Union.png";
-import headerLogo from "../images/NewsExplorer.npg";
+import headerLogo from "../images/NewsExplorer.png";
 
 
 const Header = ({ username= "", isAuthorized, handleProfileClick, onLoginModal}) => {

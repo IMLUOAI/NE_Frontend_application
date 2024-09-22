@@ -1,10 +1,11 @@
-import currentUserContext from "../contexts/CurrentUserContext"
+import "../blocks/app.css";
+import currentUserContext from "../contexts/CurrentUserContext";
 import React from "react";
 import Header from "./Header";
 import Profile from "./Profile";
 import Main from "./Main";
 
-function app () {
+function App () {
 
 
 return (
@@ -28,3 +29,6 @@ return (
     </div>
 )
         }
+
+
+export default App;

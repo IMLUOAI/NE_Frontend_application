@@ -4,8 +4,10 @@
     align-items: center;
     width: 1440px;
     height: 80px;
-    margin: 101px 82px 0 132px;
-    padding-top: 32px;
+    border: none;
+    border-bottom: 1px solid #C4C4C403;
+    box-shadow: 0px -1px 0px 0px #FFFFFF33 inset;
+    margin: 0;
 }
 .header__bar {
     display: flex;
@@ -30,7 +32,7 @@
     width: 176px;
     height: 48px;
     border: 1px;
-    radius: 16px;
+    border-radius: 16px;
     align-items: center;
     margin: 19px 104px 13px auto;
 }
