@@ -1,0 +1,96 @@
+.card__section {
+  max-width: 400px;
+  height: 576px;
+  display: flex;
+  border: 1px;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 16px 16px 0 0;
+}
+.card__image {
+  width: 400px;
+  height: 272px;
+}
+.card__feature {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  justify-content: center;
+}
+.card__save-button {
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+}
+.news__save-icon {
+  width: 24px;
+  height: 24px;
+  align-items: center;
+}
+.card__tooltips {
+  width: 182px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  background-color: #ffffff;
+  box-shadow: 0px 10px 22px 0px #3b4a741a;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14.06px;
+  text-align: center;
+  color: #000000;
+  display: none;
+}
+.card__date {
+  width: 149px;
+  height: 24px;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  background: #b6bcbf;
+  margin: 292px 227px 260px 128px;
+}
+.card__content {
+  width: 400px;
+  height: 576px;
+  display: flex;
+  flex-direction: column;
+  justify-self: start;
+}
+.card__content-title {
+  width: 352px;
+  height: 60px;
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 30px;
+  text-align: left;
+}
+.card__content-text {
+  width: 352px;
+  height: 110px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+}
+.card__footer {
+  width: 352px;
+  height: 20px;
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0.4000000059604645px;
+  text-align: left;
+  background: #b6bcbf;
+}

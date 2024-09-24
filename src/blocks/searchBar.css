@@ -2,10 +2,8 @@
   width: 608px;
   height: 100%;
   display: flex;
-  /* flex-direction: row;
-  justify-content: flex-end;
-  align-items: center; */
   margin-top: 88px;
+  border: none;
 }
 
 .search__input {

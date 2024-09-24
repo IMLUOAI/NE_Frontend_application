@@ -11,8 +11,8 @@ const NewsSection = ({
 }) => {
   return (
     <div className="news__section">
-      <h1 className="news__title">Search results</h1>
-      <div className="news__card">
+      <h1 className="news__section-title">Search results</h1>
+      <div className="news__card-list">
         {newsCards
           .filter((card) => card.owner === currentUser._id)
           .map((card) => (
@@ -24,15 +24,13 @@ const NewsSection = ({
             />
           ))}
       </div>
-      <div>
-        <button
-          type="button"
-          className="news__add-button"
-          onClick={toggleShowMore}
-        >
-          {isExpanded ? "Show Less" : "Show more"}
-        </button>
-      </div>
+      <button
+        type="button"
+        className="news__expand-button"
+        onClick={toggleShowMore}
+      >
+        {isExpanded ? "Show Less" : "Show more"}
+      </button>
     </div>
   );
 };
