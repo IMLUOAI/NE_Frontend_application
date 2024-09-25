@@ -1,6 +1,6 @@
 import  ModalWithForm  from "./ModalWithForm"
 import useForm from "../hooks/useForm";
-
+import "../blocks/modal.css";
 
  const SignUpModal = ({
     isOpen,

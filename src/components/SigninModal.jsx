@@ -1,6 +1,6 @@
 import  ModalWithForm  from "./ModalWithForm"
 import useForm from "../hooks/useForm"
-
+import "../blocks/modal.css";
 
  const SigninModal = ({ isOpen, isLoading, handleCloseModal, handleSignin, handleOpenSignupModal}) => {
     const { values, handleChange, errors } = useForm({
@@ -27,7 +27,7 @@ import useForm from "../hooks/useForm"
           {errors.password && <span className="modal__error">{errors.password}</span>}
           </label>
           <div className="modal__submit-container">
-            <button type="submit" className="modal__submit-button">
+            <button type="submit" className="modal__submit-button" onClick={handleSignin} >
                 {isLoading ? "Sign in..." : "Sign in"}
             </button>
             <button type="button" className="modal__option-button" onClick={handleOpenSignupModal}>

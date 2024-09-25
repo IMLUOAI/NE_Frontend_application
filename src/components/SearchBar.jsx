@@ -15,7 +15,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div class="search__bar">
+    <div className="search__bar">
       <input
         type="text"
         onChange={handleInputChange}

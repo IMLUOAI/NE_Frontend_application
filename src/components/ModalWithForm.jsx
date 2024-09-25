@@ -1,5 +1,6 @@
 import { Children } from "react"
 import Modal from "./Modal";
+import "../blocks/modal.css";
 
  const ModalWithForm = ({
     name, title, Children, isOpen, onClose, onSubmit

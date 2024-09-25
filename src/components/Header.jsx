@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import logoutIcon from "../images/Union.png";
 
 
-const Header = ({ username= "", isAuthorized, handleProfileClick, onLoginModal}) => {
+const Header = ({ username= "", isAuthorized, handleProfileClick, onSigninModal}) => {
     return (
         <header className="header">
                <div className="header__bar">
@@ -23,7 +23,7 @@ const Header = ({ username= "", isAuthorized, handleProfileClick, onLoginModal})
                     </div>
                     </ >
                 ) : (
-                    <button type="button" className="header__signin-button" onClick={onLoginModal}>
+                    <button type="button" className="header__signin-button" onClick={onSigninModal}>
                         Sign in
                     </button>
                 )}
