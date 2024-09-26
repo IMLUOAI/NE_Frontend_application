@@ -13,7 +13,7 @@ const Profile = () => {
     help: "I'm eager to help potential customers turn their ideas into reality.",
   });
 
-  const combinedInfo = `
+  const generalInfo = `
   Name: ${userInfo.name}
   Profession: ${userInfo.profession}
   Technologies: ${userInfo.technologies}
@@ -23,20 +23,17 @@ const Profile = () => {
     `.trim();
 
   const handleChange = (e) => {
-    const input = e.target.value;
-    const lines = input.split("\n").map((line) => line.trim());
+    const lines = e.target.value.split("\n").map((line) => line.trim());
 
     const newUserInfo = {
       avatar: userInfo.avatar,
-      name: lines[0]?.replace("Name: ", "").trim() || userInfo.name,
-      profession:
-        lines[1]?.replace("Profession: ", "").trim() || userInfo.profession,
+      name: lines[0]?.replace("Name: ", "") || userInfo.name,
+      profession: lines[1]?.replace("Profession: ", "") || userInfo.profession,
       technologies:
-        lines[2]?.replace("Technologies: ", "").trim() || userInfo.technologies,
-      bio: lines[3]?.replace("Bio: ", "").trim() || userInfo.bio,
-      experience:
-        lines[4]?.replace("Experience: ", "").trim() || userInfo.experience,
-      help: lines[5]?.replace("How I can help: ", "").trim() || userInfo.help,
+        lines[2]?.replace("Technologies: ", "") || userInfo.technologies,
+      bio: lines[3]?.replace("Bio: ", "") || userInfo.bio,
+      experience: lines[4]?.replace("Experience: ", "") || userInfo.experience,
+      help: lines[5]?.replace("How I can help: ", "") || userInfo.help,
     };
     setUserInfo(newUserInfo);
   };
@@ -47,7 +44,7 @@ const Profile = () => {
       <div className="profile__description">
         <h2 className="profile__title">About the Author</h2>
         <textarea
-          value={combinedInfo}
+          value={generalInfo}
           onChange={handleChange}
           rows={20}
           className="profile__textarea"
