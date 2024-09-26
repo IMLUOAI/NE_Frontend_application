@@ -3,8 +3,15 @@ import Profile from "./Profile";
 import SearchBar from "./SearchBar";
 import Header from "./Header";
 import NewsSection from "./NewsSection";
+import React, { useState } from "react";
 
 const Main = () => {
+  const [hasSearched, setHasSearched] = useState(false);
+
+  const handleSearch = () => {
+    setHasSearched(true);
+  };
+
   return (
     <main className="main__section">
       <div className="main__background">
@@ -15,12 +22,14 @@ const Main = () => {
             Find the latest news on any topic and save them in your personal
             accout
           </h3>
-          <SearchBar />
+          <SearchBar onSearch={handleSearch} />
         </div>
       </div>
-      <div className="news__section">
-        <NewsSection />
-      </div>
+      {hasSearched && (
+        <div className="news__section">
+          <NewsSection />
+        </div>
+      )}
       <div className="profile__section">
         <Profile />
       </div>

@@ -7,8 +7,10 @@ import Main from "./Main";
 import Footer from "./Footer";
 import api from "../utils/api";
 import auth from "../utils/auth";
+import SigninModal from "./SigninModal";
+import SignupModal from "./SignupModal";
 import ProtectedRoute from "../utils/ProtectedRoute";
-import ConfirmationModal from "./ConfirmationModal";
+import SuccessSignupModal from "./SuccessSignupModal";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 // import NewsCard from "./NewsCard";
 import { setToken, getToken, removeToken } from "../utils/token";
@@ -16,7 +18,7 @@ import { setToken, getToken, removeToken } from "../utils/token";
 function App() {
   const [activeModal, setActiveModal] = useState("");
   const [currentUser, setCurrentUser] = useState(null);
-  const [showConfirmationModal, setShowConfirmationModal] = useState(false);
+  const [showSuccessSignupModal, setSuccessSignupModal] = useState(false);
   const [selectedCard, setSelectedCard] = useState([]);
   const [newsCards, setNewsCards] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -25,54 +27,56 @@ function App() {
   const navigate = useNavigate();
   const handleOpenSigninModal = () => setActiveModal("signin");
   const handleOpenSignupModal = () => setActiveModal("signup");
+  const handleOpenSuccessSignupModal = () => setActiveModal("successSignup");
   const handleCloseModal = () => {
     setActiveModal("");
-  }
-
+  };
 
   // modal handlers
   const handleSubmit = (request) => {
     setIsLoading(true);
     request()
-    .then(() => {
+      .then(() => {
         handleCloseModal();
-    })
-    .catch(console.error)
-    .finally(() => setIsLoading(false));
-  }
+      })
+      .catch(console.error)
+      .finally(() => setIsLoading(false));
+  };
 
-  const handleSignup = ({email, password, username}) => {
+  const handleSignup = ({ email, password, username }) => {
     if (!password || !email) return;
     const makeRequest = () => {
-     return AuthenticatorAssertionResponse.signup(email, password, username)
-     .then(() => {
+      return auth.signup(email, password, username).then(() => {
         handleCloseModal();
         setActiveModal("signin");
-     })
+        setActiveModal("successSignup");
+      });
     };
     handleSubmit(makeRequest);
-  }
+  };
 
-  const handleSignin = ({email, password}) => {
-    if (!password || !email) { 
-        return;
-  }
-  const makeRequest = () => {
-    return auth.authorize(email, password).then((data) => {
-        if (data.token) {
+  const handleSignin = ({ email, password }) => {
+    if (!password || !email) {
+      return;
+    }
+    const makeRequest = () => {
+      return auth
+        .authorize(email, password)
+        .then((data) => {
+          if (data.token) {
             setToken(data.token);
             return api.getUserInfo(data.token);
-        }
-    })
-   .then(() => {
-    handleCloseModal();
-    setCurrentUser(user);
-    setIsLoggedIn(true);
-    navigate("/profile")
-   })
-  }
-  handleSubmit(makeRequest);
-  }
+          }
+        })
+        .then(() => {
+          handleCloseModal();
+          setCurrentUser(user);
+          setIsLoggedIn(true);
+          navigate("/profile");
+        });
+    };
+    handleSubmit(makeRequest);
+  };
 
   const handleLogout = () => {
     removeToken();
@@ -80,10 +84,10 @@ function App() {
     setIsLoggedIn(false);
     navigate("/");
     setActiveModal("signin");
-  }
+  };
 
-// useEffects to close modals in multiple ways
-useEffect(() => {
+  // useEffects to close modals in multiple ways
+  useEffect(() => {
     if (!activeModal) return;
     const handleEscClose = (e) => {
       if (e.key === "Escape") {
@@ -98,7 +102,7 @@ useEffect(() => {
     };
   }, [activeModal]);
 
-// useEffect To get Token and userInfo
+  // useEffect To get Token and userInfo
   useEffect(() => {
     const jwt = getToken();
 
@@ -117,11 +121,12 @@ useEffect(() => {
   return (
     <CurrentUserContext.Provider value={{ currentUser, isLoggedIn }}>
       <div className="page__section">
-        <Header 
-        userName={currentUser?.name}
-        isAuthorized={isLoggedIn}
-        handleProfileClick={() => navigate("/profile")}
-        onSigninModal={handleOpenSigninModal}
+        <Header
+          userName={currentUser?.name}
+          isAuthorized={isLoggedIn}
+          handleProfileClick={() => navigate("/profile")}
+          onSigninModal={handleOpenSigninModal}
+          onLogout={handleLogout}
         />
         <Routes>
           <Route
@@ -143,15 +148,31 @@ useEffect(() => {
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         <Footer />
-        {activeModal === "signup" && <SignupModal />}
-        {activeModal === "signin" && <SigninModal 
-        handleCloseModal={handleCloseModal}
-        isOpen={activeModal === "signin"}
-        handleSignin={handleSignin}
-        handleOpenSigninModal={handleOpenSigninModal}
-        isLoading={isLoading}  
-        />}
-        {showConfirmationModal && <ConfirmationModal />}
+        {activeModal === "signup" && (
+          <SignupModal
+            handleCloseModal={handleCloseModal}
+            isOpen={activeModal === "signup"}
+            handleSignup={handleSignup}
+            isLoading={isLoading}
+            handleOpenSuccessSignupModal={handleOpenSuccessSignupModal}
+          />
+        )}
+        {activeModal === "signin" && (
+          <SigninModal
+            isOpen={activeModal === "signin"}
+            handleCloseModal={handleCloseModal}
+            handleSignin={handleSignin}
+            handleOpenSignupModal={handleOpenSignupModal}
+            isLoading={isLoading}
+          />
+        )}
+        {activeModal === "successSignup" && (
+          <SuccessSignupModal
+            isOpen={activeModal === "successSignup"}
+            handleCloseModal={handleCloseModal}
+            handleSignin={handleSignin}
+          />
+        )}
       </div>
     </CurrentUserContext.Provider>
   );
