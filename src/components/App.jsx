@@ -70,7 +70,6 @@ function App() {
           handleCloseModal();
           setCurrentUser(user);
           setIsLoggedIn(true);
-          navigate("/profile");
         });
     };
     handleSubmit(makeRequest);
@@ -122,7 +121,6 @@ function App() {
         <Header
           userName={currentUser?.name}
           isAuthorized={isLoggedIn}
-          handleProfileClick={() => navigate("/profile")}
           onSigninModal={handleOpenSigninModal}
           onLogout={handleLogout}
         />
@@ -152,6 +150,7 @@ function App() {
             isOpen={activeModal === "signup"}
             handleSignup={handleSignup}
             isLoading={isLoading}
+            handleOpenSigninModal={handleOpenSigninModal}
             handleOpenSuccessSignupModal={handleOpenSuccessSignupModal}
           />
         )}

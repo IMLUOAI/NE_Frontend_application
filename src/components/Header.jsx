@@ -5,7 +5,6 @@ import logoutIcon from "../images/Union.png";
 const Header = ({
   userName = "",
   isAuthorized,
-  handleProfileClick,
   onSigninModal,
   onLogout,
 }) => {
@@ -26,13 +25,7 @@ const Header = ({
               Saved articles
             </a>
             <div className="header__user-bar">
-              <Link
-                to="/profile"
-                className="header__link"
-                onClick={handleProfileClick}
-              >
                 <h3 className="header__username">{userName}</h3>
-              </Link>
               <button
                 type="button"
                 onClick={onLogout}
