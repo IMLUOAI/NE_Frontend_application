@@ -15,7 +15,6 @@ const Header = ({
         <h1 className="header__logo" alt="logo">
           NewsExplorer
         </h1>
-        {/* <img src={headerLogo}className="header__logo" alt="logo" /> */}
         <a href="/" className="header__home-page">
           Home
         </a>

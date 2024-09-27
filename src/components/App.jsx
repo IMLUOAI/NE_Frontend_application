@@ -12,15 +12,13 @@ import SignupModal from "./SignupModal";
 import ProtectedRoute from "../utils/ProtectedRoute";
 import SuccessSignupModal from "./SuccessSignupModal";
 import CurrentUserContext from "../contexts/CurrentUserContext";
-// import NewsCard from "./NewsCard";
 import { setToken, getToken, removeToken } from "../utils/token";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
   const [currentUser, setCurrentUser] = useState(null);
-  const [showSuccessSignupModal, setSuccessSignupModal] = useState(false);
   const [selectedCard, setSelectedCard] = useState([]);
-  const [newsCards, setNewsCards] = useState([]);
+  //   const [newsCards, setNewsCards] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -141,7 +139,7 @@ function App() {
             path="/profile"
             element={
               <ProtectedRoute>
-                <Profile userAvatar={currentUser?.avatar} />
+                <Profile />
               </ProtectedRoute>
             }
           />

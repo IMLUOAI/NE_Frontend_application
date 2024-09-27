@@ -18,7 +18,7 @@ const SuccessSignupModal = ({ isOpen, handleCloseModal, handleSignin }) => {
           className="modal__option-button"
           onClick={handleSignin}
         >
-          <span className="modal__signin-text">Sign in</span>
+          <h3 className="modal__signin-text">Sign in</h3>
         </button>
       </div>
     </div>
