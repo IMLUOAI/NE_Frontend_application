@@ -1,18 +1,16 @@
 .main__section {
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 3;
 }
-.main__background {
+.main__container {
   max-width: 1440px;
   height: 576px;
   border: 1px;
-  background-image: url("../images/NewsExplorer.jpg");
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  z-index: 2;
+  margin: 0;
 }
-.main__background::before {
+/* .main__container::before {
   content: "";
   width: 1440px;
   height: 576px;
@@ -22,9 +20,9 @@
   right: 0;
   bottom: 0;
   left: 0;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(5px);
   z-index: 0;
-}
+} */
 
 .main__content {
   width: 608px;
@@ -33,6 +31,7 @@
   flex-direction: column;
   white-space: wrap;
   margin: 80px 416px 288px;
+  color: #ffffff;
 }
 .mian__title {
   width: 608px;

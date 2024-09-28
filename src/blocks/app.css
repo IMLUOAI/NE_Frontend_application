@@ -2,18 +2,26 @@
   max-width: 1654px;
   height: 1644px;
   margin: 0;
+  position: relative;
 }
-.page__section::before {
+
+.page__background-wrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.page__background-wrapper::before {
   content: "";
+  background-image: url("../images/NewsExplorer.jpg");
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.6);
   position: absolute;
   top: 0;
+  right: 0;
+  bottom: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  backdrop-filter: blur(8px);
   z-index: 1;
-}
-.page__section * {
-  position: relative;
-  z-index: 2;
-  color: #ffffff;
+  /* opacity: 1; */
 }

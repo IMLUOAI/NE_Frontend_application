@@ -10,7 +10,7 @@ const SignUpModal = ({
   handleOpenSigninModal,
   handleOpenSuccessSignupModal,
 }) => {
-  const { values, handleChange, errors } = useForm({
+  const { values, handleChange, errors, isFormValid } = useForm({
     email: "",
     password: "",
     username: "",
@@ -22,12 +22,14 @@ const SignUpModal = ({
       email: values.email,
       password: values.password,
       username: values.username,
-    }).then(() => {
-      handleCloseModal()
-      handleOpenSuccessSignupModal();
-    }).catch((err) => {
-      console.log("Signup failed:", err);
     })
+      .then(() => {
+        handleCloseModal();
+        handleOpenSuccessSignupModal();
+      })
+      .catch((err) => {
+        console.log("Signup failed:", err);
+      });
   };
 
   return (

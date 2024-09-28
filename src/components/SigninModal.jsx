@@ -12,7 +12,7 @@ const SigninModal = ({
   console.log("is modal open:", isOpen);
   if (!isOpen) return null;
 
-  const { values, handleChange, errors } = useForm({
+  const { values, handleChange, errors, isFormValid } = useForm({
     email: "",
     password: "",
   });

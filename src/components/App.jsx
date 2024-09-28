@@ -118,21 +118,25 @@ function App() {
   return (
     <CurrentUserContext.Provider value={{ currentUser, isLoggedIn }}>
       <div className="page__section">
-        <Header
-          userName={currentUser?.name}
-          isAuthorized={isLoggedIn}
-          onSigninModal={handleOpenSigninModal}
-          onLogout={handleLogout}
-        />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <ProtectedRoute>
-                <Main />
-              </ProtectedRoute>
-            }
+        <div className="page__background-wrapper">
+          <Header
+            userName={currentUser?.name}
+            isAuthorized={isLoggedIn}
+            onSigninModal={handleOpenSigninModal}
+            onLogout={handleLogout}
           />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <ProtectedRoute>
+                  <Main />
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+        </div>
+        <Routes>
           <Route
             path="/profile"
             element={
