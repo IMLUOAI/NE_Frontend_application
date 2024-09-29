@@ -1,15 +1,13 @@
 import "../blocks/modal.css";
+import Modal from "./Modal";
+
 
 const SuccessSignupModal = ({ isOpen, handleCloseModal, handleSignin }) => {
   if (!isOpen) return null;
+
   return (
-    <div className={`modal modal_type_${SuccessSignup}`}>
-      <div className="modal__successSignup-container">
-        <button
-          className="modal__close-button"
-          type="button"
-          onClick={handleCloseModal}
-        ></button>
+    <Modal name="successSignup" onClose={handleCloseModal}>
+      <div className="modal__successSignup-container"> 
         <h3 className="modal__successSignup-title">
           Registration successfully completed!
         </h3>
@@ -21,7 +19,7 @@ const SuccessSignupModal = ({ isOpen, handleCloseModal, handleSignin }) => {
           <h3 className="modal__signin-text">Sign in</h3>
         </button>
       </div>
-    </div>
+    </Modal>
   );
 };
 

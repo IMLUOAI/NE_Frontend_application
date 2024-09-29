@@ -42,9 +42,10 @@ const SigninModal = ({
           value={values.email}
           onChange={handleChange}
           className="modal__input"
-          placeholder="Email"
+          placeholder="enter email"
           minLength="8"
           maxLength="40"
+          aria-invalid={!!errors.email}
         />
         {errors.email && <span className="modal__error">{errors.email}</span>}
       </label>
@@ -58,9 +59,10 @@ const SigninModal = ({
           value={values.password}
           onChange={handleChange}
           className="modal__input"
-          placeholder="Passwword"
+          placeholder="enter passwword"
           minLength="8"
           maxLength="40"
+          aria-invalid={!!errors.password}
         />
         {errors.password && (
           <span className="modal__error">{errors.password}</span>
@@ -69,7 +71,8 @@ const SigninModal = ({
       <div className="modal__submit-container">
         <button
           type="submit"
-          className={`"modal__submit-button" ${isFormValid ? "active" : ""}`}
+          className={`modal__submit-button ${isFormValid ? "active" : ""}`}
+          disabled={!isFormValid}
         >
           {isLoading ? "Sign in..." : "Sign in"}
         </button>
@@ -79,7 +82,7 @@ const SigninModal = ({
           onClick={handleOpenSignupModal}
         >
           <span className="modal__or-text">or</span>
-          <span className="modal__signin-text">Sign in</span>
+          <span className="modal__signin-text">Sign up</span>
         </button>
       </div>
     </ModalWithForm>

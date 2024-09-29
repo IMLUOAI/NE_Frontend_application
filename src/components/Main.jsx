@@ -1,7 +1,6 @@
 import "../blocks/main.css";
 import Profile from "./Profile";
 import SearchBar from "./SearchBar";
-import Header from "./Header";
 import NewsSection from "./NewsSection";
 import React, { useState } from "react";
 

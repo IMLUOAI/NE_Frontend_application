@@ -22,7 +22,7 @@ export default function useForm(inputValues) {
           error = "Password must be at least 8 characters long";
         }
         break;
-      case "name":
+      case "username":
         if (!validateUserName(value)) {
           error = "Name must be at least 2 characters long";
         }

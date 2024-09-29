@@ -1,4 +1,3 @@
-import { Children } from "react";
 import Modal from "./Modal";
 import "../blocks/modal.css";
 

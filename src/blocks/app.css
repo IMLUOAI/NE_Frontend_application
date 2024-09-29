@@ -23,5 +23,5 @@
   left: 0;
   backdrop-filter: blur(8px);
   z-index: 1;
-  /* opacity: 1; */
+  opacity: 1;
 }

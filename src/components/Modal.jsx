@@ -6,7 +6,7 @@ import "../blocks/modal.css";
     useEffect(() => {
         const handleEscape = (e) => {
             if (e.key === "Escape") {
-                onclose();
+                onClose();
             }
         }
         document.addEventListener("keydown", handleEscape);

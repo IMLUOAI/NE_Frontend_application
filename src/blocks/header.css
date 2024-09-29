@@ -105,6 +105,7 @@
   text-align: center;
   color: #ffffff;
   border: none;
+  outline: none;
   background-color: transparent;
 }
 .header__signin-button:hover {

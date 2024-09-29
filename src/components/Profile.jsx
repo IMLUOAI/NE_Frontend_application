@@ -62,7 +62,7 @@ const Profile = () => {
           <br />
           Help:
           <span className="profile__userInfo-span">
-            I'm eager to help potential customers turn their ideas into reality.
+            I'm eagering to help potential customers turn their ideas into reality.
           </span>
         </p>
       </div>
