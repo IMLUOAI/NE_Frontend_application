@@ -46,6 +46,7 @@
     height: 32px;
     white-space: nowrap;
     font-family: "Roboto", sans-serif;
+    font-style: Bold;
     font-size: 24px;
     font-weight: 900;
     line-height: 28.13px;
@@ -162,15 +163,12 @@
     height: 20px;
     border: none;
     background-color: transparent;
-    font-family: "Inter", sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 16.94px;
     text-align: center; 
     margin: 0 auto 0;
 }
 .modal__or-text {
     font-family: "Inter", sans-serif;
+    font-style: light;
     font-size: 14px;
     font-weight: 400;
     line-height: 16.94px;
@@ -179,6 +177,15 @@
     color: #000000;
 }
 .modal__signin-text {
+    font-family: "Inter", sans-serif;
+    font-style: light;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.94px;
+    text-align: center;
+    color: #2F71E5;
+}
+.modal__signup-text {
     font-family: "Inter", sans-serif;
     font-size: 14px;
     font-weight: 400;

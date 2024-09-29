@@ -1,0 +1,36 @@
+@import "./vendor/fonts.css";
+@import "./vendor/normalize.css";
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.main__title {
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 400;
+}
+
+
+h2 {
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 500;
+}
+
+h3 {
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 400;
+}
+
+h1 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+  }
+p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+span {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+  }

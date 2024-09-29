@@ -1,6 +1,6 @@
 .page__section {
   max-width: 1654px;
-  height: 1644px;
+  height: auto;
   margin: 0;
   position: relative;
 }
@@ -12,7 +12,7 @@
 }
 .page__background-wrapper::before {
   content: "";
-  background-image: url("../images/NewsExplorer.jpg");
+  background-image: url("../images/1920px-WISE_artist_concept_\(PIA17254\,_crop\).jpg");
   background-size: cover;
   background-position: center;
   background-color: rgba(0, 0, 0, 0.6);
@@ -21,7 +21,15 @@
   right: 0;
   bottom: 0;
   left: 0;
-  backdrop-filter: blur(8px);
   z-index: 1;
   opacity: 1;
+}
+.page__background-wrapper::after{
+  backdrop-filter: blur(8px);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
 }

@@ -10,19 +10,6 @@
   border: 1px;
   margin: 0;
 }
-/* .main__container::before {
-  content: "";
-  width: 1440px;
-  height: 576px;
-  background-color: rgba(0, 0, 0, 0.6);
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  backdrop-filter: blur(5px);
-  z-index: 0;
-} */
 
 .main__content {
   width: 608px;
@@ -33,10 +20,12 @@
   margin: 80px 416px 288px;
   color: #ffffff;
 }
-.mian__title {
+.main__title {
   width: 608px;
   height: 128px;
+  white-space: wrap;
   font-family: "Roboto Slab", sans-serif;
+  font-style: normal;
   font-size: 60px;
   font-weight: 400;
   line-height: 64px;
