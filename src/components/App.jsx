@@ -1,7 +1,6 @@
 import "../blocks/app.css";
 import React, { useEffect, useState } from "react";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
-import Profile from "./Profile";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";

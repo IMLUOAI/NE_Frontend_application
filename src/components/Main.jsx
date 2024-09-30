@@ -1,15 +1,29 @@
 import "../blocks/main.css";
-import Profile from "./Profile";
+import About from "./About";
 import SearchBar from "./SearchBar";
 import NewsSection from "./NewsSection";
 import React, { useState } from "react";
+import Preloader from "./Preloader";
 
 const Main = () => {
+   const [loading, setLoading] = useState(false);
+   const [results, setResults] = useState([]);
   const [hasSearched, setHasSearched] = useState(false);
 
   const handleSearch = () => {
     setHasSearched(true);
-  };
+    setLoading(true);
+    setResults([]);
+ 
+    setTimeout(async () => {
+      const fetchSearchResults = await getNews(query);
+
+      setResults(fetchSearchResults);
+      setLoading(false);
+
+    }, 2000);
+  
+   };
 
   return (
     <main className="main__section">
@@ -25,11 +39,15 @@ const Main = () => {
       </div>
       {hasSearched && (
         <div className="news__section">
-          <NewsSection />
+          <Preloader loading={loading} results={results} />
+          {!loading && results.length > 0 && <NewsSection results={results} />}
+          {!loading && results.length === 0 && <h3 className="preloader__title">Nothing found</h3>
+}
+
         </div>
       )}
-      <div className="profile__section">
-        <Profile />
+      <div className="about__section">
+        <About />
       </div>
     </main>
   );

@@ -7,14 +7,15 @@ export function request(url, options) {
     return fetch(url, options).then(checkResponse);
 }
 
-const getItems = () => {
-    return  request(`${baseUrl}/items/`, {
+const getNews = (query) => {
+    return request(`${baseUrl}/everything/`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
         }
     })
 }
+
 
 const getUserInfo = () => {
     const token = getToken();
@@ -29,7 +30,7 @@ const getUserInfo = () => {
   };
 
   const api = {
-    getItems,
+    getNews,
     getUserInfo,
   };
   

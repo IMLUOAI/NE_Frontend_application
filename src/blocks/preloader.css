@@ -1,0 +1,54 @@
+
+.preloader {
+    width: 1440px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.circle-preloader {
+    width: 74px;
+    height: 74px;
+    border: 1px solid #1A1B22;
+    animation: spin .75s infinite linear;   
+    border-bottom-color: #888;
+    border-radius: 50%;
+    margin: 80px 683px 24px;
+    border: 1px solid;
+
+    /* border-image-source: conic-gradient */
+
+
+}
+@keyframes spin {
+    100% {
+        transform: conic-gradient(from 180deg at 50% 50%, #1A1B22 0deg, rgba(202, 205, 216, 0.871) 360deg);;
+    }
+}
+.preloader__title {
+    width: 356px;
+    height: 30px;
+    font-family: "Roboto Slab", sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 30px;
+    text-align: center;
+    color:  #1A1B22;
+    margin: 80px auto 24px;
+}
+.preloader__description {
+    width: 280px;
+    height: 24px;
+    white-space: nowrap;
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+    color:  #B6BCBF;
+    margin: 0 auto 80px;
+}
+
+
+
