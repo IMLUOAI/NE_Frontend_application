@@ -13,7 +13,7 @@ const NewsCard = ({ card, onselectNews, onCardSave }) => {
   }`;
 
   return (
-    <div className="card__section">
+    <div className="card">
       <img
         src={card.urlToImage || "default-image.jpg"}
         className="card__image"
