@@ -1,17 +1,26 @@
+import { useEffect, useState } from "react";
 import "../blocks/newsSection.css";
 import NewsCard from "./NewsCard";
 
-const NewsSection = ({
+const NewsSection = ({ 
   newsCards = [],
+  data,
+  visibleItems,
   toggleShowMore,
   onSelectCard,
   onCardSave,
   currentUser = {},
   isExpanded,
 }) => {
+
   return (
     <div className="news__section">
       <h1 className="news__section-title">Search results</h1>
+      {isLoading && <Preloader />}
+      {error && <p className="preloader__description">Sorry, but nothing matched your search terms</p>
+}
+{!isLoading && !error && data.length === 0 && <h3 className="preloader__title">Nothing found</h3>
+}
       <div className="news__card-list">
         {newsCards
           .filter((card) => card.owner === currentUser._id)
@@ -24,6 +33,7 @@ const NewsSection = ({
             />
           ))}
       </div>
+      {visibleItems < data.length && (
       <button
         type="button"
         className="news__expand-button"
@@ -31,6 +41,7 @@ const NewsSection = ({
       >
         {isExpanded ? "Show Less" : "Show more"}
       </button>
+            )}
     </div>
   );
 };

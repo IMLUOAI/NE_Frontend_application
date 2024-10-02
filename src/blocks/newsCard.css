@@ -1,4 +1,4 @@
-.card__feature {
+.card {
   max-width: 400px;
   height: 576px;
   display: flex;
@@ -47,7 +47,7 @@
   color: #000000;
   display: none;
 }
-.card__date {
+.card__publishedAt {
   width: 149px;
   height: 24px;
   font-family: "Source Sans Pro", sans-serif;
@@ -65,7 +65,7 @@
   flex-direction: column;
   justify-self: start;
 }
-.card__content-title {
+.card__title {
   width: 352px;
   height: 60px;
   font-family: "Roboto Slab", sans-serif;
@@ -74,7 +74,7 @@
   line-height: 30px;
   text-align: left;
 }
-.card__content-text {
+.card__description {
   width: 352px;
   height: 110px;
   font-family: "Roboto", sans-serif;
@@ -83,7 +83,7 @@
   line-height: 22px;
   text-align: left;
 }
-.card__footer {
+.card__sourceName {
   width: 352px;
   height: 20px;
   font-family: "Roboto Slab", sans-serif;

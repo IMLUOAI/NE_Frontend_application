@@ -1,4 +1,5 @@
 import "../blocks/newsCard.css";
+import React from 'react';
 
 const NewsCard = ({ card, onselectNews, onCardSave }) => {
   if (!card) {
@@ -34,16 +35,16 @@ const NewsCard = ({ card, onselectNews, onCardSave }) => {
           <span className="card__tooltip">Sign in to save articles</span>
         </button>
       </div>
-      <div className="card__date">{card.date}</div>
+      <div className="card__publishedAt">{card.publishedAt}</div>
       <div className="card__content">
-        <h2 className="card__content-title">
+        <h2 className="card__title">
           {card.title || "No available title"}
         </h2>
-        <p className="card__content-text">
-          {card.content || "No available content"}
+        <p className="card__description">
+          {card.description || "No available content"}
         </p>
       </div>
-      <footer className="card__footer">{card.footer}</footer>
+      <footer className="card__sourceName">{card.sourceName}</footer>
     </div>
   );
 };
