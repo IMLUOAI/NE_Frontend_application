@@ -5,12 +5,14 @@ import NewsCard from "./NewsCard";
 const NewsSection = ({ 
   newsCards = [],
   data,
+  isLoading,
   visibleItems,
   toggleShowMore,
   onSelectCard,
   onCardSave,
   currentUser = {},
   isExpanded,
+  error
 }) => {
 
   return (

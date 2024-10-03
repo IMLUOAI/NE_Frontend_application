@@ -1,8 +1,8 @@
 import "../blocks/main.css";
-// import About from "./About";
+import About from "./About";
 import SearchBar from "./SearchBar";
 import NewsSection from "./NewsSection";
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import Preloader from "./Preloader";
 
 const Main = ({ handleSearch, loading, results, hasSearched
@@ -29,10 +29,10 @@ const Main = ({ handleSearch, loading, results, hasSearched
 }
 
         </div>
-      )}
-      {/* <div className="about__section">
+      )} 
+     <div className="about__section">
         <About />
-      </div> */}
+      </div>
     </main>
   );
 };

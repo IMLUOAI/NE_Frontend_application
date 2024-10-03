@@ -1,8 +1,8 @@
 import "../blocks/app.css";
 import React, { useEffect, useState } from "react";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
-import NewsSection from "./NewsSection";
-import About from "./About";
+// import NewsSection from "./NewsSection";
+// import About from "./About";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
@@ -90,14 +90,14 @@ function App() {
   
   const handleSearch = () => {
     setHasSearched(true);
-    setLoading(true);
+    setIsLoading(true);
     setResults([]);
  
     setTimeout(async () => {
       const fetchSearchResults = await getNews(query);
 
       setResults(fetchSearchResults);
-      setLoading(false);
+      setIsLoading(false);
 
     }, 2000);
   
@@ -176,8 +176,8 @@ function App() {
 
   return (
     <CurrentUserContext.Provider value={{ currentUser, isLoggedIn }}>
-      {/* <div className="page__section">
-        <div className="page__background-wrapper"> */}
+      <div className="page__section">
+        <div className="page__background-wrapper">
         <Header
             userName={currentUser?.name}
             isAuthorized={isLoggedIn}
@@ -188,18 +188,24 @@ function App() {
             <Route path="/" element={
         <Main
         handleSearch={handleSearch}
-        loading={loading}
+        isLoading={isLoading}
         results={results}
         hasSearched={hasSearched}
            />  } />
+              </Routes> 
+
+</div>
+{/* <Routes>
+
             <Route path="/" element={
                 <ProtectedRoute isLoggedIn={isLoggedIn}>
                     <NewsSection 
                     data={data}
+                    isLoading={isLoading}
                     visibleItems={visibleItems}
                     toggleShowMore={toggleShowMore}
-                    isExpanded={isExpanded}
-        
+                    isExpanded={isExpanded}   
+                    error={error} 
                     />
                 </ProtectedRoute>
             }
@@ -209,9 +215,8 @@ function App() {
             }
             />
             <Route path="*" element={<Navigate to="/" />} />
-        </Routes> 
+            </Routes>  */}
 
-        {/* </div> */}
         <Footer />
         {activeModal === "signup" && (
           <SignupModal
@@ -239,7 +244,7 @@ function App() {
             handleSignin={handleSignin}
           />
         )}
-      {/* </div> */}
+      </div>
     </CurrentUserContext.Provider>
   );
 }
