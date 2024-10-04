@@ -1,7 +1,7 @@
 import "../blocks/preloader.css";
 
 
-const Preloader = ({ loading, results }) => {
+const Preloader = ({ loading, newsData }) => {
 
  if (loading) {
     return (
@@ -12,7 +12,7 @@ const Preloader = ({ loading, results }) => {
     )
  }
 
- if (!loading && results.length === 0) {
+ if (!loading && newsData.length === 0) {
     return (
         <div className="preloader">
             <div className="circle-preloader"></div>

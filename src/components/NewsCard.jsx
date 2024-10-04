@@ -1,7 +1,7 @@
 import "../blocks/newsCard.css";
 import React from 'react';
 
-const NewsCard = ({ card, onselectNews, onCardSave }) => {
+const NewsCard = ({ card, onselectNews, onCardSave, currentUser }) => {
   if (!card) {
     return null;
   }
@@ -44,7 +44,7 @@ const NewsCard = ({ card, onselectNews, onCardSave }) => {
           {card.description || "No available content"}
         </p>
       </div>
-      <footer className="card__sourceName">{card.sourceName}</footer>
+      <p className="card__sourceName">{card.sourceName}</p>
     </div>
   );
 };

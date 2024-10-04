@@ -1,8 +1,6 @@
 import "../blocks/app.css";
 import React, { useEffect, useState } from "react";
-import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
-// import NewsSection from "./NewsSection";
-// import About from "./About";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
@@ -10,7 +8,6 @@ import api from "../utils/api";
 import auth from "../utils/auth";
 import SigninModal from "./SigninModal";
 import SignupModal from "./SignupModal";
-import ProtectedRoute from "../utils/ProtectedRoute";
 import SuccessSignupModal from "./SuccessSignupModal";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 import { setToken, getToken, removeToken } from "../utils/token";
@@ -20,12 +17,10 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [error, setError] = useState(null);
-  const [data, setData] = useState([]);
-  const [visibleItems, setVisibleItems] = useState(3);
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [results, setResults] = useState([])
   const [hasSearched, setHasSearched] = useState(false);
+  const [error, setError] = useState(null);
+  const [newsData, setNewsData] = useState([]);
+
 
   const navigate = useNavigate();
   const handleOpenSigninModal = () => setActiveModal("signin");
@@ -91,55 +86,39 @@ function App() {
   const handleSearch = () => {
     setHasSearched(true);
     setIsLoading(true);
-    setResults([]);
+    setNewsData([]);
  
     setTimeout(async () => {
       const fetchSearchResults = await getNews(query);
 
-      setResults(fetchSearchResults);
+      setNewsData(fetchSearchResults);
       setIsLoading(false);
 
     }, 2000);
   
    };
 
-  const handleShowMore = () => {
-    setVisibleItems((prev) => prev + 3);
-    setIsExpanded(true);
-  }
-  
- const  handleShowLess = () => {
-    setVisibleItems(3);
-    setIsExpanded(false);
-  }
-  
-  const toggleShowMore = () => {
-   isExpanded ? handleShowLess() : handleShowMore();
-  }
 
+ 
   // useEffects to close modals in multiple ways
+  
+  const fetchNews = async () => {
+    setIsLoading(true);
+    try {
+      const response = await getNews();
+      setNewsData(response.articles);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
   useEffect(() => {
-    const getData = async () => {
-      try {
-        const articles = await fetchNews();
-        setData(articles);
-        localStorage.setItem('newsData', JSON.stringify(articles));
-      } catch (error) {
-        setError(error.message);
-      } finally{
-        setIsLoading(false);
-      } 
+    if (currentUser) {
+    fetchNews();
     }
-    const storedData = localStorage.getItem('newsData');
-    if (storedData) {
-      setData(JSON.parse(storedData));
-      setIsLoading(false);
-    } else {
-      getData();
-    }
-}, []);
-
+  }, [currentUser]);
 
 
 
@@ -188,35 +167,13 @@ function App() {
             <Route path="/" element={
         <Main
         handleSearch={handleSearch}
+        newsData={newsData}
+        error={error}
         isLoading={isLoading}
-        results={results}
         hasSearched={hasSearched}
            />  } />
               </Routes> 
-
-</div>
-{/* <Routes>
-
-            <Route path="/" element={
-                <ProtectedRoute isLoggedIn={isLoggedIn}>
-                    <NewsSection 
-                    data={data}
-                    isLoading={isLoading}
-                    visibleItems={visibleItems}
-                    toggleShowMore={toggleShowMore}
-                    isExpanded={isExpanded}   
-                    error={error} 
-                    />
-                </ProtectedRoute>
-            }
-            />
-             <Route path="/" element={
-                    <About  />
-            }
-            />
-            <Route path="*" element={<Navigate to="/" />} />
-            </Routes>  */}
-
+        </div>
         <Footer />
         {activeModal === "signup" && (
           <SignupModal

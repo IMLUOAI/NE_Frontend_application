@@ -2,10 +2,9 @@ import "../blocks/main.css";
 import About from "./About";
 import SearchBar from "./SearchBar";
 import NewsSection from "./NewsSection";
-// import React, { useState } from "react";
 import Preloader from "./Preloader";
 
-const Main = ({ handleSearch, loading, results, hasSearched
+const Main = ({ newsData, handleSearch, isLoading, hasSearched
 }) => {
 
 
@@ -23,11 +22,11 @@ const Main = ({ handleSearch, loading, results, hasSearched
       </div>
       {hasSearched && (
         <div className="news__section">
-          <Preloader loading={loading} results={results} />
-          {!loading && results.length > 0 && <NewsSection results={results} />}
-          {!loading && results.length === 0 && <h3 className="preloader__title">Nothing found</h3>
+          <Preloader loading={isLoading} newsData={newsData} />
+          {!isLoading && newsData.length > 0 && <NewsSection newsCards={newsData} isLoading={isLoading} error={error}
+          />}
+          {!isLoading && newsData.length === 0 && <h3 className="preloader__title">Nothing found</h3>
 }
-
         </div>
       )} 
      <div className="about__section">
