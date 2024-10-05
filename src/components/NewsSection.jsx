@@ -14,6 +14,7 @@ const NewsSection = ({
   const [visibleItems, setVisibleItems] = useState(3);
   const [isExpanded, setIsExpanded] = useState(false);
   const { currentUser } = useContext(CurrentUserContext)
+
   const handleShowMore = () => {
     setVisibleItems((prev) => prev + 3);
     setIsExpanded(true);

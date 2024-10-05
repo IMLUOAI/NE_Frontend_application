@@ -1,5 +1,7 @@
 import { checkResponse } from "./utils";
 import { getToken } from "../utils/token";
+import getNewsUrl from "./NewsApi";
+
 
 const  baseUrl = "http://localhost:3001";
 
@@ -8,7 +10,9 @@ export function request(url, options) {
 }
 
 const getNews = (query) => {
-    return request(`${baseUrl}/everything/`, {
+    const  newsUrl = getNewsUrl(query);
+
+    return request(newsUrl, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -16,6 +20,41 @@ const getNews = (query) => {
     })
 }
 
+const saveArticles = (articleData) => {
+    const token = getToken();
+
+    return request(`${baseUrl}/articles`, {
+        method: "POST",
+        headers: {
+            "Authorization": `Bearer ${token}`,
+            "Content-Type": "application/json",
+        },
+        body:JSON.stringify(articleData),
+    })
+}
+const deleteArticle = (articleId) => {
+    const token = getToken();
+
+    return request(`${baseUrl}/articles/${articleId}`, {
+        method: "DELETE",
+        headers: {
+            "Authorization": `Bearer ${token}`,
+            "Content-Type": "application/json",
+        }
+    })
+}
+ 
+const getSavedArticles = () => {
+    const token = getToken();
+
+    return request(`${baseUrl}/articles`, {
+        method: "GET",
+        headers: {
+            "Authorization": `Bearer ${token}`,
+            "Content-Type": "application/json",  
+        }
+    })
+}
 
 const getUserInfo = () => {
     const token = getToken();
@@ -31,6 +70,9 @@ const getUserInfo = () => {
 
   const api = {
     getNews,
+    saveArticles,
+    deleteArticle,
+    getSavedArticles,
     getUserInfo,
   };
   

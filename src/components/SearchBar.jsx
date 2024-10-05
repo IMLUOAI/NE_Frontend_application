@@ -3,26 +3,33 @@ import React, { useState } from "react";
 
 const SearchBar = ({ onSearch }) => {
   const [query, setQuery] = useState("");
+  const [error, setError] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSearch();
+    if (!query.trim()) {
+      setError("please enter a keyword")
+      return;
+    }
+    onSearch(query);
     console.log("Searching for:", query);
     setQuery("");
+    setError(null);
   };
 
-  // const handleSearch = (e) => {
-  //   e.preventDefault();
-  //   // Call the search API with the query
-  //   fetchSearchResults(query);
-  // };
+  const handleInputChange = (e) => {
+    setQuery(e.target.value);
+    if (error) {
+      setError(null);
+    }
+  } 
 
   return (
-    <div className="search__bar" onSubmit={handleSubmit}>
+    <form className="search__bar" onSubmit={handleSubmit} >
       <input
         type="text"
         value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        onChange={handleInputChange}
         className="search__input"
         placeholder="Enter topic"
       />
@@ -30,11 +37,11 @@ const SearchBar = ({ onSearch }) => {
         type="submit"
         className="search__submit-button"
         id="searchButton"
-        onClick={handleSubmit}
       >
         Search
       </button>
-    </div>
+      {error  && <span className="search__error">{error}</span>}
+    </form>
   );
 };
 

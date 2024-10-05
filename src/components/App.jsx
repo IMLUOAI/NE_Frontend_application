@@ -12,6 +12,7 @@ import SuccessSignupModal from "./SuccessSignupModal";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 import { setToken, getToken, removeToken } from "../utils/token";
 
+
 function App() {
   const [activeModal, setActiveModal] = useState("");
   const [currentUser, setCurrentUser] = useState(null);
@@ -83,19 +84,23 @@ function App() {
     setActiveModal("signin");
   };
   
-  const handleSearch = () => {
+  const handleSearch = async (query) => {
+    try { 
+        setIsLoading(true);
+    
+        const newsUrl = getNewsUrl(query);
+        const newsData = await request(newsUrl, { method: "GET"});
+    
     setHasSearched(true);
-    setIsLoading(true);
-    setNewsData([]);
+    setNewsData(newsData);
+    setIsLoading(false);
+    setError(null);
  
-    setTimeout(async () => {
-      const fetchSearchResults = await getNews(query);
-
-      setNewsData(fetchSearchResults);
-      setIsLoading(false);
-
-    }, 2000);
-  
+   } catch (err) { setIsLoading(false);
+      setError("Sorry, something went wrong during the request. Please try agagin later")
+    } finally {
+    setIsLoading(false);
+    } 
    };
 
 
