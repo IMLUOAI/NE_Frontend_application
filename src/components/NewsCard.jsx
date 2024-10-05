@@ -1,6 +1,6 @@
 import "../blocks/newsCard.css";
-import solidPattern from '../images/';
-import hollowPattern from '../images/'
+import solidPattern from '../images/Group 12.png';
+import hollowPattern from '../images/Group 13.png';
 
 const NewsCard = ({ card, onSave, onUnsave, currentUser }) => {
   if (!card) {

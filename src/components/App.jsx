@@ -91,14 +91,13 @@ function App() {
     
         const newsUrl = getNewsUrl(query);
         const newsData = await request(newsUrl, { method: "GET"});
-    
+    console.log(newsData);
     setHasSearched(true);
     setNewsData(newsData);
-    setIsLoading(false);
     setError(null);
  
    } catch (err) { setIsLoading(false);
-      setError("Sorry, something went wrong during the request. Please try agagin later")
+      setError("Sorry, something went wrong during the request. Please try again later")
     } finally {
     setIsLoading(false);
     } 
