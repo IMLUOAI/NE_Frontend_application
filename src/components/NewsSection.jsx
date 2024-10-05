@@ -8,8 +8,8 @@ const NewsSection = ({
   newsCards,
   isLoading,
   error,
-  onSelectCard,
-  onCardSave,
+  handleSaveArticle,
+  handleUnsaveArticle,
 }) => {
   const [visibleItems, setVisibleItems] = useState(3);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -44,8 +44,8 @@ const NewsSection = ({
             <NewsCard
               key={card._id}
               card={card}
-              onSelectCard={onSelectCard}
-              onCardSave={onCardSave}
+              onSave={() => handleSaveArticle(card)}
+              onUnsave={() => handleUnsaveArticle(card)}
             />
           ))}
       </div>

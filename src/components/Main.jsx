@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar";
 import NewsSection from "./NewsSection";
 import Preloader from "./Preloader";
 
-const Main = ({ newsData, handleSearch, isLoading, hasSearched
+const Main = ({ newsData, error, handleSearch, isLoading, hasSearched, handleSaveArticle, handleUnsaveArticle
 }) => {
 
 
@@ -23,7 +23,7 @@ const Main = ({ newsData, handleSearch, isLoading, hasSearched
       {hasSearched && (
         <div className="news__section">
           <Preloader loading={isLoading} newsData={newsData} />
-          {!isLoading && newsData.length > 0 && <NewsSection newsCards={newsData} isLoading={isLoading} error={error}
+          {!isLoading && newsData.length > 0 && <NewsSection newsCards={newsData} handleSaveArticle={handleSaveArticle} handleUnsaveArticle={handleUnsaveArticle} isLoading={isLoading} error={error}
           />}
           {!isLoading && newsData.length === 0 && <h3 className="preloader__title">Nothing found</h3>
 }

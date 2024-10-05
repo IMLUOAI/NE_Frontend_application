@@ -16,6 +16,7 @@ import { setToken, getToken, removeToken } from "../utils/token";
 function App() {
   const [activeModal, setActiveModal] = useState("");
   const [currentUser, setCurrentUser] = useState(null);
+  const [selectedNews, setSelectedNews] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
@@ -102,7 +103,43 @@ function App() {
     setIsLoading(false);
     } 
    };
+  
+   const handleSaveArticle = (article) => {
+     const token = getToken();
+     const { _id } = article;
 
+     if (!currentUser) {
+        console.log("CurrentUser is not available");
+        return;
+     }
+     const isSaved = article.save.some((id) => id === currentUser._id);
+     !isSaved
+      ?api
+          .saveArticles(_id, token)
+          .then((updatedNewCards) => {
+            const updatedNewsData = updatedNewCards.data;
+
+            setNewsData((cards) => cards.map((card) => card._id === article._id ? updatedNewsData : card))
+          })
+          .catch((err) => console.log(err))
+      :api
+          .unsaveArticle(_id. token)
+          .then((updatedNewCards) => {
+            setNewsData((cards) => cards.map((card) => card._id === article._id ? updatedNewsData : card))
+          })
+          .catch(console.error);
+   }
+
+   const handleUnsavedArticle = () => {
+    const makeRequest = () => {
+        return api.unsaveArticle(selectedNews._id).then(() => {
+            const newsCards = newsData.filter((card) => {
+                return card._id !== selectedNews._id;
+            });
+            setNewsData(newsCards);
+        })
+    }
+   }
 
  
   // useEffects to close modals in multiple ways
@@ -176,6 +213,8 @@ function App() {
         error={error}
         isLoading={isLoading}
         hasSearched={hasSearched}
+        handleSaveArticle={handleSaveArticle}
+        handleUnsavedArticle={handleUnsavedArticle}
            />  } />
               </Routes> 
         </div>

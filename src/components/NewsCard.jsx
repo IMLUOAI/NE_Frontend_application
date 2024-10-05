@@ -1,7 +1,8 @@
 import "../blocks/newsCard.css";
-import React from 'react';
+import solidPattern from '../images/';
+import hollowPattern from '../images/'
 
-const NewsCard = ({ card, onselectNews, onCardSave, currentUser }) => {
+const NewsCard = ({ card, onSave, onUnsave, currentUser }) => {
   if (!card) {
     return null;
   }
@@ -19,13 +20,12 @@ const NewsCard = ({ card, onselectNews, onCardSave, currentUser }) => {
         src={card.urlToImage || "default-image.jpg"}
         className="card__image"
         alt={card.title}
-        onClick={() => onselectNews(card)}
       />
       <div className="card__feature">
         <button
           type="button"
           className={cardSaveButtonClassName}
-          onClick={() => onCardSave(card)}
+          onClick={() => isSaved ? onUnsave(card) : onSave(card)}
         >
           <img
             src={isSaved ? solidPattern : hollowPattern}

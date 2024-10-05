@@ -32,7 +32,7 @@ const saveArticles = (articleData) => {
         body:JSON.stringify(articleData),
     })
 }
-const deleteArticle = (articleId) => {
+const unsaveArticle = (articleId) => {
     const token = getToken();
 
     return request(`${baseUrl}/articles/${articleId}`, {
@@ -58,7 +58,7 @@ const getSavedArticles = () => {
 
 const getUserInfo = () => {
     const token = getToken();
-  
+
     return request(`${baseUrl}/users/me`, {
       method: "GET",
       headers: {
@@ -71,7 +71,7 @@ const getUserInfo = () => {
   const api = {
     getNews,
     saveArticles,
-    deleteArticle,
+    unsaveArticle,
     getSavedArticles,
     getUserInfo,
   };
