@@ -70,8 +70,11 @@ const SigninModal = ({
       </label>
       <div className="modal__submit-container">
         <button
-          type="submit"
-          className={`modal__submit-button ${isFormValid ? "active" : ""}`}
+          className={`modal__submit-button ${
+            isFormValid
+              ? "modal__submit-button_enabled"
+              : "modal__submit-button_disabled"
+          } `}
           disabled={!isFormValid}
         >
           {isLoading ? "Sign in..." : "Sign in"}

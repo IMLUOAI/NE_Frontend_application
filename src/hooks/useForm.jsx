@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   validateEmail,
   validatePassword,
@@ -8,6 +8,7 @@ import {
 export default function useForm(inputValues) {
   const [values, setValues] = useState(inputValues);
   const [errors, setErrors] = useState({});
+  const [isFormValid, setIsFormValid] = useState(false);
 
   const validateField = (name, value) => {
     let error = null;
@@ -45,5 +46,13 @@ export default function useForm(inputValues) {
     }));
   };
 
-  return { values, handleChange, setValues, errors };
+  useEffect(() => {
+    const hasErrors = Object.values(errors).some((error) => error);
+    const allFieldsFilled = Object.values(values).every(
+      (val) => val.trim() !== ""
+    );
+    setIsFormValid(!hasErrors && allFieldsFilled);
+  }, [errors, values]);
+
+  return { values, handleChange, setValues, errors, isFormValid };
 }

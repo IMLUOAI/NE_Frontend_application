@@ -12,17 +12,14 @@ import SuccessSignupModal from "./SuccessSignupModal";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 import { setToken, getToken, removeToken } from "../utils/token";
 
-
 function App() {
   const [activeModal, setActiveModal] = useState("");
   const [currentUser, setCurrentUser] = useState(null);
-  const [selectedNews, setSelectedNews] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
   const [error, setError] = useState(null);
   const [newsData, setNewsData] = useState([]);
-
 
   const navigate = useNavigate();
   const handleOpenSigninModal = () => setActiveModal("signin");
@@ -46,7 +43,7 @@ function App() {
   const handleSignup = ({ email, password, username }) => {
     if (!password || !email) return;
     const makeRequest = () => {
-      return auth.signup(email, password, username).then(() => {
+      return auth.register(email, password, username).then(() => {
         handleCloseModal();
         setActiveModal("signin");
         setActiveModal("successSignup");
@@ -68,9 +65,9 @@ function App() {
             return api.getUserInfo(data.token);
           }
         })
-        .then(() => {
+        .then((userData) => {
           handleCloseModal();
-          setCurrentUser(user);
+          setCurrentUser(userData);
           setIsLoggedIn(true);
         });
     };
@@ -84,84 +81,58 @@ function App() {
     navigate("/");
     setActiveModal("signin");
   };
-  
-  const handleSearch = async (query) => {
-    try { 
-        setIsLoading(true);
-    
-        const newsUrl = getNewsUrl(query);
-        const newsData = await request(newsUrl, { method: "GET"});
-    console.log(newsData);
-    setHasSearched(true);
-    setNewsData(newsData);
-    setError(null);
- 
-   } catch (err) { setIsLoading(false);
-      setError("Sorry, something went wrong during the request. Please try again later")
-    } finally {
-    setIsLoading(false);
-    } 
-   };
-  
-   const handleSaveArticle = (article) => {
-     const token = getToken();
-     const { _id } = article;
 
-     if (!currentUser) {
-        console.log("CurrentUser is not available");
-        return;
-     }
-     const isSaved = article.save.some((id) => id === currentUser._id);
-     !isSaved
-      ?api
-          .saveArticles(_id, token)
-          .then((updatedNewCards) => {
-            const updatedNewsData = updatedNewCards.data;
+  const handleSaveArticle = (article) => {
+    const token = getToken();
+    const { _id } = article;
 
-            setNewsData((cards) => cards.map((card) => card._id === article._id ? updatedNewsData : card))
-          })
-          .catch((err) => console.log(err))
-      :api
-          .unsaveArticle(_id. token)
-          .then((updatedNewCards) => {
-            setNewsData((cards) => cards.map((card) => card._id === article._id ? updatedNewsData : card))
-          })
-          .catch(console.error);
-   }
-
-   const handleUnsavedArticle = () => {
-    const makeRequest = () => {
-        return api.unsaveArticle(selectedNews._id).then(() => {
-            const newsCards = newsData.filter((card) => {
-                return card._id !== selectedNews._id;
-            });
-            setNewsData(newsCards);
-        })
+    if (!currentUser) {
+      console.log("CurrentUser is not available");
+      return;
     }
-   }
+    const isSaved = article.save.some((id) => id === currentUser._id);
+    const request = !isSaved
+      ? api.saveArticles(_id, token)
+      : api.unsaveArticle(_id, token);
+    return request
+      .then((updatedNewCards) => {
+        const updatedNewsData = updatedNewCards.data;
+        setNewsData((cards) =>
+          cards.map((card) =>
+            card._id === article._id ? updatedNewsData : card
+          )
+        );
+      })
+      .catch((err) => console.log(err));
+  };
 
- 
-  // useEffects to close modals in multiple ways
-  
-  const fetchNews = async () => {
+  const handleSearch = async (query) => {
     setIsLoading(true);
     try {
-      const response = await getNews();
-      setNewsData(response.articles);
+      const newsData = await api.getNews(query);
+      setHasSearched(true);
+      setNewsData(newsData);
+      setError(null);
     } catch (err) {
-      setError(err.message);
+      setError(
+        "Sorry, something went wrong during the request. Please try again later."
+      );
     } finally {
       setIsLoading(false);
     }
-  }
+  };
+
+  // useEffects to close modals in multiple ways
 
   useEffect(() => {
     if (currentUser) {
-    fetchNews();
+      fetchNews()
+        .then((data) => {
+          setNewsData(data);
+        })
+        .catch((err) => setError(err.message));
     }
   }, [currentUser]);
-
-
 
   useEffect(() => {
     if (!activeModal) return;
@@ -198,24 +169,27 @@ function App() {
     <CurrentUserContext.Provider value={{ currentUser, isLoggedIn }}>
       <div className="page__section">
         <div className="page__background-wrapper">
-        <Header
+          <Header
             userName={currentUser?.name}
             isAuthorized={isLoggedIn}
             onSigninModal={handleOpenSigninModal}
             onLogout={handleLogout}
           />
           <Routes>
-            <Route path="/" element={
-        <Main
-        handleSearch={handleSearch}
-        newsData={newsData}
-        error={error}
-        isLoading={isLoading}
-        hasSearched={hasSearched}
-        handleSaveArticle={handleSaveArticle}
-        handleUnsavedArticle={handleUnsavedArticle}
-           />  } />
-              </Routes> 
+            <Route
+              path="/"
+              element={
+                <Main
+                  handleSearch={handleSearch}
+                  newsData={newsData}
+                  error={error}
+                  isLoading={isLoading}
+                  hasSearched={hasSearched}
+                  handleSaveArticle={handleSaveArticle}
+                />
+              }
+            />
+          </Routes>
         </div>
         <Footer />
         {activeModal === "signup" && (

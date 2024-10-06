@@ -1,59 +1,53 @@
-
 .preloader {
-    width: 1440px;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  width: 1440px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .circle-preloader {
-    display: block;
-    width: 50px;
-    height: 50px;
-    border: 2px solid #444;
-    border-bottom-color: #888;
-    border-radius: 50%;
-    position: absolute;
-    top: -80px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    
-    animation: spin .75s infinite linear;
-   
+  display: block;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #444;
+  border-bottom-color: #888;
+  border-radius: 50%;
+  position: absolute;
+  top: -80px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
 
+  animation: spin 0.75s infinite linear;
 }
 @keyframes spin {
-    100% {
-        transform: rotate(360deg);
-    }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .preloader__title {
-    width: 356px;
-    height: 30px;
-    font-family: "Roboto Slab", sans-serif;
-    font-size: 26px;
-    font-weight: 400;
-    line-height: 30px;
-    text-align: center;
-    color:  #1A1B22;
-    margin: 80px auto 24px;
+  width: 356px;
+  height: 30px;
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 30px;
+  text-align: center;
+  color: #1a1b22;
+  margin: 80px auto 24px;
 }
 .preloader__description {
-    width: 280px;
-    height: 24px;
-    white-space: nowrap;
-    font-family: Roboto;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 24px;
-    text-align: center;
-    color:  #B6BCBF;
-    margin: 145px auto 80px;
+  width: 280px;
+  height: 24px;
+  white-space: nowrap;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+  color: #b6bcbf;
+  margin: 145px auto 80px;
 }
-
-
-
