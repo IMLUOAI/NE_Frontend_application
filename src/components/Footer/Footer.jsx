@@ -1,7 +1,7 @@
-import "../blocks/footer.css"
+import "../Footer/footer.css"
 import {Link} from "react-router-dom";
-import githubLogo from "../images/Vector.svg";
-import facebookLogo from "../images/iconmonstr-facebook-6.svg";
+import githubLogo from "../../images/Vector.svg";
+import facebookLogo from "../../images/iconmonstr-facebook-6.svg";
 
 
 const Footer = () => {

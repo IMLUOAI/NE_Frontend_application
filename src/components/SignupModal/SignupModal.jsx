@@ -1,33 +1,40 @@
-import ModalWithForm from "./ModalWithForm";
-import useForm from "../hooks/useForm";
-import "../blocks/modal.css";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import useForm from "../../hooks/useForm";
+import "../Modal/modal.css";
 
-const SigninModal = ({
+const SignUpModal = ({
   isOpen,
   isLoading,
   handleCloseModal,
-  handleSignin,
-  handleOpenSignupModal,
+  handleSignup,
+  handleOpenSigninModal,
+  handleOpenSuccessSignupModal,
 }) => {
-  console.log("is modal open:", isOpen);
-  if (!isOpen) return null;
-
   const { values, handleChange, errors, isFormValid } = useForm({
     email: "",
     password: "",
+    username: "",
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleSignin({
+    handleSignup({
       email: values.email,
       password: values.password,
-    });
+      username: values.username,
+    })
+      .then(() => {
+        handleCloseModal();
+        handleOpenSuccessSignupModal();
+      })
+      .catch((err) => {
+        console.log("Signup failed:", err);
+      });
   };
 
   return (
     <ModalWithForm
-      title="Sign in"
+      title="Sign up"
       onClose={handleCloseModal}
       isOpen={isOpen}
       onSubmit={handleSubmit}
@@ -42,7 +49,7 @@ const SigninModal = ({
           value={values.email}
           onChange={handleChange}
           className="modal__input"
-          placeholder="enter email"
+          placeholder="Enter email"
           minLength="8"
           maxLength="40"
           aria-invalid={!!errors.email}
@@ -59,7 +66,7 @@ const SigninModal = ({
           value={values.password}
           onChange={handleChange}
           className="modal__input"
-          placeholder="enter passwword"
+          placeholder="enter password"
           minLength="8"
           maxLength="40"
           aria-invalid={!!errors.password}
@@ -68,8 +75,28 @@ const SigninModal = ({
           <span className="modal__error">{errors.password}</span>
         )}
       </label>
+      <label className="modal__label">
+        Username{" "}
+        <input
+          id="username"
+          required
+          name="username"
+          type="username"
+          value={values.username}
+          onChange={handleChange}
+          className="modal__input"
+          placeholder="enter your username"
+          minLength="2"
+          maxLength="40"
+          aria-invalid={!!errors.username}
+        />
+        {errors.username && (
+          <span className="modal__error">{errors.username}</span>
+        )}
+      </label>
       <div className="modal__submit-container">
         <button
+          type="submit"
           className={`modal__submit-button ${
             isFormValid
               ? "modal__submit-button_enabled"
@@ -77,19 +104,19 @@ const SigninModal = ({
           } `}
           disabled={!isFormValid}
         >
-          {isLoading ? "Sign in..." : "Sign in"}
+          {isLoading ? "Sign up..." : "Sign up"}
         </button>
         <button
           type="button"
           className="modal__option-button"
-          onClick={handleOpenSignupModal}
+          onClick={handleOpenSigninModal}
         >
           <span className="modal__or-text">or</span>
-          <span className="modal__signin-text">Sign up</span>
+          <span className="modal__signup-text">Sign in</span>
         </button>
       </div>
     </ModalWithForm>
   );
 };
 
-export default SigninModal;
+export default SignUpModal;

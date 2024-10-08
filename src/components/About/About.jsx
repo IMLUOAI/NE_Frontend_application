@@ -1,5 +1,5 @@
-import "../blocks/about.css";
-import userAvatar from "../images/IMG_4953.JPG";
+import "../About/about.css";
+import userAvatar from "../../images/IMG_4953.JPG";
 
 const About = () => {
 

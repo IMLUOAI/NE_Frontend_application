@@ -12,7 +12,7 @@
 }
 .page__background-wrapper::before {
   content: "";
-  background-image: url("../images/1920px-WISE_artist_concept_\(PIA17254\,_crop\).jpg");
+  background-image: url("../../images/1920px-WISE_artist_concept_\(PIA17254\,_crop\).jpg");
   background-size: cover;
   background-position: center;
   background-color: rgba(0, 0, 0, 0.6);

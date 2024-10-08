@@ -1,5 +1,5 @@
-import "../blocks/header.css";
-import Navigation from "./Navigation";
+import "../Header/header.css";
+import Navigation from "..//Navigation/Navigation";
 
 const Header = ({
   userName = "",

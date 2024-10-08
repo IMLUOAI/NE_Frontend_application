@@ -1,5 +1,5 @@
-import "../blocks/modal.css";
-import Modal from "./Modal";
+import "../Modal/modal.css";
+import Modal from "../Modal/Modal";
 
 
 const SuccessSignupModal = ({ isOpen, handleCloseModal, handleSignin }) => {

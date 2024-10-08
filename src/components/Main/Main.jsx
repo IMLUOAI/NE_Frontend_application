@@ -1,8 +1,8 @@
-import "../blocks/main.css";
-import About from "./About";
-import SearchBar from "./SearchBar";
-import NewsSection from "./NewsSection";
-import Preloader from "./Preloader";
+import "../Main/main.css";
+import About from "../About/About";
+import SearchBar from "../SearchBar/SearchBar";
+import NewsSection from "../NewsSection/NewsSection";
+import Preloader from "../Preloader/Preloader";
 
 const Main = ({
   newsData,

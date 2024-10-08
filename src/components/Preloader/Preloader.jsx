@@ -1,4 +1,4 @@
-import "../blocks/preloader.css";
+import "../Preloader/preloader.css";
 
 const Preloader = ({ isLoading, newsData }) => {
   if (isLoading) {

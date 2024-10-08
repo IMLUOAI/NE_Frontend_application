@@ -1,4 +1,4 @@
-import "../blocks/searchBar.css";
+import "../SearchBar/searchBar.css";
 import React, { useState } from "react";
 
 const SearchBar = ({ onSearch }) => {

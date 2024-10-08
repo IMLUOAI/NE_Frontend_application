@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import "../blocks/modal.css";
+import "../Modal/modal.css";
 
 
  const Modal = ({ name, onClose, children }) => {

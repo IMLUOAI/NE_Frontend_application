@@ -1,16 +1,16 @@
-import "../blocks/app.css";
+import "../App/app.css";
 import React, { useEffect, useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
-import Header from "./Header";
-import Main from "./Main";
-import Footer from "./Footer";
-import api from "../utils/api";
-import auth from "../utils/auth";
-import SigninModal from "./SigninModal";
-import SignupModal from "./SignupModal";
-import SuccessSignupModal from "./SuccessSignupModal";
-import CurrentUserContext from "../contexts/CurrentUserContext";
-import { setToken, getToken, removeToken } from "../utils/token";
+import Header from "../Header/Header";
+import Main from "../Main/Main";
+import Footer from "../Footer/Footer";
+import api from "../../utils/api";
+import auth from "../../utils/auth";
+import SigninModal from "../SigninModal/SigninModal";
+import SignupModal from "../SignupModal/SignupModal";
+import SuccessSignupModal from "../SuccessSignupModal/SuccessSignupModal";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
+import { setToken, getToken, removeToken } from "../../utils/token";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");

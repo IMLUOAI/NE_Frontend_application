@@ -1,5 +1,5 @@
-import Modal from "./Modal";
-import "../blocks/modal.css";
+import Modal from "../Modal/Modal";
+import "../Modal/modal.css";
 
 const ModalWithForm = ({
   name,

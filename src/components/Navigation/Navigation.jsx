@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import "../blocks/nav.css";
-import logoutIcon from "../images/Union.png";
+import "../Navigation/nav.css";
+import logoutIcon from "../../images/Union.svg";
 
 const Navigation = ({ isLoggedIn, userName, onLogout, onSigninModal}) => {
 
