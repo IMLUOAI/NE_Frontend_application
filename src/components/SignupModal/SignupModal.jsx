@@ -112,7 +112,7 @@ const SignUpModal = ({
           onClick={handleOpenSigninModal}
         >
           <span className="modal__or-text">or</span>
-          <span className="modal__signup-text">Sign in</span>
+          <span className="modal__span-text">Sign in</span>
         </button>
       </div>
     </ModalWithForm>

@@ -14,21 +14,31 @@ const register = (email, password, username) => {
 };
 
 const authorize = (email, password) => {
-  return request(`${BASE_URL}/signin`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email, password }),
-  });
+
+  return new Promise((resolve, reject) => {
+    resolve({ token: "a fake token" });
+  })
+  // return request(`${BASE_URL}/signin`, {
+  //   method: "POST",
+  //   headers: { "Content-Type": "application/json" },
+  //   body: JSON.stringify({ email, password }),
+  // });
 };
 
 const checkTokenValidity = (token) => {
-  return request(`${BASE_URL}/users/me`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-  });
+
+  return new Promise((resolve, reject) => {
+    resolve({
+      data: { name: "Samuel", email: "samuel2024@gmail.com", id: "id"}
+    })
+  })
+  // return request(`${BASE_URL}/users/me`, {
+  //   method: "GET",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //     Authorization: `Bearer ${token}`,
+  //   },
+  // });
 };
 
 const auth = {

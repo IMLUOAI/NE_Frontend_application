@@ -1,35 +1,22 @@
 .page__section {
-  max-width: 1654px;
+  max-width: 1440px;
   height: auto;
   margin: 0;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.page__background-wrapper {
-  width: 100%;
-  position: relative;
-  overflow: hidden;
+@media (max-width:  768px) {
+  header, main, footer {
+    width: 100%;
+
+  }
 }
-.page__background-wrapper::before {
-  content: "";
-  background-image: url("../../images/1920px-WISE_artist_concept_\(PIA17254\,_crop\).jpg");
-  background-size: cover;
-  background-position: center;
-  background-color: rgba(0, 0, 0, 0.6);
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-  opacity: 1;
-}
-.page__background-wrapper::after{
-  backdrop-filter: blur(8px);
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 2;
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  header, main, footer {
+    width: 90%;
+
+  }
 }

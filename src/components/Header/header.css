@@ -1,14 +1,13 @@
 .header {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   align-items: center;
-  width: 1440px;
-  height: 80px;
+  background-image: url("../../images/ImageHeader.svg");
+  background-size: cover;
+  background-position: center;
   border-bottom: 1px solid #c4c4c403;
   box-shadow: 0px -1px 0px 0px #ffffff33 inset;
-  position: relative;
-  z-index: 3;
-  margin: 0;
 }
 .header__bar {
   display: flex;

@@ -95,12 +95,17 @@
     color: rgba(0,0,0, 0.2);
     margin: 8px auto 11px 0;
 }
+
 .modal__input:valid{
     border-bottom: 1px solid green;
 }
 .modal__input::placeholder {
     color: #000000;
     opacity: 0.2;
+}
+.modal__input:focus {
+    border: 1px solid #000000;
+    outline: none;
 }
 .modal__input_type_error{
     border-bottom: 1px solid #ff0000;
@@ -145,16 +150,42 @@
     line-height: 24px;
     text-align: center;
     margin: 0 0 16px;
+    padding: 0;
     transition: background-color 0.3s ease;
 }
 
-.modal__submit-button_inactive {
+.modal__submit-button_disabled {
     background-color: #E6E8EB;
     cursor: not-allowed;
 }
-.modal__submit-button_active {
+.modal__submit-button_enabled {
     background-color: #2F71E5;
     box-shadow: 0px 5px 15px 0px #0E1A3933;
     cursor: pointer;
 }
+.modal__option-button {
+    width: 226px;
+    height: 20px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    margin: 0 auto;
 
+}
+.modal__or-text {
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.94px;
+    text-align: center;
+    padding: 4px;
+    color:#000000;
+}
+.modal__span-text {
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.94px;
+    text-align: center;
+    color:#2F71E5;
+}

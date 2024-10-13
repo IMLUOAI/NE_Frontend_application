@@ -4,8 +4,6 @@
   display: flex;
   flex-direction: row;
   background-color: #fff;
-  /* position: relative;
-  z-index: 2; */
 }
 .about__avatar {
   width: 464px;
@@ -23,7 +21,6 @@
   margin: 131px 216px auto 56px;
 }
 .about__title {
-  width: 600px;
   height: 46px;
   font-family: "Roboto Slab", sans-serif;
   font-size: 40px;
@@ -33,19 +30,24 @@
   color: #000;
 }
 .about__userInfo {
-  width: 600px;
-  height: 18px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  margin: 24px 0 0 0;
+  padding: 0;
+}
+.about__userInfo-list {
   border: none;
   font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 1.6;
   text-align: left;
-  resize: none;
   color: #000;
   padding: 0;
 }
-.about__userInfo-span {
-  color: #2f71e5;
+.about__userInfo-list_span {
+  color: #53585b;
   padding-left: 6px;
 }

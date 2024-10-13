@@ -9,13 +9,17 @@ const Footer = () => {
         <footer className="footer">
             <p className="footer__description">© 2024 Supersite. Powered by News API</p>
             <nav className="footer__nav-bar">
-             <a className="footer__home-page" href="/">Home</a>
-             <a  className="footer__tripleten-link" href="https://tripleten.com">TripleTen</a>
+             <a className="nav__link footer" href="/">Home</a>
+             <a className="nav__link tripleten" href="https://tripleten.com">TripleTen</a>
              </nav> 
-                <Link className="footer__social-link" to="/">
+                <div className="footer__social-links" >
+                    <a href="https://github.com" className="nav__link">
                 <img src={githubLogo} className="footer__logo-github" alt="github" />
+                </a>
+                <a href="https://facebook.com" className="nav__link">
                 <img src={facebookLogo} className="footer__logo-facebook" alt="facebook" />
-                </Link>        
+                </a>
+                </div>        
         </footer>
     )
 };

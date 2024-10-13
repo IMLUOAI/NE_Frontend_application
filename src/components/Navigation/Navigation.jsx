@@ -7,11 +7,11 @@ const Navigation = ({ isLoggedIn, userName, onLogout, onSigninModal}) => {
 
     return (
         <nav className="nav__section">
-            <Link to="/" className="nav__home-page">Home</Link>
+            <a href="/" className="nav__link header">Home</a>
             <div className="nav__signin-bar">
             {isLoggedIn ? (
              <>
-             <Link to="/saved-articles" className="nav__saved-articles">Saved Articles</Link>
+             <Link to="/saved-articles" className="nav__link saved-articles">Saved Articles</Link>
              <div className="nav__user-bar">
                 <h3 className="nav__username">{userName}</h3>
               <button

@@ -32,14 +32,14 @@ const NewsSection = ({
   return (
     <div  id="news-container" className="news__section">
       <h1 className="news__section-title">Search results</h1>
-      {isLoading && <Preloader />}
+      <Preloader isLoading={isLoading} newsData={newsData} />
       {error && <p className="preloader__description">Sorry, but nothing matched your search terms</p>
 }
 {!isLoading && !error && newsCards.length === 0 && <h3 className="preloader__title">Nothing found</h3>
 }
       <div className="news__card-list">
         {newsCards
-          .filter((card) => card.owner === currentUser._id)
+          .filter((card, index) => card && card.owner && currentUser && currentUser._id && card.owner === currentUser._id && index < visibleItems)
           .map((card) => (
             <NewsCard
               key={card._id}

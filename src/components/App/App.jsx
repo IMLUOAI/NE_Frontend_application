@@ -168,7 +168,6 @@ function App() {
   return (
     <CurrentUserContext.Provider value={{ currentUser, isLoggedIn }}>
       <div className="page__section">
-        <div className="page__background-wrapper">
           <Header
             userName={currentUser?.name}
             isAuthorized={isLoggedIn}
@@ -190,7 +189,6 @@ function App() {
               }
             />
           </Routes>
-        </div>
         <Footer />
         {activeModal === "signup" && (
           <SignupModal
@@ -218,7 +216,7 @@ function App() {
             handleSignin={handleSignin}
           />
         )}
-      </div>
+        </div>
     </CurrentUserContext.Provider>
   );
 }

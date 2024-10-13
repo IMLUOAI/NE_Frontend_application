@@ -1,6 +1,6 @@
 .footer {
-  width: 1440px;
-  height: 80px;
+  /* width: 100%;
+  height: 80px; */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -24,24 +24,23 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 32px auto 26px 524px;
+  margin: 32px 40px 26px 524px;
 }
-.footer__home-page {
+.nav__link.footer {
   width: 49px;
   height: 24px;
   color: #000;
-  font-family: "Roboto", sans-serif;
   font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 24px;
   text-align: center;
+  text-decoration: none;
 }
-.footer__home-page:hover {
+.nav__link.footer:hover {
   cursor: pointer;
-  text-decoration: underline;
 }
-.footer__tripleten-link {
+.nav__link.tripleten {
   width: 74px;
   height: 24px;
   color: #000;
@@ -50,8 +49,9 @@
   font-weight: 400;
   line-height: 24px;
   text-align: center;
+  text-decoration: none;
 }
-.footer__social-link {
+.footer__social-links {
   width: 72px;
   height: 24px;
   display: flex;
@@ -60,13 +60,4 @@
   align-items: center;
   margin: 32px 106px 26px auto;
 }
-.footer__logo-github {
-  width: 20.21px;
-  height: 19.71px;
-  background-color: transparent;
-}
-.footer__logo-facebook {
-  width: 20px;
-  height: 20px;
-  background-color: transparent;
-}
+
