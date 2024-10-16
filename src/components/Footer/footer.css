@@ -39,6 +39,9 @@
 }
 .nav__link.footer:hover {
   cursor: pointer;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
 }
 .nav__link.tripleten {
   width: 74px;
@@ -51,6 +54,12 @@
   text-align: center;
   text-decoration: none;
 }
+.nav__link.tripleten:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}
 .footer__social-links {
   width: 72px;
   height: 24px;
@@ -58,6 +67,5 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 32px 106px 26px auto;
+  margin: 32px 104px 26px auto;
 }
-

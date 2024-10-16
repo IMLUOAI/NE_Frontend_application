@@ -6,8 +6,7 @@
   background-image: url("../../images/ImageHeader.svg");
   background-size: cover;
   background-position: center;
-  border-bottom: 1px solid #c4c4c403;
-  box-shadow: 0px -1px 0px 0px #ffffff33 inset;
+  border-bottom: 2px solid #e9e7e703;
 }
 .header__bar {
   display: flex;
@@ -30,6 +29,3 @@
   color: #ffffff;
   border: none;
 }
-
-
-

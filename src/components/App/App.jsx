@@ -6,6 +6,7 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import api from "../../utils/api";
 import auth from "../../utils/auth";
+import { fetchNews } from "../../utils/NewsApi";
 import SigninModal from "../SigninModal/SigninModal";
 import SignupModal from "../SignupModal/SignupModal";
 import SuccessSignupModal from "../SuccessSignupModal/SuccessSignupModal";
@@ -32,24 +33,37 @@ function App() {
   // modal handlers
   const handleSubmit = (request) => {
     setIsLoading(true);
-    request()
-      .then(() => {
-        handleCloseModal();
-      })
-      .catch(console.error)
-      .finally(() => setIsLoading(false));
+    const promise = request();
+    if (promise && typeof promise.then === "function") {
+      return promise
+        .then(() => {
+          handleCloseModal();
+        })
+        .catch(console.error)
+        .finally(() => setIsLoading(false));
+    } else {
+      console.error("The provided request is not a promise");
+      setIsLoading(false);
+      return Promise.reject("Invalid request");
+    }
+    //   request()
+    //     .then(() => {
+    //       handleCloseModal();
+    //     })
+    //     .catch(console.error)
+    //     .finally(() => setIsLoading(false));
   };
 
   const handleSignup = ({ email, password, username }) => {
-    if (!password || !email) return;
+    if (!password || !email) return Promise.reject("Invalid email or password");
     const makeRequest = () => {
       return auth.register(email, password, username).then(() => {
-        handleCloseModal();
-        setActiveModal("signin");
+        // handleCloseModal();
+        // setActiveModal("signin");
         setActiveModal("successSignup");
       });
     };
-    handleSubmit(makeRequest);
+    return handleSubmit(makeRequest);
   };
 
   const handleSignin = ({ email, password }) => {
@@ -66,12 +80,12 @@ function App() {
           }
         })
         .then((userData) => {
-          handleCloseModal();
           setCurrentUser(userData);
           setIsLoggedIn(true);
+          handleCloseModal();
         });
     };
-    handleSubmit(makeRequest);
+    return handleSubmit(makeRequest);
   };
 
   const handleLogout = () => {
@@ -79,7 +93,7 @@ function App() {
     setCurrentUser(null);
     setIsLoggedIn(false);
     navigate("/");
-    setActiveModal("signin");
+    setActiveModal("");
   };
 
   const handleSaveArticle = (article) => {
@@ -90,7 +104,7 @@ function App() {
       console.log("CurrentUser is not available");
       return;
     }
-    const isSaved = article.save.some((id) => id === currentUser._id);
+    const isSaved = article.save?.some((id) => id === currentUser._id);
     const request = !isSaved
       ? api.saveArticles(_id, token)
       : api.unsaveArticle(_id, token);
@@ -109,11 +123,12 @@ function App() {
   const handleSearch = async (query) => {
     setIsLoading(true);
     try {
-      const newsData = await api.getNews(query);
+      const fetchedNews = await api.getNews(query);
       setHasSearched(true);
-      setNewsData(newsData);
+      setNewsData(fetchedNews);
       setError(null);
     } catch (err) {
+      console.error("Fetching news Error:", error);
       setError(
         "Sorry, something went wrong during the request. Please try again later."
       );
@@ -168,27 +183,27 @@ function App() {
   return (
     <CurrentUserContext.Provider value={{ currentUser, isLoggedIn }}>
       <div className="page__section">
-          <Header
-            userName={currentUser?.name}
-            isAuthorized={isLoggedIn}
-            onSigninModal={handleOpenSigninModal}
-            onLogout={handleLogout}
+        <Header
+          userName={currentUser?.name}
+          isAuthorized={isLoggedIn}
+          onSigninModal={handleOpenSigninModal}
+          onLogout={handleLogout}
+        />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Main
+                handleSearch={handleSearch}
+                newsData={newsData}
+                error={error}
+                isLoading={isLoading}
+                hasSearched={hasSearched}
+                handleSaveArticle={handleSaveArticle}
+              />
+            }
           />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Main
-                  handleSearch={handleSearch}
-                  newsData={newsData}
-                  error={error}
-                  isLoading={isLoading}
-                  hasSearched={hasSearched}
-                  handleSaveArticle={handleSaveArticle}
-                />
-              }
-            />
-          </Routes>
+        </Routes>
         <Footer />
         {activeModal === "signup" && (
           <SignupModal
@@ -213,10 +228,10 @@ function App() {
           <SuccessSignupModal
             isOpen={activeModal === "successSignup"}
             handleCloseModal={handleCloseModal}
-            handleSignin={handleSignin}
+            handleOpenSigninModal={handleOpenSigninModal}
           />
         )}
-        </div>
+      </div>
     </CurrentUserContext.Provider>
   );
 }

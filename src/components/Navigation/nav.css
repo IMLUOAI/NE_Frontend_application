@@ -1,94 +1,111 @@
 .nav__section {
-    width: 240px;
-    height: 80px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
 }
 .nav__link {
   background-color: transparent;
 }
-.nav__link_active {
-  text-decoration: underline;
-}
+
 .nav__link.header {
-    width: 49px;
-    height: 24px;
-    color: #fff;
-    text-decoration: underline;
-    text-underline-offset: 32px;
-    margin: 12px 0;
-  }
+  width: 49px;
+  height: 24px;
+  color: #fff;
+  text-decoration-line: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 32px;
+}
+.nav__link.header:hover {
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}
 .nav__signin-bar {
-    width: 176px;
-    height: 48px;
-    border-radius: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #ffffff;
-    margin-left: 42px;
-  }
+  width: 176px;
+  height: 48px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ffffff;
+  margin-left: 42px;
+}
 .nav__link.saved-articles {
-    width: 114px;
-    height: 24px;
-    font-family: "Roboto", sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 24px;
-    text-align: center;
-    margin: 30px 64px 28px auto;
-  }
-  .nav__user-bar {
-    width: 112px;
-    height: 48px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    margin: 19px 104px 13px auto;
-  }
-  .nav__username {
-    width: 56px;
-    height: 24px;
-    font-family: "Roboto", sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 24px;
-    text-align: left;
-  }
-  .nav__logout-button {
-    width: 112px;
-    height: 48px;
-    border-radius: 24px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .nav__logout-icon {
-    width: 17.41px;
-    height: 16px;
-  }
-  .nav__logout-icon:hover {
-    cursor: pointer;
-    opacity: 0.5;
-  }
-  .nav__signin-button {
-    width: 152px;
-    height: 21px;
-    font-family: "Roboto", sans-serif;
-    align-items: center;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 24px;
-    text-align: center;
-    color: #ffffff;
-    border: none;
-    outline: none;
-    background-color: transparent;
-  }
-  .nav__signin-button:hover {
-    cursor: pointer;
-    opacity: 0.5;
-  }
+  width: 114px;
+  height: 24px;
+  white-space: nowrap;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+  color: #b6bcbf;
+  margin: 30px 64px 26px 76px;
+}
+.nav__link.saved-articles:hover {
+  color: #ffffff;
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}
+.nav__user-bar {
+  /* width: 112px; */
+  height: 48px;
+  border-radius: 24px;
+  border: 1px solid #ffffff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 19px 0 13px auto;
+}
+.nav__username {
+  width: 56px;
+  height: 24px;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+  color: #ffffff;
+  margin: 12px 19px 12px 19px;
+}
+.nav__logout-button {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 12px 12px 12px 0;
+}
+.nav__logout-icon {
+  width: 17.41px;
+  height: 16px;
+}
+.nav__logout-icon:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+.nav__signin-button {
+  width: 152px;
+  height: 21px;
+  font-family: "Roboto", sans-serif;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+.nav__signin-button:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}

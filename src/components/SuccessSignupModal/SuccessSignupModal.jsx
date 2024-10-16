@@ -1,22 +1,25 @@
 import "../Modal/modal.css";
 import Modal from "../Modal/Modal";
 
-
-const SuccessSignupModal = ({ isOpen, handleCloseModal, handleSignin }) => {
+const SuccessSignupModal = ({
+  isOpen,
+  handleCloseModal,
+  handleOpenSigninModal,
+}) => {
   if (!isOpen) return null;
 
   return (
-    <Modal name="successSignup" onClose={handleCloseModal}>
-      <div className="modal__successSignup-container"> 
-        <h3 className="modal__successSignup-title">
+    <Modal onClose={handleCloseModal} isOpen={isOpen}>
+      <div className="modal__successSignup-container">
+        <h1 className="modal__successSignup-title">
           Registration successfully completed!
-        </h3>
+        </h1>
         <button
           type="button"
-          className="modal__option-button"
-          onClick={handleSignin}
+          className="modal__signin-button"
+          onClick={handleOpenSigninModal}
         >
-          <h3 className="modal__signin-text">Sign in</h3>
+          Sign in
         </button>
       </div>
     </Modal>

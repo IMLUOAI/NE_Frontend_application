@@ -26,7 +26,7 @@ const Main = ({
       </div>
       {hasSearched && (
         <div className="news__section">
-          <Preloader isLoading={isLoading} newsData={newsData} />
+          <Preloader isLoading={isLoading} />
           {!isLoading && newsData.length > 0 && (
             <NewsSection
               newsCards={newsData}

@@ -5,8 +5,8 @@ import "../Modal/modal.css";
 const SignUpModal = ({
   isOpen,
   isLoading,
-  handleCloseModal,
   handleSignup,
+  handleCloseModal,
   handleOpenSigninModal,
   handleOpenSuccessSignupModal,
 }) => {
@@ -24,7 +24,6 @@ const SignUpModal = ({
       username: values.username,
     })
       .then(() => {
-        handleCloseModal();
         handleOpenSuccessSignupModal();
       })
       .catch((err) => {
