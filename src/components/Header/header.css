@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../images/ImageHeader.svg");
+  background-size: cover;
+  background-position: center;
+  border-bottom: 2px solid #e9e7e703;
+}
+.header__bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 1440px;
+  height: 48px;
+  margin: 19px 104px 13px;
+}
+.header__logo {
+  width: 200px;
+  height: 24px;
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: left;
+  background-color: transparent;
+  color: #ffffff;
+  border: none;
+}
