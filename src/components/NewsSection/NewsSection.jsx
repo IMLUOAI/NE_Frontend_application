@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useContext } from "react";
 import "../NewsSection/newsSection.css";
 import NewsCard from "../NewsCard/NewsCard";
 import Preloader from "../Preloader/Preloader";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
-import api from "../../utils/api";
 
 const NewsSection = ({
   newsCards,

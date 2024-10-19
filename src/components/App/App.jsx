@@ -6,7 +6,6 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import api from "../../utils/api";
 import auth from "../../utils/auth";
-import { fetchNews } from "../../utils/NewsApi";
 import SigninModal from "../SigninModal/SigninModal";
 import SignupModal from "../SignupModal/SignupModal";
 import SuccessSignupModal from "../SuccessSignupModal/SuccessSignupModal";
@@ -125,13 +124,14 @@ function App() {
     try {
       const fetchedNews = await api.getNews(query);
       setHasSearched(true);
-      setNewsData(fetchedNews);
+      setNewsData(fetchedNews || []);
       setError(null);
     } catch (err) {
-      console.error("Fetching news Error:", error);
+      console.error("Fetching news Error:", err);
       setError(
         "Sorry, something went wrong during the request. Please try again later."
       );
+      setNewsData([]);
     } finally {
       setIsLoading(false);
     }
@@ -141,11 +141,15 @@ function App() {
 
   useEffect(() => {
     if (currentUser) {
-      fetchNews()
+      api
+        .getNews()
         .then((data) => {
-          setNewsData(data);
+          setNewsData(data || []);
         })
-        .catch((err) => setError(err.message));
+        .catch((err) => {
+          console.error("Error fetching news:", err);
+          setNewsData([]);
+        });
     }
   }, [currentUser]);
 
@@ -200,6 +204,7 @@ function App() {
                 isLoading={isLoading}
                 hasSearched={hasSearched}
                 handleSaveArticle={handleSaveArticle}
+                handleUnsaveArticle={handleSaveArticle}
               />
             }
           />

@@ -10,7 +10,7 @@ const Preloader = ({ isLoading, newsData }) => {
     );
   }
 
-  if (!isLoading && newsData.length === 0) {
+  if (!isLoading && Array.isArray(newsData) && newsData.length === 0) {
     return (
       <div className="preloader">
         <div className="circle-preloader"></div>

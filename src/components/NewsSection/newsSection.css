@@ -20,10 +20,10 @@
 }
 .news__card-list {
   max-width: 1232px;
-  height: 576px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 16px;
+  margin: 64px auto 208px;
 }
 .news__expand-button {
   width: 288px;

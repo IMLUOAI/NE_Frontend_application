@@ -11,7 +11,9 @@ const Main = ({
   isLoading,
   hasSearched,
   handleSaveArticle,
+  handleUnsaveArticle,
 }) => {
+  console.log("newsData", newsData);
   return (
     <main className="main__section">
       <div className="main__container">
@@ -27,15 +29,16 @@ const Main = ({
       {hasSearched && (
         <div className="news__section">
           <Preloader isLoading={isLoading} />
-          {!isLoading && newsData.length > 0 && (
+          {!isLoading && Array.isArray(newsData) && newsData.length > 0 && (
             <NewsSection
               newsCards={newsData}
               handleSaveArticle={handleSaveArticle}
+              handleUnsaveArticle={handleUnsaveArticle}
               isLoading={isLoading}
               error={error}
             />
           )}
-          {!isLoading && newsData.length === 0 && (
+          {!isLoading && Array.isArray(newsData) && newsData.length === 0 && (
             <h3 className="preloader__title">Nothing found</h3>
           )}
         </div>
