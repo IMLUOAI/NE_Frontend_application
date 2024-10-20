@@ -4,13 +4,7 @@ import NewsCard from "../NewsCard/NewsCard";
 import Preloader from "../Preloader/Preloader";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
-const NewsSection = ({
-  newsCards,
-  isLoading,
-  error,
-  handleSaveArticle,
-  handleUnsaveArticle,
-}) => {
+const NewsSection = ({ newsCards, isLoading, error, handleSaveOrUnsave }) => {
   const [visibleItems, setVisibleItems] = useState(3);
   const [isExpanded, setIsExpanded] = useState(false);
   const { currentUser } = useContext(CurrentUserContext);
@@ -43,18 +37,22 @@ const NewsSection = ({
       )}
       <div className="news__card-list">
         {newsCards
-          .filter((_, index) => index < visibleItems)
-          .map((card) => (
-            <NewsCard
-              key={card.id}
-              card={card}
-              currentUser={currentUser}
-              onSave={() => handleSaveArticle(card)}
-              onUnsave={() => handleUnsaveArticle(card)}
-            />
-          ))}
+          .slice(0, visibleItems)
+          .map(
+            (card) => (
+              console.log("card", card),
+              (
+                <NewsCard
+                  key={card.id || card?._id}
+                  card={card}
+                  currentUser={currentUser}
+                  handleSaveOrUnsave={handleSaveOrUnsave}
+                />
+              )
+            )
+          )}
       </div>
-      {visibleItems < newsCards.length && (
+      {newsCards.length > 3 && (
         <button
           type="button"
           className="news__expand-button"

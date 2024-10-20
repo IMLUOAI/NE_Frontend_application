@@ -95,7 +95,8 @@ function App() {
     setActiveModal("");
   };
 
-  const handleSaveArticle = (article) => {
+  const handleToggleSaveArticle = (article) => {
+    console.log("Article to save:", article);
     const token = getToken();
     const { _id } = article;
 
@@ -203,8 +204,7 @@ function App() {
                 error={error}
                 isLoading={isLoading}
                 hasSearched={hasSearched}
-                handleSaveArticle={handleSaveArticle}
-                handleUnsaveArticle={handleSaveArticle}
+                onSaveOrUnsave={handleToggleSaveArticle}
               />
             }
           />

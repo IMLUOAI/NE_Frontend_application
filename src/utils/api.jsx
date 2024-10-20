@@ -17,23 +17,21 @@ export function request(url, options) {
 
 const mockNewsData = [
   {
-    id: "65f7371e7bce9e7d331b11a0",
-    author: 'Bernard "Beanz" Smalls',
+    _id: "nbc-news",
+    author: "David Ingram",
     title:
-      "Elon Musk Makes A Fool of Himself At Recent Rally For Donald Trump, Gets Clowned On His Own Platform For Glazing",
-    description:
-      "Elon Musk continues to make a complete fool out of himself.\nThe post Elon Musk Makes A Fool of Himself At Recent Rally For Donald Trump, Gets Clowned On His Own Platform For Glazing appeared first on Hip-Hop Wired.",
-    url: "https://hiphopwired.com/playlist/elon-musk-donald-trump-rally-appearance-reactions/",
+      "Elon Musk says all voting should be ‘in person’ while his super PAC promotes voting by mail",
+    description: "musk townhall 2",
+    url: "https://www.nbcnews.com/tech/tech-news/elon-musk-says-voting-person-super-pac-promotes-voting-mail-rcna176074",
     urlToImage:
-      "https://hiphopwired.com/wp-content/uploads/sites/43/2024/10/17282338688622.jpg",
-    publishedAt: "2024-10-06T17:10:33Z",
+      "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/rockcms/2024-10/241018-oaks-pa-elon-musk-town-hall-ac-1103p-3b40ef.jpg",
+    publishedAt: "2024-10-19T03:24:27Z",
     content:
-      "HipHopWired Featured Video\r\nSource: JIM WATSON / Getty\r\nElon Musk continues to make a complete fool out of himself. \r\nThe billionaire tech exec who desperately wants to be like Tony Stark has made it… [+2233 chars]",
-    sourceName: "Hip-Hop Wired",
-    keyWord: "elon",
+      "Tech billionaire Elon Musk said Friday that all voting should be in person, contradicting his own history of voting by mail and the efforts of his pro-Trump super PAC to get others to vote by mail, t… [+4497 chars]",
+    sourceName: "NBC News",
   },
   {
-    id: "65f7371e7bce9e7d331b11a0",
+    _id: "electrek",
     author: "Jo Borrás",
     title: "QOTD: is Volvo planning a low cost, electric Robotaxi rival?",
     description:
@@ -49,7 +47,7 @@ const mockNewsData = [
   },
 
   {
-    id: "fox-news",
+    _id: "fox-news",
     author: "Emma Colton",
     title:
       "Trump supporter Elon Musk offers massive hourly pay to those working to increase voter turnout",
@@ -65,7 +63,7 @@ const mockNewsData = [
     keyWord: "elon",
   },
   {
-    id: "the-times-of-india",
+    _id: "the-times-of-india",
     author: "Reuters",
     title:
       "Former OpenAI technology chief Mira Murati to raise capital for new AI startup, sources say",
@@ -81,7 +79,7 @@ const mockNewsData = [
     keyword: "ai",
   },
   {
-    id: null,
+    _id: 5,
     author: "news.google.com",
     title:
       "Mesa woman killed in Tesla ‘Full Self-Driving’ crash; feds to probe automaker",
@@ -96,7 +94,7 @@ const mockNewsData = [
     keyWord: "tesla",
   },
   {
-    id: null,
+    _id: 8,
     author: "John Quintet",
     title: "Tesla iOS App Updated with Control Center Toggles in iOS 18",
     description:
@@ -121,7 +119,7 @@ const getNews = () => {
 };
 
 const saveArticles = (articleData) => {
-  // const token = getToken();
+  const token = getToken();
   return new Promise((resolve, reject) => {
     if (!token) {
       reject("No token found");
@@ -133,7 +131,7 @@ const saveArticles = (articleData) => {
   });
 };
 const unsaveArticle = () => {
-  // const token = getToken();
+  const token = getToken();
   return new Promise((resolve, reject) => {
     const response = {
       ok: true,

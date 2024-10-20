@@ -1,12 +1,15 @@
 import "../NewsCard/newsCard.css";
 import solidPattern from "../../images/Group 12.svg";
 import hollowPattern from "../../images/Group 13.svg";
+import solidPatternHover from "../../images/Group 12.svg";
+import hollowPatternHover from "../../images/Group 14.svg";
+import { useState } from "react";
 
-const NewsCard = ({ card, onSave, onUnsave, currentUser }) => {
+const NewsCard = ({ card, handleSaveOrUnsave, currentUser }) => {
   if (!card) {
     return null;
   }
-
+  const [isHiovered, setIsHovered] = useState(false);
   const isSaved =
     Array.isArray(card.saves) &&
     card.saves.some((id) => id === currentUser?._id);
@@ -14,6 +17,13 @@ const NewsCard = ({ card, onSave, onUnsave, currentUser }) => {
     isSaved ? "card__save-button_saved" : ""
   }`;
 
+  const getIcon = () => {
+    if (isSaved) {
+      return isHiovered ? solidPatternHover : solidPattern;
+    } else {
+      return isHiovered ? hollowPatternHover : hollowPattern;
+    }
+  };
   return (
     <div className="card">
       <img
@@ -25,14 +35,14 @@ const NewsCard = ({ card, onSave, onUnsave, currentUser }) => {
         <button
           type="button"
           className={cardSaveButtonClassName}
-          onClick={() => (isSaved ? onUnsave(card) : onSave(card))}
+          onClick={() => handleSaveOrUnsave(card, isSaved)}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
         >
-          <img
-            src={isSaved ? solidPattern : hollowPattern}
-            alt="Save"
-            className="card__save-icon"
-          />
-          <span className="card__tooltip">Sign in to save articles</span>
+          <img src={getIcon()} alt="Save" className="card__save-icon" />
+          <div className="card__tooltip">
+            <p className="card__tooltip-text">Sign in to save articles</p>
+          </div>
         </button>
       </div>
       <div className="card__publishedAt">{card.publishedAt}</div>

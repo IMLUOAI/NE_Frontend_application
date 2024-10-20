@@ -10,8 +10,7 @@ const Main = ({
   handleSearch,
   isLoading,
   hasSearched,
-  handleSaveArticle,
-  handleUnsaveArticle,
+  onSaveOrUnsave,
 }) => {
   console.log("newsData", newsData);
   return (
@@ -32,8 +31,7 @@ const Main = ({
           {!isLoading && Array.isArray(newsData) && newsData.length > 0 && (
             <NewsSection
               newsCards={newsData}
-              handleSaveArticle={handleSaveArticle}
-              handleUnsaveArticle={handleUnsaveArticle}
+              handleSaveOrUnsave={onSaveOrUnsave}
               isLoading={isLoading}
               error={error}
             />
