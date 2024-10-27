@@ -1,6 +1,6 @@
 .footer {
-  /* width: 100%;
-  height: 80px; */
+  width: 100%;
+  height: 80px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -68,4 +68,114 @@
   justify-content: space-between;
   align-items: center;
   margin: 32px 104px 26px auto;
+}
+.footer__logo-github {
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+}
+.footer__logo-github:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+.footer__logo-facebook {
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+}
+.footer__logo-facebook:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  .footer {
+    width: 100%;
+    height: auto;
+    align-items: start;
+    display: grid;
+    grid-template-areas: "nav social" "description description";
+    grid-template-columns: 1fr 1fr;
+    gap: 38px 16px;
+    margin: 0;
+  }
+  .footer__description {
+    width: 100%;
+    height: 22px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    grid-area: description;
+    text-align: center;
+    margin: 0 auto 22px;
+  }
+  .footer__nav-bar {
+    width: 200px;
+    height: 74px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    justify-items: flex-start;
+    align-items: flex-start;
+    grid-area: nav;
+    margin: 20px auto 16px;
+  }
+  .nav__link.footer {
+    font-size: 18px;
+    margin-left: 25px;
+  }
+  .nav__link.tripleten {
+    font-size: 18px;
+    margin-left: 15px;
+  }
+  .footer__social-links {
+    width: 72px;
+    height: 24px;
+    grid-area: social;
+    justify-items: flex-end;
+    margin: 20px 16px 0 0;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .footer {
+    width: 100%;
+    height: 64px;
+  }
+  .footer__description {
+    width: 300px;
+    height: 22px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    margin: 24px auto 18px 40px;
+  }
+  .footer__nav-bar {
+    width: 163px;
+    height: 24px;
+    margin: 20px auto 19px 113px;
+  }
+  .nav__link.footer {
+    width: 49px;
+    height: 24px;
+    font-size: 18px;
+    line-height: 24px;
+    margin: 0;
+  }
+  .nav__link.tripleten {
+    width: 74px;
+    height: 24px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .footer__social-links {
+    width: 72px;
+    height: 24px;
+    margin: 20px 40px;
+  }
+  .footer__logo-github {
+    border-radius: 12px;
+  }
+  .footer__logo-facebook {
+    border-radius: 12px;
+  }
 }
