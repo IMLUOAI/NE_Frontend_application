@@ -2,12 +2,20 @@ import { Link } from "react-router-dom";
 import "../Navigation/nav.css";
 import logoutIcon from "../../images/Union.svg";
 
-const Navigation = ({ isLoggedIn, userName, onLogout, onSigninModal }) => {
+const Navigation = ({
+  isLoggedIn,
+  isMenuOpen,
+  userName,
+  onLogout,
+  onSigninModal,
+}) => {
   return (
     <nav className="nav__section">
-      <a href="/" className="nav__link header">
-        Home
-      </a>
+      {!isMenuOpen && (
+        <a href="/" className="nav__link header">
+          Home
+        </a>
+      )}
       {isLoggedIn ? (
         <>
           <Link to="/saved-articles" className="nav__link  saved-articles">

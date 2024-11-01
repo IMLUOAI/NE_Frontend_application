@@ -2,22 +2,25 @@ import "../Header/header.css";
 import Navigation from "..//Navigation/Navigation";
 import { useState } from "react";
 import menuIcon from "../../images/menu.svg";
-import crossIcon from "../../images/back.svg";
+import closeButton from "../../images/close.svg";
+import MobileMenuModal from "../MobileMenuModal/MobileMenuModal";
 
 const Header = ({ userName = "", isAuthorized, onLogout, onSigninModal }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
   return (
     <header className="header">
       <div className="header__bar">
-        <h1 className="header__logo" alt="logo">
+        <h1 className={`header__logo ${isMenuOpen ? "hidden" : ""}`}>
           NewsExplorer
         </h1>
         <button
-          className="header__menu-button"
+          className={`header__menu-button ${isMenuOpen ? "hidden" : ""}`}
           type="button"
           onClick={toggleMenu}
         >
@@ -25,19 +28,17 @@ const Header = ({ userName = "", isAuthorized, onLogout, onSigninModal }) => {
         </button>
         <Navigation
           isLoggedIn={isAuthorized}
+          isMenuOpen={isMenuOpen}
           userName={userName}
           onLogout={onLogout}
           onSigninModal={onSigninModal}
-          handleCloseMenu={toggleMenu}
         />
         {isMenuOpen && (
-          <div className="header__mobile-menu" onClick={toggleMenu}>
-            <button className="header__close-icon">
-              <img src={crossIcon} alt="close" />
-            </button>
-            <a href="/">Home</a>
-            <button onClick={onSigninModal}>Sign in</button>
-          </div>
+          <MobileMenuModal
+            isOpen={isMenuOpen}
+            handleCloseModal={closeMenu}
+            handleOpenSigninModal={onSigninModal}
+          />
         )}
       </div>
     </header>

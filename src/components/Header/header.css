@@ -8,7 +8,7 @@
   background-image: url("../../images/ImageHeader.svg");
   background-size: cover;
   background-position: center;
-  border-bottom: 2px solid #e9e7e703;
+  box-shadow: 0px -1px 0px 0px #ffffff33 inset;
 }
 .header__bar {
   display: flex;
@@ -37,40 +37,50 @@
 
 @media screen and (min-width: 320px) and (max-width: 480px) {
   .header {
-    width: 100%;
+    width: 320px;
     height: 56px;
+    box-shadow: 0px -1px 0px 0px #ffffff33 inset;
   }
   .header__bar {
     width: 100%;
     height: 24px;
+    margin: 16px 16px;
+    display: flex;
   }
   .header__logo {
     width: 117px;
     height: 24px;
     font-size: 16px;
-    line-height: 24px;
-    margin: 16px auto 16px 16px;
+    margin: 16px auto 16px 0;
   }
   .header__menu-button {
-    display: block;
+    display: flex;
     width: 24px;
     height: 24px;
-    margin: 16px 16px 16px auto;
-    /* background: transparent; */
+    justify-content: center;
+    align-items: center;
+    background: transparent;
     border: none;
     cursor: pointer;
+    margin: 16px 0 16px auto;
+  }
+  .header__logo.hidden,
+  .header__menu-button.hidden {
+    display: none;
   }
 
   .header__menu-icon {
-    width: 16px;
-    height: 2px;
+    width: 24px;
+    height: 24px;
+    filter: invert(100%);
   }
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
   .header {
-    width: 100%;
+    width: 768px;
     height: 66px;
+    box-shadow: 0px -1px 0px 0px #ffffff33 inset;
   }
 
   .header__bar {

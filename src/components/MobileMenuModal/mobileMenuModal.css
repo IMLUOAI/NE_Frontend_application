@@ -1,0 +1,97 @@
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  .mobile-menu {
+    width: 100%;
+    height: auto;
+    background: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+  }
+  .mobile__content {
+    width: 320px;
+    height: auto;
+    background: #1a1b22;
+    border-radius: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 6px;
+    left: 8px;
+    z-index: 999;
+  }
+  .mobile-menu__header {
+    width: 320px;
+    height: 56px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px -1px 0px 0px #ffffff33 inset;
+    margin: 0 0 16px;
+  }
+
+  .mobile-menu__logo {
+    width: 117px;
+    height: 24px;
+    font-family: "Roboto Slab", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: left;
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+    margin: 16px auto 16px 16px;
+  }
+
+  .mobile-menu__close-button {
+    width: 24px;
+    height: 24px;
+    border: none;
+    background-color: transparent;
+    margin: 16px 16px 16px auto;
+  }
+
+  .mobile-menu__close-icon {
+    width: 17px;
+    height: 17px;
+  }
+  .mobile-menu__nav {
+    width: 320px;
+    height: 134px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 0 24px;
+  }
+  .mobile-menu__link {
+    display: block;
+    width: 288px;
+    height: 56px;
+    color: #ffffff;
+    background: transparent;
+    font-size: 18px;
+    line-height: 56px;
+    padding-left: 0;
+    text-align: left;
+    text-decoration: none;
+    margin: 0 16px 22px;
+  }
+
+  .mobile-menu__signin-button {
+    width: 288px;
+    height: 56px;
+    border-radius: 28px;
+    border: 1px solid #ffffff;
+    background: transparent;
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 24px;
+    margin: 0 16px 24px;
+    text-align: center;
+    margin: 0 16px;
+  }
+}
