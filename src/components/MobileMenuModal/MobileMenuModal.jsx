@@ -2,22 +2,18 @@ import React from "react";
 import closeButton from "../../images/close.svg";
 import "../MobileMenuModal/mobileMenuModal.css";
 
-const MobileMenuModal = ({
-  isOpen,
-  handleCloseModal,
-  handleOpenSigninModal,
-}) => {
+const MobileMenuModal = ({ isOpen, onClose, handleOpenSigninModal }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="mobile-menu" menuonClose={handleCloseModal} isOpen={isOpen}>
+    <div className="mobile-menu">
       <div className="mobile__content">
         <div className="mobile-menu__header">
           <h1 className="mobile-menu__logo">NewsExplorer</h1>
           <button
             className="mobile-menu__close-button"
             type="button"
-            onClick={handleCloseModal}
+            onClick={onClose}
           >
             <img
               src={closeButton}
@@ -33,7 +29,10 @@ const MobileMenuModal = ({
           <button
             type="button"
             className="mobile-menu__signin-button"
-            onClick={handleOpenSigninModal}
+            onClick={() => {
+              handleOpenSigninModal();
+              onClose();
+            }}
           >
             Sign in
           </button>

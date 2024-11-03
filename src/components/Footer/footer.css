@@ -26,7 +26,7 @@
   align-items: center;
   margin: 32px 40px 26px 524px;
 }
-.nav__link.footer {
+.nav__link-footer {
   width: 49px;
   height: 24px;
   color: #000;
@@ -37,13 +37,13 @@
   text-align: center;
   text-decoration: none;
 }
-.nav__link.footer:hover {
+.nav__link-footer:hover {
   cursor: pointer;
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 2px;
 }
-.nav__link.tripleten {
+.nav__link-tripleten {
   width: 74px;
   height: 24px;
   color: #000;
@@ -54,7 +54,7 @@
   text-align: center;
   text-decoration: none;
 }
-.nav__link.tripleten:hover {
+.nav__link-tripleten:hover {
   cursor: pointer;
   text-decoration: underline;
   text-decoration-thickness: 2px;
@@ -120,11 +120,11 @@
     grid-area: nav;
     margin: 20px auto 16px;
   }
-  .nav__link.footer {
+  .nav__link-footer {
     font-size: 18px;
     margin-left: 25px;
   }
-  .nav__link.tripleten {
+  .nav__link-tripleten {
     font-size: 18px;
     margin-left: 15px;
   }

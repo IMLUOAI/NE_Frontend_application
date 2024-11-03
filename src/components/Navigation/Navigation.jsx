@@ -12,13 +12,13 @@ const Navigation = ({
   return (
     <nav className="nav__section">
       {!isMenuOpen && (
-        <a href="/" className="nav__link header">
+        <a href="/" className="nav__link-home">
           Home
         </a>
       )}
       {isLoggedIn ? (
         <>
-          <Link to="/saved-articles" className="nav__link  saved-articles">
+          <Link to="/saved-articles" className="nav__link-savedArticles">
             Saved Articles
           </Link>
           <div className="nav__user-bar">

@@ -11,6 +11,7 @@ import SignupModal from "../SignupModal/SignupModal";
 import SuccessSignupModal from "../SuccessSignupModal/SuccessSignupModal";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import { setToken, getToken, removeToken } from "../../utils/token";
+import MobileMenuModal from "../MobileMenuModal//MobileMenuModal";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -20,9 +21,13 @@ function App() {
   const [hasSearched, setHasSearched] = useState(false);
   const [error, setError] = useState(null);
   const [newsData, setNewsData] = useState([]);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navigate = useNavigate();
-  const handleOpenSigninModal = () => setActiveModal("signin");
+  const handleOpenSigninModal = () => {
+    setActiveModal("signin");
+    // handleCloseMobileMenuModal();
+  };
   const handleOpenSignupModal = () => setActiveModal("signup");
   const handleOpenSuccessSignupModal = () => setActiveModal("successSignup");
   const handleCloseModal = () => {
@@ -138,6 +143,9 @@ function App() {
     }
   };
 
+  const handleOpenMobileMenuModal = () => setIsMenuOpen(true);
+  const handleCloseMobileMenuModal = () => setIsMenuOpen(false);
+
   // useEffects to close modals in multiple ways
 
   useEffect(() => {
@@ -192,6 +200,8 @@ function App() {
           userName={currentUser?.name}
           isAuthorized={isLoggedIn}
           onSigninModal={handleOpenSigninModal}
+          isMenuOpen={isMenuOpen}
+          handleOpenMobileMenuModal={handleOpenMobileMenuModal}
           onLogout={handleLogout}
         />
         <Routes>
@@ -233,6 +243,13 @@ function App() {
           <SuccessSignupModal
             isOpen={activeModal === "successSignup"}
             handleCloseModal={handleCloseModal}
+            handleOpenSigninModal={handleOpenSigninModal}
+          />
+        )}
+        {isMenuOpen && (
+          <MobileMenuModal
+            isOpen={isMenuOpen}
+            onClose={handleCloseMobileMenuModal}
             handleOpenSigninModal={handleOpenSigninModal}
           />
         )}

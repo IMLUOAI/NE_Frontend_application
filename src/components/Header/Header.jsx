@@ -1,18 +1,15 @@
 import "../Header/header.css";
 import Navigation from "..//Navigation/Navigation";
-import { useState } from "react";
 import menuIcon from "../../images/menu.svg";
-import closeButton from "../../images/close.svg";
-import MobileMenuModal from "../MobileMenuModal/MobileMenuModal";
 
-const Header = ({ userName = "", isAuthorized, onLogout, onSigninModal }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
+const Header = ({
+  userName = "",
+  isMenuOpen,
+  isAuthorized,
+  onLogout,
+  onSigninModal,
+  handleOpenMobileMenuModal,
+}) => {
   return (
     <header className="header">
       <div className="header__bar">
@@ -22,7 +19,7 @@ const Header = ({ userName = "", isAuthorized, onLogout, onSigninModal }) => {
         <button
           className={`header__menu-button ${isMenuOpen ? "hidden" : ""}`}
           type="button"
-          onClick={toggleMenu}
+          onClick={handleOpenMobileMenuModal}
         >
           <img src={menuIcon} className="header__menu-icon" alt="menu-icon" />
         </button>
@@ -33,13 +30,6 @@ const Header = ({ userName = "", isAuthorized, onLogout, onSigninModal }) => {
           onLogout={onLogout}
           onSigninModal={onSigninModal}
         />
-        {isMenuOpen && (
-          <MobileMenuModal
-            isOpen={isMenuOpen}
-            handleCloseModal={closeMenu}
-            handleOpenSigninModal={onSigninModal}
-          />
-        )}
       </div>
     </header>
   );
