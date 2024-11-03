@@ -25,7 +25,12 @@ const NewsCard = ({ card, handleSaveOrUnsave, currentUser }) => {
     }
   };
   return (
-    <div className="card">
+    <a
+      href={card.url}
+      target="_blank"
+      rel="noreferrer noopener"
+      className="card card__link"
+    >
       <img
         src={card.urlToImage || "default-image.jpg"}
         className="card__image"
@@ -35,7 +40,10 @@ const NewsCard = ({ card, handleSaveOrUnsave, currentUser }) => {
         <button
           type="button"
           className={cardSaveButtonClassName}
-          onClick={() => handleSaveOrUnsave(card, isSaved)}
+          onClick={(e) => {
+            e.preventDefault();
+            handleSaveOrUnsave(card, isSaved);
+          }}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
@@ -51,7 +59,7 @@ const NewsCard = ({ card, handleSaveOrUnsave, currentUser }) => {
         {card.description || "No available content"}
       </p>
       <h3 className="card__sourceName">{card.sourceName}</h3>
-    </div>
+    </a>
   );
 };
 
