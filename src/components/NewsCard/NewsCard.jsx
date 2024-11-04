@@ -5,28 +5,35 @@ import solidPatternHover from "../../images/Group 12.svg";
 import hollowPatternHover from "../../images/Group 14.svg";
 import { useState } from "react";
 
-const NewsCard = ({ card, handleSaveOrUnsave, currentUser }) => {
+const NewsCard = ({ card, handleSaveOrUnsave }) => {
   if (!card) {
     return null;
   }
-  const [isHiovered, setIsHovered] = useState(false);
-  const isSaved =
-    Array.isArray(card.saves) &&
-    card.saves.some((id) => id === currentUser?._id);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isSaved, setIsSaved] = useState(false);
+
   const cardSaveButtonClassName = `card__save-button ${
     isSaved ? "card__save-button_saved" : ""
   }`;
 
   const getIcon = () => {
     if (isSaved) {
-      return isHiovered ? solidPatternHover : solidPattern;
+      return isHovered ? solidPatternHover : solidPattern;
     } else {
-      return isHiovered ? hollowPatternHover : hollowPattern;
+      return isHovered ? hollowPatternHover : hollowPattern;
     }
+  };
+  const handelClick = (e) => {
+    e.preventDefault();
+    handleSaveOrUnsave(card, isSaved)
+      .then(() => {
+        setIsSaved(!isSaved);
+      })
+      .catch((err) => console.log(err));
   };
   return (
     <a
-      href={card.url}
+      href={card.url || "#"}
       target="_blank"
       rel="noreferrer noopener"
       className="card card__link"
@@ -40,10 +47,7 @@ const NewsCard = ({ card, handleSaveOrUnsave, currentUser }) => {
         <button
           type="button"
           className={cardSaveButtonClassName}
-          onClick={(e) => {
-            e.preventDefault();
-            handleSaveOrUnsave(card, isSaved);
-          }}
+          onClick={handelClick}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
@@ -53,7 +57,9 @@ const NewsCard = ({ card, handleSaveOrUnsave, currentUser }) => {
           </div>
         </button>
       </div>
-      <div className="card__publishedAt">{card.publishedAt}</div>
+      <div className="card__publishedAt">
+        {card.publishedAt || "Unknown Date"}
+      </div>
       <h2 className="card__title">{card.title || "No available title"}</h2>
       <p className="card__description">
         {card.description || "No available content"}

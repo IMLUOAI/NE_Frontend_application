@@ -12,7 +12,10 @@ const Main = ({
   hasSearched,
   onSaveOrUnsave,
 }) => {
-  console.log("newsData", newsData);
+  const filteredNewsData = Array.isArray(newsData)
+    ? newsData.filter((article) => article !== "undefined")
+    : [];
+  console.log("filtered newsData", filteredNewsData);
   return (
     <main className="main__section">
       <div className="main__content">
@@ -26,15 +29,15 @@ const Main = ({
       {hasSearched && (
         <div className="news__section">
           <Preloader isLoading={isLoading} />
-          {!isLoading && Array.isArray(newsData) && newsData.length > 0 && (
+          {!isLoading && filteredNewsData.length > 0 && (
             <NewsSection
-              newsCards={newsData}
+              newsCards={filteredNewsData}
               handleSaveOrUnsave={onSaveOrUnsave}
               isLoading={isLoading}
               error={error}
             />
           )}
-          {!isLoading && Array.isArray(newsData) && newsData.length === 0 && (
+          {!isLoading && filteredNewsData.length === 0 && (
             <h3 className="preloader__title">Nothing found</h3>
           )}
         </div>

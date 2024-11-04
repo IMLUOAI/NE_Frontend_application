@@ -4,7 +4,12 @@ import NewsCard from "../NewsCard/NewsCard";
 import Preloader from "../Preloader/Preloader";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
-const NewsSection = ({ newsCards, isLoading, error, handleSaveOrUnsave }) => {
+const NewsSection = ({
+  newsCards = [],
+  isLoading,
+  error,
+  handleSaveOrUnsave,
+}) => {
   const [visibleItems, setVisibleItems] = useState(3);
   const [isExpanded, setIsExpanded] = useState(false);
   const { currentUser } = useContext(CurrentUserContext);
@@ -36,21 +41,21 @@ const NewsSection = ({ newsCards, isLoading, error, handleSaveOrUnsave }) => {
         <h3 className="preloader__title">Nothing found</h3>
       )}
       <div className="news__card-list">
-        {newsCards
-          .slice(0, visibleItems)
-          .map(
-            (card) => (
-              console.log("card", card),
-              (
-                <NewsCard
-                  key={card.id || card?._id}
-                  card={card}
-                  currentUser={currentUser}
-                  handleSaveOrUnsave={handleSaveOrUnsave}
-                />
-              )
-            )
-          )}
+        {newsCards.slice(0, visibleItems).map((card, index) => {
+          if (!card) {
+            console.warn("card or index ${index} is undefined or null");
+            return null;
+          }
+          const cardKey = card.id || card?._id || index;
+          return (
+            <NewsCard
+              key={cardKey}
+              card={card}
+              currentUser={currentUser}
+              handleSaveOrUnsave={handleSaveOrUnsave}
+            />
+          );
+        })}
       </div>
       {newsCards.length > 3 && (
         <button

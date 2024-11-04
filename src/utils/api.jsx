@@ -79,7 +79,7 @@ const mockNewsData = [
     keyword: "ai",
   },
   {
-    _id: 5,
+    _id: "biztoc.com",
     author: "news.google.com",
     title:
       "Mesa woman killed in Tesla ‘Full Self-Driving’ crash; feds to probe automaker",
@@ -94,7 +94,7 @@ const mockNewsData = [
     keyWord: "tesla",
   },
   {
-    _id: 8,
+    _id: "iphone-in-canada",
     author: "John Quintet",
     title: "Tesla iOS App Updated with Control Center Toggles in iOS 18",
     description:
@@ -141,6 +141,24 @@ const unsaveArticle = () => {
     resolve(response);
   });
 };
+
+const deleteArticle = (articleId) => {
+  const token = getToken();
+  return new Promise((resolve, reject) => {
+    if (!token) {
+      reject("No token found");
+    }
+    if (!articleId) {
+      reject("No article id found");
+    }
+    resolve({
+      ok: true,
+      status: 200,
+      statusText: "OK",
+    });
+  });
+};
+
 const getUserInfo = () => {
   const token = getToken();
   return new Promise((resolve, reject) => {
@@ -166,7 +184,7 @@ const api = {
   getNews,
   saveArticles,
   unsaveArticle,
-  //   getSavedArticles,
+  deleteArticle,
   getUserInfo,
 };
 

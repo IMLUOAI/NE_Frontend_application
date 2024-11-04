@@ -1,6 +1,6 @@
 import "../App/app.css";
 import React, { useEffect, useState } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
@@ -12,6 +12,7 @@ import SuccessSignupModal from "../SuccessSignupModal/SuccessSignupModal";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import { setToken, getToken, removeToken } from "../../utils/token";
 import MobileMenuModal from "../MobileMenuModal//MobileMenuModal";
+import SavedArticlesSection from "../SavedArticlesSection/SavedArticlesSection";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -22,6 +23,10 @@ function App() {
   const [error, setError] = useState(null);
   const [newsData, setNewsData] = useState([]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [savedArticles, setSavedArticles] = useState([]);
+
+  const location = useLocation();
+  const isSavedArticlesPage = location.pathname === "/saved-articles";
 
   const navigate = useNavigate();
   const handleOpenSigninModal = () => {
@@ -62,8 +67,6 @@ function App() {
     if (!password || !email) return Promise.reject("Invalid email or password");
     const makeRequest = () => {
       return auth.register(email, password, username).then(() => {
-        // handleCloseModal();
-        // setActiveModal("signin");
         setActiveModal("successSignup");
       });
     };
@@ -109,22 +112,44 @@ function App() {
       console.log("CurrentUser is not available");
       return;
     }
-    const isSaved = article.save?.some((id) => id === currentUser._id);
+    const isSaved = savedArticles?.some((saved) => saved.id === article._id);
     const request = !isSaved
-      ? api.saveArticles(_id, token)
-      : api.unsaveArticle(_id, token);
+      ? api.saveArticles(article._id, token)
+      : api.unsaveArticle(article._id, token);
     return request
-      .then((updatedNewCards) => {
-        const updatedNewsData = updatedNewCards.data;
-        setNewsData((cards) =>
-          cards.map((card) =>
-            card._id === article._id ? updatedNewsData : card
-          )
-        );
+      .then((updatedArticle) => {
+        setNewsData((prev) => {
+          return isSaved
+            ? prev.filter((saved) => saved._id !== article._id)
+            : [...prev, updatedArticle];
+        });
       })
       .catch((err) => console.log(err));
   };
 
+  const handleDeletedArticle = (article) => {
+    console.log("Article to delete:", article);
+    const token = getToken();
+    const { _id } = article;
+
+    if (!currentUser) {
+      return null;
+    }
+    api
+      .deleteArticle(_id, token)
+      .then((res) => {
+        if (res.ok) {
+          setSavedArticles((prev) => prev.filter((saved) => saved._id !== _id));
+        }
+        setNewsData((prev) =>
+          prev.filter((news) =>
+            news._id === _id ? { ...news, isSaved: false } : news
+          )
+        );
+        console.log("Article deleted successfully");
+      })
+      .catch((err) => console.error(err));
+  };
   const handleSearch = async (query) => {
     setIsLoading(true);
     try {
@@ -193,6 +218,12 @@ function App() {
       .catch(console.error);
   }, [isLoggedIn]);
 
+  useEffect(() => {
+    if (currentUser) {
+      setSavedArticles(currentUser.savedArticles || []);
+    }
+  }, [currentUser]);
+
   return (
     <CurrentUserContext.Provider value={{ currentUser, isLoggedIn }}>
       <div className="page__section">
@@ -201,6 +232,7 @@ function App() {
           isAuthorized={isLoggedIn}
           onSigninModal={handleOpenSigninModal}
           isMenuOpen={isMenuOpen}
+          isSavedArticles={isSavedArticlesPage}
           handleOpenMobileMenuModal={handleOpenMobileMenuModal}
           onLogout={handleLogout}
         />
@@ -215,6 +247,16 @@ function App() {
                 isLoading={isLoading}
                 hasSearched={hasSearched}
                 onSaveOrUnsave={handleToggleSaveArticle}
+              />
+            }
+          />
+          <Route
+            path="/saved-articles"
+            element={
+              <SavedArticlesSection
+                articles={savedArticles}
+                handleSaveOrUnsave={handleToggleSaveArticle}
+                handleDeletedArticle={handleDeletedArticle}
               />
             }
           />

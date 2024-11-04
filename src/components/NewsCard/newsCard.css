@@ -26,9 +26,9 @@
 .card__feature {
   width: 40px;
   height: 40px;
+  align-items: center;
+  justify-content: center;
   position: absolute;
-  top: 24px;
-  right: 24px;
   top: 24px;
   right: 24px;
 }
@@ -37,19 +37,23 @@
   height: 40px;
   background: none;
   border: none;
+  border-radius: 5px;
   display: flex;
   align-items: center;
+  justify-content: center;
   position: relative;
 }
 
 .card__save-button_saved {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
   background: #2f71e5;
 }
 
 .news__save-icon {
-  width: 24px;
-  height: 24px;
-  align-items: center;
+  width: 14px;
+  height: 19px;
 }
 
 .card__tooltip {
@@ -64,7 +68,7 @@
   align-items: center;
   position: absolute;
   top: 0px;
-  right: 38px;
+  right: 42px;
   z-index: 1;
   display: none;
 }
@@ -178,6 +182,16 @@
     width: 24px;
     height: 24px;
   }
+  .card__feature {
+    top: 24px;
+    right: 8px;
+  }
+  .card__tooltip {
+    width: 142px;
+    height: 40px;
+    top: -8px;
+    right: 35px;
+  }
 }
 @media screen and (min-width: 481px) and (max-width: 768px) {
   .card {
@@ -219,5 +233,13 @@
     font-size: 16px;
     line-height: 20px;
     margin: 18px auto 24px 24px;
+  }
+  .card__feature {
+    top: 8px;
+    right: 8px;
+  }
+  .card__tooltip {
+    width: 132px;
+    height: 40px;
   }
 }
