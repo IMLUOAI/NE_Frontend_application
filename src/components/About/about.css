@@ -1,5 +1,4 @@
 .about__section {
-  max-width: 1440px;
   height: 624px;
   display: flex;
   flex-direction: row;
@@ -15,7 +14,7 @@
 }
 .about__content {
   width: 600px;
-  height: 600px;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -30,15 +29,14 @@
   line-height: 46px;
   text-align: left;
   color: #000;
-  margin: 0;
 }
 .about__userInfo {
-  max-width: 600px;
+  width: 600px;
   height: auto;
   display: flex;
   flex-direction: column;
   list-style-type: none;
-  margin: 24px 0 0 0;
+  align-items: flex-start;
   padding: 0;
 }
 .about__userInfo-list {
@@ -49,15 +47,14 @@
   line-height: 1.6;
   text-align: left;
   color: #000;
-  padding: 0;
 }
 .about__userInfo-list_span {
   color: #53585b;
   padding-left: 6px;
 }
-@media screen and (min-width: 320px) and (max-width: 480px) {
+@media screen and (max-width: 320px) {
   .about__section {
-    width: 320px;
+    width: 100%;
     height: auto;
     flex-direction: column;
   }
@@ -69,7 +66,7 @@
   .about__content {
     width: 288px;
     height: auto;
-    margin: 0 16px 128px;
+    margin: 0 16px 0;
   }
   .about__title {
     height: 40px;
@@ -78,14 +75,16 @@
     margin: 0 0 16px;
   }
   .about__userInfo {
-    max-width: 288px;
-    margin: 30px 0 0 0;
+    width: 288px;
+    height: auto;
+    white-space: wrap;
+    margin: 0 auto 16px 0;
   }
 }
 
-@media screen and (min-width: 481px) and (max-width: 768px) {
+@media screen and (min-width: 321px) and (max-width: 768px) {
   .about__section {
-    width: 768px;
+    width: 100%;
     height: auto;
   }
   .about__avatar {
@@ -105,7 +104,7 @@
     margin: 0 0 16px;
   }
   .about__userInfo {
-    max-width: 424px;
+    width: 424px;
     margin: 0;
   }
 }
