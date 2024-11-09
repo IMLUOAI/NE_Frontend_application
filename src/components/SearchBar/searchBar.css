@@ -3,6 +3,7 @@
   height: 64px;
   display: flex;
   margin: 0 416px 80px;
+  justify-content: center;
   border: none;
   /* backdrop-filter: blur(8px); */
   position: relative;

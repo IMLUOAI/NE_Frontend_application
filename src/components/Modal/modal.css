@@ -1,11 +1,12 @@
 .modal {
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   background-color: rgba(0, 0, 0, 0.3);
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
   bottom: 0;
   z-index: 999;
 }
@@ -15,6 +16,7 @@
 }
 .modal__content {
   width: 430px;
+  height: auto;
   background-color: #ffffff;
   box-shadow: 0px 0px 25px 0px #00000026;
   border-radius: 16px;
@@ -229,14 +231,17 @@
   margin: 0 auto 51px 36px;
 }
 
-@media screen and(max-width: 320px) {
-  .modal__content {
-    width: 100%;
-    height: 560px;
-    top: 560px;
-    left: -152px;
+@media screen and (max-width: 320px) {
+  .modal {
+    top: 6px;
+    left: 8px;
   }
-
+  .modal__content {
+    width: 100vw;
+    height: 568px;
+    top: 346px;
+    left: -50%;
+  }
   .modal__form {
     margin: 0 16px;
   }

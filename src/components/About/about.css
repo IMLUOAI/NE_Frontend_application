@@ -1,9 +1,12 @@
 .about__section {
+  width: 100vw;
+  max-width: 1440px;
   height: 624px;
   display: flex;
   flex-direction: row;
   background-color: #fff;
   border: none;
+  margin: 0 auto;
 }
 .about__avatar {
   width: 464px;
@@ -54,7 +57,6 @@
 }
 @media screen and (max-width: 320px) {
   .about__section {
-    width: 100%;
     height: auto;
     flex-direction: column;
   }
@@ -84,7 +86,6 @@
 
 @media screen and (min-width: 321px) and (max-width: 768px) {
   .about__section {
-    width: 100%;
     height: auto;
   }
   .about__avatar {

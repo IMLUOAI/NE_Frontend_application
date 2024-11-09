@@ -1,5 +1,6 @@
 .news__section {
-  max-width: 1440px;
+  width: 100%;
+  /* max-width: 1440px; */
   height: auto;
   display: flex;
   flex-direction: column;
@@ -44,9 +45,9 @@
   opacity: 0.5;
 }
 @media screen and (max-width: 320px) {
-  .news__section {
+  /* .news__section {
     width: 320px;
-  }
+  } */
   .news__section-title {
     width: 288px;
     height: 34px;
