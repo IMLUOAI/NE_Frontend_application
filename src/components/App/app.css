@@ -30,11 +30,3 @@
     width: 100vw;
   }
 }
-
-@media screen and (min-width: 769px) {
-  .page__section {
-    width: 100%;
-    max-width: 1440px;
-    margin: 0 auto;
-  }
-}
