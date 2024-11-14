@@ -26,18 +26,18 @@ const Main = ({
         </h3>
         <SearchBar onSearch={handleSearch} />
       </div>
-      {hasSearched && (
+      {isLoading && <Preloader isLoading={isLoading} />}
+
+      {hasSearched && !isLoading && (
         <div className="news__section">
-          <Preloader isLoading={isLoading} />
-          {!isLoading && filteredNewsData.length > 0 && (
+          {filteredNewsData.length > 0 ? (
             <NewsSection
               newsCards={filteredNewsData}
               handleSaveOrUnsave={onSaveOrUnsave}
               isLoading={isLoading}
               error={error}
             />
-          )}
-          {!isLoading && filteredNewsData.length === 0 && (
+          ) : (
             <h3 className="preloader__title">Nothing found</h3>
           )}
         </div>

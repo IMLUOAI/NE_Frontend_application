@@ -31,15 +31,6 @@ const NewsSection = ({
   return (
     <div id="news-container" className="news__section">
       <h1 className="news__section-title">Search results</h1>
-      <Preloader isLoading={isLoading} />
-      {error && (
-        <p className="preloader__description">
-          Sorry, but nothing matched your search terms
-        </p>
-      )}
-      {!isLoading && !error && newsCards.length === 0 && (
-        <h3 className="preloader__title">Nothing found</h3>
-      )}
       <div className="news__card-list">
         {newsCards.slice(0, visibleItems).map((card, index) => {
           if (!card) {

@@ -11,7 +11,7 @@
   max-width: 712px;
   height: 46px;
   font-family: "Roboto Slab", sans-serif;
-  /* white-space: nowrap; */
+  white-space: nowrap;
   font-size: 40px;
   font-weight: 400;
   line-height: 46px;
@@ -55,7 +55,7 @@
   .news__card-list {
     max-width: 288px;
     grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
-    margin: 0 16px 32px;
+    margin: 0 auto 32px;
     gap: 10px;
   }
   .news__expand-button {
