@@ -8,7 +8,7 @@
   /* margin: auto 0; */
 }
 .footer__description {
-  max-width: 433px;
+  width: 433px;
   height: 22px;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
@@ -24,7 +24,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 32px 40px 26px 0;
+  margin: 32px 40px 26px auto;
 }
 .nav__link-footer {
   width: 49px;
@@ -56,9 +56,9 @@
 }
 .nav__link-tripleten:hover {
   cursor: pointer;
-  text-decoration: underline;
+  /* text-decoration: underline;
   text-decoration-thickness: 2px;
-  text-underline-offset: 2px;
+  text-underline-offset: 2px; */
 }
 .footer__social-links {
   width: 72px;
@@ -67,7 +67,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 32px 104px 26px auto;
+  margin: 32px 104px 26px 0;
 }
 .footer__logo-github {
   width: 24px;
@@ -88,7 +88,7 @@
   opacity: 0.5;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (min-width: 320px) and (max-width: 425px) {
   .footer {
     height: auto;
     align-items: start;
@@ -135,7 +135,7 @@
     margin: 20px 0 auto 15px;
   }
 }
-@media screen and (min-width: 321px) and (max-width: 768px) {
+@media screen and (min-width: 426px) and (max-width: 768px) {
   .footer {
     height: 64px;
   }

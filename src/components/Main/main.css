@@ -41,7 +41,7 @@
   margin: 0 auto 88px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (min-width: 320px) and (max-width: 425px) {
   .main__section {
     flex-direction: column;
     padding: 0;
@@ -67,7 +67,7 @@
   }
 }
 
-@media screen and (min-width: 321px) and (max-width: 768px) {
+@media screen and (min-width: 426px) and (max-width: 768px) {
   .main__section {
     height: auto;
     flex-direction: column;

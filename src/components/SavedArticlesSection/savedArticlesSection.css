@@ -56,54 +56,54 @@
   margin: 56px 104px auto;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (min-width: 320px) and (max-width: 425px) {
   .saved-articles__section {
-    width: 320px;
+    width: 100vw;
     height: auto;
   }
   .saved-articles__note {
-    width: 288px;
+    max-width: 288px;
     height: 24px;
     font-size: 12px;
     line-height: 24px;
-    margin: 16px 16px 0;
+    margin: 16px auto 0;
   }
   .saved-articles__title {
-    width: 288px;
+    max-width: 288px;
     height: 56px;
     font-size: 30px;
     line-height: 34px;
-    margin: 16px 16px 50px;
+    margin: 16px auto 50px;
   }
   .saved-articles__keyword-title {
-    width: 288px;
+    max-width: 288px;
     height: 48px;
     font-size: 18px;
     line-height: 24px;
-    margin: 0 16px 32px;
+    margin: 0 auto 32px;
   }
   .saved-articles__keyword-note {
-    width: 288px;
+    max-width: 288px;
     height: 24px;
     font-size: 18px;
     line-height: 24px;
-    margin: 0 16px 16px;
+    margin: 0 auto 16px;
   }
   .saved-articles__card-list {
-    width: 288px;
+    max-width: 288px;
     height: auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
-    margin: 0 16px 32px;
+    margin: 0 auto 32px;
   }
 }
-@media screen and (min-width: 321px) and (max-width: 768px) {
+@media screen and (min-width: 426px) and (max-width: 768px) {
   .saved-articles__section {
-    width: 100%;
+    width: 100vw;
     height: auto;
   }
   .saved-articles__note {
-    width: 712px;
+    max-width: 712px;
     height: 24px;
     font-size: 14px;
     line-height: 24px;
@@ -117,21 +117,21 @@
     margin: 16px auto 16px 40px;
   }
   .saved-articles__keyword-title {
-    width: 712px;
+    max-width: 712px;
     height: 24px;
     font-size: 18px;
     line-height: 24px;
     margin: 0 auto 30px 40px;
   }
   .saved-articles__keyword-note {
-    width: 712px;
+    max-width: 712px;
     height: 24px;
     font-size: 18px;
     line-height: 24px;
     margin: 0 auto 30px 40px;
   }
   .saved-articles__card-list {
-    width: 688px;
+    max-width: 688px;
     height: 420px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(224px, 1fr));
