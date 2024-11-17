@@ -6,6 +6,7 @@
   background: #f5f6f7;
   flex-direction: column;
   justify-content: center;
+  margin: 0 auto;
 }
 
 .circle-preloader {

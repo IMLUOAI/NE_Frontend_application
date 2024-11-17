@@ -1,5 +1,6 @@
 .main__section {
   width: 100vw;
+  height: auto;
   max-width: 1440px;
   min-height: 576px;
   display: flex;
@@ -7,6 +8,8 @@
   justify-content: center;
   background-image: url("../../images/1920px-WISE_artist_concept_\(PIA17254\,_crop\)Main.svg");
   background-size: auto;
+  margin: 0 auto;
+  padding: 0;
 }
 
 .main__content {
@@ -15,7 +18,7 @@
   flex-direction: column;
   white-space: wrap;
   justify-content: center;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   color: #ffffff;
 }
 .main__title {

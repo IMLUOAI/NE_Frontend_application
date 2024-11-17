@@ -52,6 +52,7 @@
   line-height: 1.6;
   text-align: left;
   color: #000;
+  margin-left: 0;
   padding: 0;
 }
 .about__userInfo-list_span {
@@ -74,9 +75,10 @@
   .about__content {
     max-width: 288px;
     height: auto;
-    margin: 0 16px 0;
+    margin: 0 auto 0;
   }
   .about__title {
+    width: 288px;
     height: 40px;
     font-size: 30px;
     line-height: 46px;
