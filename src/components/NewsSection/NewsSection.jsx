@@ -1,15 +1,9 @@
 import React, { useState, useContext } from "react";
 import "../NewsSection/newsSection.css";
 import NewsCard from "../NewsCard/NewsCard";
-import Preloader from "../Preloader/Preloader";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
-const NewsSection = ({
-  newsCards = [],
-  isLoading,
-  error,
-  handleSaveOrUnsave,
-}) => {
+const NewsSection = ({ newsCards = [], handleSaveOrUnsave }) => {
   const [visibleItems, setVisibleItems] = useState(3);
   const [isExpanded, setIsExpanded] = useState(false);
   const { currentUser } = useContext(CurrentUserContext);

@@ -16,6 +16,7 @@ const Main = ({
     ? newsData.filter((article) => article !== "undefined")
     : [];
   console.log("filtered newsData", filteredNewsData);
+  const noResults = hasSearched && !isLoading && filteredNewsData.length === 0;
   return (
     <main className="main__section">
       <div className="main__content">
@@ -26,21 +27,15 @@ const Main = ({
         </h3>
         <SearchBar onSearch={handleSearch} />
       </div>
-      {isLoading && <Preloader isLoading={isLoading} />}
+      <Preloader isLoading={isLoading} noResults={noResults} />
 
-      {hasSearched && !isLoading && (
-        <div className="news__section">
-          {filteredNewsData.length > 0 ? (
-            <NewsSection
-              newsCards={filteredNewsData}
-              handleSaveOrUnsave={onSaveOrUnsave}
-              isLoading={isLoading}
-              error={error}
-            />
-          ) : (
-            <h3 className="preloader__title">Nothing found</h3>
-          )}
-        </div>
+      {hasSearched && !isLoading && filteredNewsData.length > 0 && (
+        <NewsSection
+          newsCards={filteredNewsData}
+          handleSaveOrUnsave={onSaveOrUnsave}
+          isLoading={isLoading}
+          error={error}
+        />
       )}
       <div className="about__section">
         <About />

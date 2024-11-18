@@ -6,6 +6,7 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import api from "../../utils/api";
 import auth from "../../utils/auth";
+import { getSearchNews } from "../../utils/NewsApi";
 import SigninModal from "../SigninModal/SigninModal";
 import SignupModal from "../SignupModal/SignupModal";
 import SuccessSignupModal from "../SuccessSignupModal/SuccessSignupModal";
@@ -153,10 +154,11 @@ function App() {
   const handleSearch = async (query) => {
     setIsLoading(true);
     try {
+      // const fetchedNews = await getSearchNews(query);
       const fetchedNews = await api.getNews(query);
       setHasSearched(true);
       setNewsData(fetchedNews || []);
-      setError(null);
+      setError("");
     } catch (err) {
       console.error("Fetching news Error:", err);
       setError(

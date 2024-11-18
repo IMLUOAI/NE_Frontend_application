@@ -31,6 +31,7 @@ const SavedArticlesSection = ({
             console.warn("card or index ${index} is undefined or null");
             return null;
           }
+          console.log("Rendering card:", card);
           const cardKey = card.id || card?._id || index;
           return (
             <div key={cardKey} className="saved-articles__card">
@@ -39,7 +40,7 @@ const SavedArticlesSection = ({
                 currentUser={currentUser}
                 handleSaveOrUnsave={handleSaveOrUnsave}
               />
-              <div className="saved-article__card-keyword">{keyword}</div>
+              <div className="saved-article__card-keyword">{card.keyword}</div>
             </div>
           );
         })}

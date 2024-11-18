@@ -6,7 +6,7 @@ import { useEffect } from "react";
 const Header = ({
   userName,
   isMenuOpen,
-  isSavedArticlesPage,
+  isSavedArticles,
   isAuthorized,
   onLogout,
   onSigninModal,
@@ -14,12 +14,16 @@ const Header = ({
 }) => {
   useEffect(() => {
     const headerElement = document.querySelector(".header");
-    if (isSavedArticlesPage) {
+    if (isSavedArticles) {
+      console.log("Adding saved articles class");
       headerElement.classList.add("header__saved-articles");
     } else {
       headerElement.classList.remove("header__saved-articles");
     }
-  }, [isSavedArticlesPage]);
+    return () => {
+      headerElement.classList.remove("header__saved-articles");
+    };
+  }, [isSavedArticles]);
 
   return (
     <header className="header">
