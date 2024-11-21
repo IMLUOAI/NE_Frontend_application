@@ -6,7 +6,7 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import api from "../../utils/api";
 import auth from "../../utils/auth";
-import { getSearchNews } from "../../utils/NewsApi";
+// import { getSearchNews } from "../../utils/NewsApi";
 import SigninModal from "../SigninModal/SigninModal";
 import SignupModal from "../SignupModal/SignupModal";
 import SuccessSignupModal from "../SuccessSignupModal/SuccessSignupModal";
@@ -32,7 +32,6 @@ function App() {
   const navigate = useNavigate();
   const handleOpenSigninModal = () => {
     setActiveModal("signin");
-    // handleCloseMobileMenuModal();
   };
   const handleOpenSignupModal = () => setActiveModal("signup");
   const handleOpenSuccessSignupModal = () => setActiveModal("successSignup");
@@ -115,7 +114,7 @@ function App() {
     }
     const isSaved = savedArticles?.some((saved) => saved.id === article._id);
     const request = !isSaved
-      ? api.saveArticles(article._id, token)
+      ? api.savedArticles(article._id, token)
       : api.unsaveArticle(article._id, token);
     return request
       .then((updatedArticle) => {
@@ -131,13 +130,13 @@ function App() {
   const handleDeletedArticle = (article) => {
     console.log("Article to delete:", article);
     const token = getToken();
-    const { _id } = article;
+    const { articleId } = article;
 
     if (!currentUser) {
       return null;
     }
     api
-      .deleteArticle(_id, token)
+      .deleteArticle(articleId, token)
       .then((res) => {
         if (res.ok) {
           setSavedArticles((prev) => prev.filter((saved) => saved._id !== _id));
@@ -214,6 +213,7 @@ function App() {
     api
       .getUserInfo(jwt)
       .then((user) => {
+        console.log("Fetched user data:", user);
         setIsLoggedIn(true);
         setCurrentUser(user);
       })
@@ -222,7 +222,16 @@ function App() {
 
   useEffect(() => {
     if (currentUser) {
-      setSavedArticles(currentUser.savedArticles || []);
+      api
+        .getSavedArticles()
+        .then((data) => {
+          console.log("Saved articles fetched:", data);
+          setSavedArticles(data || []);
+        })
+        .catch((err) => {
+          console.error("Fetching saved articles:", error);
+          setSavedArticles([]);
+        });
     }
   }, [currentUser]);
 
@@ -257,8 +266,7 @@ function App() {
             element={
               <SavedArticlesSection
                 articles={savedArticles}
-                handleSaveOrUnsave={handleToggleSaveArticle}
-                handleDeletedArticle={handleDeletedArticle}
+                onDelete={handleDeletedArticle}
               />
             }
           />

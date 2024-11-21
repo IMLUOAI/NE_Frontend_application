@@ -110,6 +110,8 @@ const mockNewsData = [
   },
 ];
 
+let savedArticlesList = [];
+
 const getNews = () => {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -118,12 +120,19 @@ const getNews = () => {
   });
 };
 
-const saveArticles = (articleData) => {
+const savedArticles = (articleData) => {
   const token = getToken();
   return new Promise((resolve, reject) => {
     if (!token) {
       reject("No token found");
     }
+    const existsNews = savedArticlesList.some(
+      (article) => article._id === articleData._id
+    );
+    if (!existsNews) {
+      savedArticlesList.push(articleData);
+    }
+
     resolve({
       ...articleData,
       id: "65f7371e7bce9e7d331b11a0",
@@ -142,6 +151,18 @@ const unsaveArticle = () => {
   });
 };
 
+const getSavedArticles = () => {
+  const token = getToken();
+  return new Promise((resolve, reject) => {
+    if (!token) {
+      reject("No token found");
+    }
+    setTimeout(() => {
+      resolve(savedArticlesList || []);
+    }, 1000);
+  });
+};
+
 const deleteArticle = (articleId) => {
   const token = getToken();
   return new Promise((resolve, reject) => {
@@ -151,11 +172,19 @@ const deleteArticle = (articleId) => {
     if (!articleId) {
       reject("No article id found");
     }
-    resolve({
-      ok: true,
-      status: 200,
-      statusText: "OK",
-    });
+    const initialLength = savedArticlesList.length;
+    savedArticlesList = savedArticlesList.filter(
+      (article) => article._id !== articleId
+    );
+    if (savedArticlesList.length === initialLength) {
+      reject("Articles not found");
+    } else {
+      resolve({
+        ok: true,
+        status: 200,
+        statusText: "OK",
+      });
+    }
   });
 };
 
@@ -182,8 +211,9 @@ const getUserInfo = () => {
 
 const api = {
   getNews,
-  saveArticles,
+  savedArticles,
   unsaveArticle,
+  getSavedArticles,
   deleteArticle,
   getUserInfo,
 };

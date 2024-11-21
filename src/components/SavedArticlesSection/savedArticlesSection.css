@@ -54,7 +54,13 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 16px;
-  margin: 56px auto 56px;
+  margin: 64px auto 64px;
+}
+
+.saved-articles__card {
+  max-width: 400px;
+  height: 576px;
+  position: relative;
 }
 
 @media screen and (min-width: 320px) and (max-width: 425px) {
