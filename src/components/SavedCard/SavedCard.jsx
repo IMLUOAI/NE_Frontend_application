@@ -1,14 +1,24 @@
 import React from "react";
 import "../NewsCard/newsCard.css";
-import deleteIcon from "../../images/trash.svg";
+import binIcon from "../../images/trash.svg";
 
 const SavedCard = ({ card, onDelete }) => {
+  const handleCardClick = (e) => {
+    if (e.target.closest(".card__bin-button")) {
+      e.preventDefault();
+    }
+  };
+  const handleDeleteClick = (e) => {
+    e.stopPropagation();
+    onDelete(card.id);
+  };
   return (
     <a
       href={card.url || "#"}
       target="_blank"
       rel="noreferrer noopener"
       className="card card__link"
+      onClick={handleCardClick}
     >
       <img
         src={card.urlToImage || "default-image.jpg"}
@@ -16,17 +26,23 @@ const SavedCard = ({ card, onDelete }) => {
         alt={card.title}
       />
       <div className="card__feature">
-        <div className="card__keyword">{card.keyword}</div>
+        <div className="card__keywords">
+          {console.log("Card keywords:", card.keywords)};
+          {card.keywords?.map((keyword, index) => (
+            <span key={index} className="card__keyword">
+              {keyword}
+            </span>
+          ))}
+        </div>
         <button
           type="button"
           className="card__bin-button"
-          onClick={() => onDelete(card._id)}
+          onClick={handleDeleteClick}
         >
-          <img
-            src={deleteIcon}
-            alt="Remove bin icon"
-            className="card__bin-icon"
-          />
+          <img src={binIcon} alt="bin icon" className="card__bin-icon" />
+          <div className="card__tooltip">
+            <p className="card__tooltip-text">Remove from saved</p>
+          </div>
         </button>
       </div>
       <div className="card__publishedAt">

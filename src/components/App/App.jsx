@@ -28,6 +28,7 @@ function App() {
 
   const location = useLocation();
   const isSavedArticlesPage = location.pathname === "/saved-articles";
+  console.log("Is saved article page:", isSavedArticlesPage);
 
   const navigate = useNavigate();
   const handleOpenSigninModal = () => {
@@ -114,10 +115,11 @@ function App() {
     }
     const isSaved = savedArticles?.some((saved) => saved.id === article._id);
     const request = !isSaved
-      ? api.savedArticles(article._id, token)
+      ? api.savedArticles(article, token)
       : api.unsaveArticle(article._id, token);
     return request
       .then((updatedArticle) => {
+        console.log("Updated articles returned by api:", updatedArticle);
         setNewsData((prev) => {
           return isSaved
             ? prev.filter((saved) => saved._id !== article._id)
@@ -175,18 +177,16 @@ function App() {
   // useEffects to close modals in multiple ways
 
   useEffect(() => {
-    if (currentUser) {
-      api
-        .getNews()
-        .then((data) => {
-          setNewsData(data || []);
-        })
-        .catch((err) => {
-          console.error("Error fetching news:", err);
-          setNewsData([]);
-        });
-    }
-  }, [currentUser]);
+    api
+      .getNews()
+      .then((data) => {
+        setNewsData(data || []);
+      })
+      .catch((err) => {
+        console.error("Error fetching news:", err);
+        // setNewsData([]);
+      });
+  }, []);
 
   useEffect(() => {
     if (!activeModal) return;
@@ -221,19 +221,19 @@ function App() {
   }, [isLoggedIn]);
 
   useEffect(() => {
-    if (currentUser) {
-      api
-        .getSavedArticles()
-        .then((data) => {
-          console.log("Saved articles fetched:", data);
-          setSavedArticles(data || []);
-        })
-        .catch((err) => {
-          console.error("Fetching saved articles:", error);
-          setSavedArticles([]);
-        });
-    }
-  }, [currentUser]);
+    // if (currentUser) {
+    api
+      .getSavedArticles()
+      .then((data) => {
+        console.log("Saved articles fetched:", data);
+        setSavedArticles(data || []);
+      })
+      .catch((err) => {
+        console.error("Fetching saved articles:", error);
+        setSavedArticles([]);
+      });
+    // }
+  }, []);
 
   return (
     <CurrentUserContext.Provider value={{ currentUser, isLoggedIn }}>

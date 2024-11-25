@@ -12,20 +12,6 @@ const Header = ({
   onSigninModal,
   handleOpenMobileMenuModal,
 }) => {
-  // useEffect(() => {
-  //   const headerElement = document.querySelector(".header");
-  //   if (isSavedArticles) {
-  //     console.log("Adding saved articles class");
-  //     headerElement.classList.add("header__saved-articles");
-  //   } else {
-  //     console.log("Removing saved articles class");
-  //     headerElement.classList.remove("header__saved-articles");
-  //   }
-  //   return () => {
-  //     headerElement.classList.remove("header__saved-articles");
-  //   };
-  // }, [isSavedArticles]);
-
   return (
     <header
       className={`header ${isSavedArticles ? "header__saved-articles" : ""}`}

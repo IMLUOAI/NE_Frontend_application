@@ -24,13 +24,14 @@
   object-fit: cover;
 }
 .card__feature {
-  width: 40px;
+  max-width: 352px;
   height: 40px;
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
   position: absolute;
   top: 24px;
-  right: 24px;
+  left: 24px;
 }
 .card__save-button {
   width: 40px;
@@ -41,7 +42,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  margin: 0 0 0 312px;
 }
 
 .card__save-button_saved {
@@ -140,13 +141,16 @@
   color: #b6bcbf;
   margin: 18px auto 24px 24px;
 }
-.card__keyword {
-  max-width: 87px;
+.card__keywords {
+  width: 87px;
   height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #ffffff;
   border: 1px;
   border-radius: 8px;
-  font-family: Roboto;
+  font-family: "Roboto", sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
@@ -154,9 +158,7 @@
   text-align: center;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
-  position: absolute;
-  top: 24px;
-  left: 24px;
+  margin: 0 auto;
 }
 
 .card__bin-button {
@@ -165,13 +167,18 @@
   background-color: #ffffff;
   border: 1px;
   border-radius: 8px;
-  position: absolute;
-  top: 24px;
-  right: 24px;
+  margin: 0 0 0 225px;
 }
 .card__bin-icon {
   width: 24px;
   height: 24px;
+  background: transparent;
+  fill: #b6bcbf;
+}
+.card__bin-icon:hover .card__tooltip {
+  fill: #1a1b22;
+  display: flex;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 320px) and (max-width: 425px) {
@@ -226,9 +233,10 @@
     right: 35px;
   }
   .card__keyword {
-    max-width: 83px;
-    top: 16px;
-    left: 16px;
+    width: 83px;
+  }
+  .card__bin-button {
+    margin: 0 0 0 133px;
   }
 }
 @media screen and (min-width: 426px) and (max-width: 768px) {
@@ -281,8 +289,9 @@
     height: 40px;
   }
   .card__keyword {
-    max-width: 83px;
-    top: 8px;
-    left: 8px;
+    width: 83px;
+  }
+  .card__bin-button {
+    margin: 0 0 0 92px;
   }
 }
