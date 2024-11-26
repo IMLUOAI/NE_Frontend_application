@@ -8,10 +8,6 @@ const SavedCard = ({ card, onDelete }) => {
       e.preventDefault();
     }
   };
-  const handleDeleteClick = (e) => {
-    e.stopPropagation();
-    onDelete(card.id);
-  };
   return (
     <a
       href={card.url || "#"}
@@ -37,7 +33,7 @@ const SavedCard = ({ card, onDelete }) => {
         <button
           type="button"
           className="card__bin-button"
-          onClick={handleDeleteClick}
+          onClick={() => onDelete(card._id)}
         >
           <img src={binIcon} alt="bin icon" className="card__bin-icon" />
           <div className="card__tooltip">

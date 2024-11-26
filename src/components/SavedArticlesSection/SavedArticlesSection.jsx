@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import SavedCard from "../SavedCard/SavedCard";
 
-const SavedArticlesSection = ({ articles = [], onDelete }) => {
+const SavedArticlesSection = ({ articles = [], handledDeletedArticle }) => {
   const { currentUser } = useContext(CurrentUserContext);
   console.log("articles array:", articles);
   return (
@@ -33,7 +33,7 @@ const SavedArticlesSection = ({ articles = [], onDelete }) => {
             <SavedCard
               key={cardKey}
               currentUser={currentUser}
-              onDelete={onDelete}
+              onDelete={handledDeletedArticle}
               card={card}
             />
           );

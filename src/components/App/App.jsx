@@ -129,23 +129,20 @@ function App() {
       .catch((err) => console.log(err));
   };
 
-  const handleDeletedArticle = (article) => {
-    console.log("Article to delete:", article);
+  const handleDeletedArticle = (articleId) => {
+    console.log("Article to delete:", articleId);
     const token = getToken();
-    const { articleId } = article;
-
-    if (!currentUser) {
-      return null;
-    }
     api
       .deleteArticle(articleId, token)
       .then((res) => {
         if (res.ok) {
-          setSavedArticles((prev) => prev.filter((saved) => saved._id !== _id));
+          setSavedArticles((prev) =>
+            prev.filter((saved) => saved._id !== articleId)
+          );
         }
         setNewsData((prev) =>
-          prev.filter((news) =>
-            news._id === _id ? { ...news, isSaved: false } : news
+          prev.map((news) =>
+            news._id === articleId ? { ...news, isSaved: false } : news
           )
         );
         console.log("Article deleted successfully");
@@ -266,7 +263,7 @@ function App() {
             element={
               <SavedArticlesSection
                 articles={savedArticles}
-                onDelete={handleDeletedArticle}
+                handledDeletedArticle={handleDeletedArticle}
               />
             }
           />

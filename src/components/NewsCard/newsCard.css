@@ -172,11 +172,15 @@
 .card__bin-icon {
   width: 24px;
   height: 24px;
+  border: none;
   background: transparent;
-  fill: #b6bcbf;
+  transition: background 0.8s ease;
 }
-.card__bin-icon:hover .card__tooltip {
-  fill: #1a1b22;
+.card__bin-button:hover .card__bin-icon {
+  background-color: #1a1b22;
+  cursor: pointer;
+}
+.card__bin-button:hover .card__tooltip {
   display: flex;
   cursor: pointer;
 }

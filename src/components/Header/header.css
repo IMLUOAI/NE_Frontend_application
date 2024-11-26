@@ -7,7 +7,7 @@
   justify-content: center;
   align-items: center;
   background-image: url("../../images/ImageHeader.svg");
-  background-size: cover;
+  background-size: auto;
   background-position: center;
   box-shadow: 0px -1px 0px 0px #ffffff33 inset;
   margin: 0 auto;
