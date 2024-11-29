@@ -164,7 +164,7 @@
 .card__bin-button {
   width: 40px;
   height: 40px;
-  background-color: #ffffff;
+  background: #ffffff;
   border: 1px;
   border-radius: 8px;
   margin: 0 0 0 225px;
@@ -172,12 +172,12 @@
 .card__bin-icon {
   width: 24px;
   height: 24px;
+  filter: invert(30%);
   border: none;
-  background: transparent;
-  transition: background 0.8s ease;
+  transition: filter 0.8s ease;
 }
 .card__bin-button:hover .card__bin-icon {
-  background-color: #1a1b22;
+  filter: invert(100%);
   cursor: pointer;
 }
 .card__bin-button:hover .card__tooltip {

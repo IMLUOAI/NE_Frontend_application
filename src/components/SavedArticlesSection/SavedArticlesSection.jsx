@@ -27,7 +27,7 @@ const SavedArticlesSection = ({ articles = [], handledDeletedArticle }) => {
             console.warn("card or index ${index} is undefined or null");
             return null;
           }
-          console.log("Rendering card:", card);
+          console.log("Rendering card with keywords:", card.keywords);
           const cardKey = card.id || card?._id || index;
           return (
             <SavedCard

@@ -29,6 +29,7 @@ const mockNewsData = [
     content:
       "Tech billionaire Elon Musk said Friday that all voting should be in person, contradicting his own history of voting by mail and the efforts of his pro-Trump super PAC to get others to vote by mail, t… [+4497 chars]",
     sourceName: "NBC News",
+    keyword: "vote",
   },
   {
     _id: "electrek",
@@ -60,7 +61,7 @@ const mockNewsData = [
     content:
       "Join Fox News for access to this content\r\nPlus special access to select articles and other premium content with your account - free of charge.\r\nBy entering your email and pushing continue, you are ag… [+3889 chars]",
     sourceName: "Fox News",
-    keyWord: "elon",
+    keyword: "elon",
   },
   {
     _id: "the-times-of-india",
@@ -91,7 +92,7 @@ const mockNewsData = [
     content:
       "Mesa woman killed in Tesla Full Self-Driving crash; feds to probe automaker Arizona's FamilyMusk's Tesla probed by US over safety of self-driving software BBC.comRegulator Investigates Teslas Automat… [+145 chars]",
     sourceName: "Biztoc.com",
-    keyWord: "tesla",
+    keyword: "tesla",
   },
   {
     _id: "iphone-in-canada",
@@ -106,7 +107,7 @@ const mockNewsData = [
     content:
       "Tesla has updated its iPhone app to version 4.38.0 which includes the following features (via Tesla North):\r\n<ul><li>Commands can now be executed offline when in proximity to the vehicle. Requires ve… [+784 chars]",
     sourceName: "iPhone in Canada",
-    keyWord: "tesla",
+    keyword: "tesla",
   },
 ];
 
