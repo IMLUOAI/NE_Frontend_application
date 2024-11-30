@@ -2,7 +2,12 @@ import React from "react";
 import closeButton from "../../images/close.svg";
 import "../MobileMenuModal/mobileMenuModal.css";
 
-const MobileMenuModal = ({ isOpen, onClose, handleOpenSigninModal }) => {
+const MobileMenuModal = ({
+  isOpen,
+  onClose,
+  handleOpenSigninModal,
+  isLoggedIn,
+}) => {
   if (!isOpen) return null;
 
   return (

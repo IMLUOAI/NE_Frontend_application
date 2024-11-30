@@ -33,6 +33,7 @@ function App() {
   const navigate = useNavigate();
   const handleOpenSigninModal = () => {
     setActiveModal("signin");
+    navigate("/saved-articles");
   };
   const handleOpenSignupModal = () => setActiveModal("signup");
   const handleOpenSuccessSignupModal = () => setActiveModal("successSignup");
