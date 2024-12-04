@@ -2,7 +2,7 @@ import "../Header/header.css";
 import Navigation from "..//Navigation/Navigation";
 import menuIcon from "../../images/menu.svg";
 import { useEffect } from "react";
-import headerImage from "../../images/Image.jpg";
+// import headerImage from "../../images/Image.jpg";
 const Header = ({
   userName,
   isMenuOpen,
@@ -14,7 +14,7 @@ const Header = ({
 }) => {
   return (
     <header
-      style={{ backgroundImage: `url(${headerImage})` }}
+      // style={{ backgroundImage: `url(${headerImage})` }}
       className={`header ${isSavedArticles ? "header__saved-articles" : ""}`}
     >
       <div className="header__bar">

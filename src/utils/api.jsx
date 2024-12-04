@@ -29,7 +29,7 @@ const mockNewsData = [
     content:
       "Tech billionaire Elon Musk said Friday that all voting should be in person, contradicting his own history of voting by mail and the efforts of his pro-Trump super PAC to get others to vote by mail, t… [+4497 chars]",
     sourceName: "NBC News",
-    keyword: "vote",
+    keyword: "Vote",
   },
   {
     _id: "electrek",
@@ -44,7 +44,7 @@ const mockNewsData = [
     content:
       "It’s probably nothing. Just a playful post on social media from a random Volvo account celebrating an obscure concept car from the early aughts. It couldn’t possibly mean that Volvo is actually going… [+2378 chars]",
     sourceName: "Electrek",
-    keyword: "volvo",
+    keyword: "Volvo",
   },
 
   {
@@ -61,7 +61,7 @@ const mockNewsData = [
     content:
       "Join Fox News for access to this content\r\nPlus special access to select articles and other premium content with your account - free of charge.\r\nBy entering your email and pushing continue, you are ag… [+3889 chars]",
     sourceName: "Fox News",
-    keyword: "elon",
+    keyword: "Elon",
   },
   {
     _id: "the-times-of-india",
@@ -77,7 +77,7 @@ const mockNewsData = [
     content:
       "This article is part of The D.C. Brief, TIMEs politics newsletter. Sign up here to get stories like this sent to your inbox.\r\nDETROITDonald Trump does not apologize. Ever. Its actually a point of gre… [+5271 chars]",
     sourceName: "The Times of India",
-    keyword: "ai",
+    keyword: "AI",
   },
   {
     _id: "biztoc.com",
@@ -92,7 +92,7 @@ const mockNewsData = [
     content:
       "Mesa woman killed in Tesla Full Self-Driving crash; feds to probe automaker Arizona's FamilyMusk's Tesla probed by US over safety of self-driving software BBC.comRegulator Investigates Teslas Automat… [+145 chars]",
     sourceName: "Biztoc.com",
-    keyword: "tesla",
+    keyword: "Tesla",
   },
   {
     _id: "iphone-in-canada",
@@ -107,7 +107,7 @@ const mockNewsData = [
     content:
       "Tesla has updated its iPhone app to version 4.38.0 which includes the following features (via Tesla North):\r\n<ul><li>Commands can now be executed offline when in proximity to the vehicle. Requires ve… [+784 chars]",
     sourceName: "iPhone in Canada",
-    keyword: "tesla",
+    keyword: "Tesla",
   },
 ];
 
@@ -130,14 +130,14 @@ const savedArticles = (articleData) => {
     const existsNews = savedArticlesList.some(
       (article) => article._id === articleData._id
     );
-    if (!existsNews) {
-      savedArticlesList.push(articleData);
+    if (existsNews) {
+      reject(new Error("Article already saved"));
+      return;
     }
+    const newArticle = { ...articleData, id: "65f7371e7bce9e7d331b11a0" };
+    savedArticlesList.push(articleData);
 
-    resolve({
-      ...articleData,
-      id: "65f7371e7bce9e7d331b11a0",
-    });
+    resolve(newArticle);
   });
 };
 const unsaveArticle = () => {

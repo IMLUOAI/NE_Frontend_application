@@ -24,10 +24,10 @@ const SavedArticlesSection = ({ articles = [], handledDeletedArticle }) => {
       <div className="saved-articles__card-list">
         {articles.map((card, index) => {
           if (!card) {
-            console.warn("card or index ${index} is undefined or null");
+            console.log("card or index ${index} is undefined or null");
             return null;
           }
-          console.log("Rendering card with keywords:", card.keywords);
+          console.log("Rendering card with keyword:", card.keyword);
           const cardKey = card.id || card?._id || index;
           return (
             <SavedCard

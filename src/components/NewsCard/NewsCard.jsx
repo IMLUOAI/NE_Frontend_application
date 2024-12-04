@@ -23,8 +23,9 @@ const NewsCard = ({ card, handleSaveOrUnsave }) => {
       return isHovered ? hollowPatternHover : hollowPattern;
     }
   };
-  const handelClick = (e) => {
+  const handleClick = (e) => {
     e.preventDefault();
+    console.log("HandleSaveOrUnsave:", handleSaveOrUnsave);
     handleSaveOrUnsave(card, isSaved)
       .then(() => {
         setIsSaved(!isSaved);
@@ -47,7 +48,7 @@ const NewsCard = ({ card, handleSaveOrUnsave }) => {
         <button
           type="button"
           className={cardSaveButtonClassName}
-          onClick={handelClick}
+          onClick={handleClick}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >

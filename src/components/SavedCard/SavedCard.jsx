@@ -23,14 +23,7 @@ const SavedCard = ({ card, onDelete }) => {
       />
       <div className="card__feature">
         <div className="card__keywords">
-          {Array.isArray(card.keywords) && card.keywords.length > 0
-            ? card.keywords.map((keyword, index) => {
-                console.log(`Rendering keyword: ${keyword} at index ${index}`);
-                <span key={index} className="card__keyword">
-                  {keyword}
-                </span>;
-              })
-            : "No keywords"}
+          <span className="card__keyword">{card.keyword}</span>
         </div>
         <button
           type="button"
