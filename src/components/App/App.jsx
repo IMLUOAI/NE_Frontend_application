@@ -6,6 +6,7 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import api from "../../utils/api";
 import auth from "../../utils/auth";
+// import { getSearchNews } from "../../utils/NewsApi";
 import SigninModal from "../SigninModal/SigninModal";
 import SignupModal from "../SignupModal/SignupModal";
 import SuccessSignupModal from "../SuccessSignupModal/SuccessSignupModal";
@@ -27,11 +28,12 @@ function App() {
 
   const location = useLocation();
   const isSavedArticlesPage = location.pathname === "/saved-articles";
+  console.log("Is saved article page:", isSavedArticlesPage);
 
   const navigate = useNavigate();
   const handleOpenSigninModal = () => {
     setActiveModal("signin");
-    // handleCloseMobileMenuModal();
+    navigate("/saved-articles");
   };
   const handleOpenSignupModal = () => setActiveModal("signup");
   const handleOpenSuccessSignupModal = () => setActiveModal("successSignup");
@@ -114,10 +116,11 @@ function App() {
     }
     const isSaved = savedArticles?.some((saved) => saved.id === article._id);
     const request = !isSaved
-      ? api.saveArticles(article._id, token)
+      ? api.savedArticles(article, token)
       : api.unsaveArticle(article._id, token);
     return request
       .then((updatedArticle) => {
+        console.log("Updated articles returned by api:", updatedArticle);
         setNewsData((prev) => {
           return isSaved
             ? prev.filter((saved) => saved._id !== article._id)
@@ -127,23 +130,20 @@ function App() {
       .catch((err) => console.log(err));
   };
 
-  const handleDeletedArticle = (article) => {
-    console.log("Article to delete:", article);
+  const handleDeletedArticle = (articleId) => {
+    console.log("Article to delete:", articleId);
     const token = getToken();
-    const { _id } = article;
-
-    if (!currentUser) {
-      return null;
-    }
     api
-      .deleteArticle(_id, token)
+      .deleteArticle(articleId, token)
       .then((res) => {
         if (res.ok) {
-          setSavedArticles((prev) => prev.filter((saved) => saved._id !== _id));
+          setSavedArticles((prev) =>
+            prev.filter((saved) => saved._id !== articleId)
+          );
         }
         setNewsData((prev) =>
-          prev.filter((news) =>
-            news._id === _id ? { ...news, isSaved: false } : news
+          prev.map((news) =>
+            news._id === articleId ? { ...news, isSaved: false } : news
           )
         );
         console.log("Article deleted successfully");
@@ -153,10 +153,11 @@ function App() {
   const handleSearch = async (query) => {
     setIsLoading(true);
     try {
+      // const fetchedNews = await getSearchNews(query);
       const fetchedNews = await api.getNews(query);
       setHasSearched(true);
       setNewsData(fetchedNews || []);
-      setError(null);
+      setError("");
     } catch (err) {
       console.error("Fetching news Error:", err);
       setError(
@@ -174,18 +175,16 @@ function App() {
   // useEffects to close modals in multiple ways
 
   useEffect(() => {
-    if (currentUser) {
-      api
-        .getNews()
-        .then((data) => {
-          setNewsData(data || []);
-        })
-        .catch((err) => {
-          console.error("Error fetching news:", err);
-          setNewsData([]);
-        });
-    }
-  }, [currentUser]);
+    api
+      .getNews()
+      .then((data) => {
+        setNewsData(data || []);
+      })
+      .catch((err) => {
+        console.error("Error fetching news:", err);
+        // setNewsData([]);
+      });
+  }, []);
 
   useEffect(() => {
     if (!activeModal) return;
@@ -212,6 +211,7 @@ function App() {
     api
       .getUserInfo(jwt)
       .then((user) => {
+        console.log("Fetched user data:", user);
         setIsLoggedIn(true);
         setCurrentUser(user);
       })
@@ -219,10 +219,19 @@ function App() {
   }, [isLoggedIn]);
 
   useEffect(() => {
-    if (currentUser) {
-      setSavedArticles(currentUser.savedArticles || []);
-    }
-  }, [currentUser]);
+    // if (currentUser) {
+    api
+      .getSavedArticles()
+      .then((data) => {
+        console.log("Saved articles fetched:", data);
+        setSavedArticles(data || []);
+      })
+      .catch((err) => {
+        console.error("Fetching saved articles:", error);
+        setSavedArticles([]);
+      });
+    // }
+  }, []);
 
   return (
     <CurrentUserContext.Provider value={{ currentUser, isLoggedIn }}>
@@ -255,8 +264,7 @@ function App() {
             element={
               <SavedArticlesSection
                 articles={savedArticles}
-                handleSaveOrUnsave={handleToggleSaveArticle}
-                handleDeletedArticle={handleDeletedArticle}
+                handledDeletedArticle={handleDeletedArticle}
               />
             }
           />
