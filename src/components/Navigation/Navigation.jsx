@@ -10,15 +10,18 @@ const Navigation = ({
   onSigninModal,
 }) => {
   return (
-    <nav className="nav__section">
+    <nav className="nav">
       {!isMenuOpen && (
-        <a href="/" className="nav__link-home">
+        <a href="/" className="nav__link nav__link-home">
           Home
         </a>
       )}
       {isLoggedIn ? (
         <>
-          <Link to="/saved-articles" className="nav__link-savedArticles">
+          <Link
+            to="/saved-articles"
+            className="nav__link nav__link-saved-articles"
+          >
             Saved Articles
           </Link>
           <div className="nav__user-bar">

@@ -3,7 +3,7 @@ import userAvatar from "../../images/IMG_4953.JPG";
 
 const About = () => {
   return (
-    <div className="about__section">
+    <div className="about">
       <img src={userAvatar} className="about__avatar" alt="avatar" />
       <div className="about__content">
         <h2 className="about__title">About the Author</h2>

@@ -23,8 +23,8 @@ const NewsSection = ({ newsCards = [], handleSaveOrUnsave }) => {
   };
 
   return (
-    <div id="news-container" className="news__section">
-      <h1 className="news__section-title">Search results</h1>
+    <div id="news-container" className="news">
+      <h1 className="news__title">Search results</h1>
       <div className="news__card-list">
         {newsCards.slice(0, visibleItems).map((card, index) => {
           if (!card) {

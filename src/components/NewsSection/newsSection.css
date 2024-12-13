@@ -1,4 +1,4 @@
-.news__section {
+.news {
   width: 100vw;
   max-width: 1440px;
   height: auto;
@@ -8,7 +8,7 @@
   background: #f5f6f7;
   margin: 0 auto;
 }
-.news__section-title {
+.news__title {
   max-width: 712px;
   height: 46px;
   font-family: "Roboto Slab", sans-serif;
@@ -46,7 +46,7 @@
   opacity: 0.5;
 }
 @media screen and (min-width: 320px) and (max-width: 425px) {
-  .news__section-title {
+  .news__title {
     max-width: 288px;
     height: 34px;
     font-size: 30px;
@@ -67,11 +67,11 @@
 }
 
 @media screen and (min-width: 426px) and (max-width: 768px) {
-  .news__section {
+  .news {
     width: 768px;
   }
 
-  .news__section-title {
+  .news__title {
     max-width: 336px;
     height: 34px;
     font-size: 30px;

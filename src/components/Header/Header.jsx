@@ -2,7 +2,6 @@ import "../Header/header.css";
 import Navigation from "..//Navigation/Navigation";
 import menuIcon from "../../images/menu.svg";
 import { useEffect } from "react";
-// import headerImage from "../../images/Image.jpg";
 const Header = ({
   userName,
   isMenuOpen,
@@ -13,16 +12,17 @@ const Header = ({
   handleOpenMobileMenuModal,
 }) => {
   return (
-    <header
-      // style={{ backgroundImage: `url(${headerImage})` }}
-      className={`header ${isSavedArticles ? "header__saved-articles" : ""}`}
-    >
+    <header className={`header ${isSavedArticles ? "header__bar" : ""}`}>
       <div className="header__bar">
-        <h1 className={`header__logo ${isMenuOpen ? "hidden" : ""}`}>
+        <h1
+          className={`header__logo ${isMenuOpen ? "header__logo_hidden" : ""}`}
+        >
           NewsExplorer
         </h1>
         <button
-          className={`header__menu-button ${isMenuOpen ? "hidden" : ""}`}
+          className={`header__menu-button ${
+            isMenuOpen ? "header__menu-button_hidden" : ""
+          }`}
           type="button"
           onClick={handleOpenMobileMenuModal}
         >

@@ -7,7 +7,7 @@ const SavedArticlesSection = ({ articles = [], handledDeletedArticle }) => {
   const { currentUser } = useContext(CurrentUserContext);
   console.log("articles array:", articles);
   return (
-    <div className="saved-articles__section">
+    <div className="saved-articles">
       <p className="saved-articles__note">Saved articles</p>
       <h1 className="saved-articles__title">
         {currentUser?.name}, you have {articles.length}

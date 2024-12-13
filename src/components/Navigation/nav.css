@@ -1,4 +1,4 @@
-.nav__section {
+.nav {
   height: 80px;
   display: flex;
   flex-direction: row;
@@ -36,7 +36,7 @@
   border: 1px solid #ffffff;
   margin-left: 42px;
 }
-.nav__link-savedArticles {
+.nav__link-saved-articles {
   width: 114px;
   height: 24px;
   white-space: nowrap;
@@ -49,7 +49,7 @@
   color: #b6bcbf;
   margin: 30px 64px 26px 76px;
 }
-.nav__link-savedArticles:hover {
+.nav__link-saved-articles:hover {
   color: #ffffff;
   text-decoration-line: underline;
   text-decoration-thickness: 2px;

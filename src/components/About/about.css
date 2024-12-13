@@ -1,4 +1,4 @@
-.about__section {
+.about {
   width: 100vw;
   max-width: 1440px;
   height: auto;
@@ -63,7 +63,7 @@
   padding: 0;
 }
 @media screen and (min-width: 320px) and (max-width: 425px) {
-  .about__section {
+  .about {
     height: auto;
     flex-direction: column;
   }
@@ -93,7 +93,7 @@
 }
 
 @media screen and (min-width: 426px) and (max-width: 768px) {
-  .about__section {
+  .about {
     height: auto;
     margin: 0 auto;
   }

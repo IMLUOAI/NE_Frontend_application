@@ -112,18 +112,20 @@ function App() {
 
     if (!currentUser) {
       console.log("CurrentUser is not available");
+      setError("You need to be logged in to save articles");
+      setActiveModal("signin");
       return;
     }
-    const isSaved = savedArticles?.some((saved) => saved.id === article._id);
+    const isSaved = savedArticles?.some((saved) => saved.id === _id);
     const request = !isSaved
       ? api.savedArticles(article, token)
-      : api.unsaveArticle(article._id, token);
+      : api.unsaveArticle(article, token);
     return request
       .then((updatedArticle) => {
         console.log("Updated articles returned by api:", updatedArticle);
         setNewsData((prev) => {
           return isSaved
-            ? prev.filter((saved) => saved._id !== article._id)
+            ? prev.filter((saved) => saved._id !== _id)
             : [...prev, updatedArticle];
         });
       })

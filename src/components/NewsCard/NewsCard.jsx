@@ -5,7 +5,7 @@ import solidPatternHover from "../../images/Group 12.svg";
 import hollowPatternHover from "../../images/Group 14.svg";
 import { useState } from "react";
 
-const NewsCard = ({ card, handleSaveOrUnsave }) => {
+const NewsCard = ({ card, currentUser, handleSaveOrUnsave }) => {
   if (!card) {
     return null;
   }
@@ -24,6 +24,10 @@ const NewsCard = ({ card, handleSaveOrUnsave }) => {
     }
   };
   const handleClick = (e) => {
+    if (!currentUser) {
+      console.log("User not logged in");
+      return;
+    }
     e.preventDefault();
     console.log("HandleSaveOrUnsave:", handleSaveOrUnsave);
     handleSaveOrUnsave(card, isSaved)

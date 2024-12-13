@@ -8,7 +8,7 @@ const SearchBar = ({ onSearch }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!query.trim()) {
-      setError("please enter a keyword")
+      setError("please enter a keyword");
       return;
     }
     onSearch(query);
@@ -22,25 +22,25 @@ const SearchBar = ({ onSearch }) => {
     if (error) {
       setError(null);
     }
-  } 
+  };
 
   return (
-    <form className="search__bar" onSubmit={handleSubmit} >
+    <form className="search-bar" onSubmit={handleSubmit}>
       <input
         type="text"
         value={query}
         onChange={handleInputChange}
-        className="search__input"
+        className="search-bar__input"
         placeholder="Enter topic"
       />
       <button
         type="submit"
-        className="search__submit-button"
+        className="search-bar__submit-button"
         id="searchButton"
       >
         Search
       </button>
-      {error  && <span className="search__error">{error}</span>}
+      {error && <span className="search-bar__error">{error}</span>}
     </form>
   );
 };

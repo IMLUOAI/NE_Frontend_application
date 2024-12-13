@@ -121,8 +121,8 @@ const getNews = () => {
   });
 };
 
-const savedArticles = (articleData) => {
-  const token = getToken();
+const savedArticles = (articleData, token) => {
+  // const token = getToken();
   return new Promise((resolve, reject) => {
     if (!token) {
       reject("No token found");
@@ -140,15 +140,21 @@ const savedArticles = (articleData) => {
     resolve(newArticle);
   });
 };
-const unsaveArticle = () => {
-  const token = getToken();
+const unsaveArticle = (article, token) => {
+  // const token = getToken();
   return new Promise((resolve, reject) => {
-    const response = {
-      ok: true,
-      status: 200,
-      statusText: "OK",
-    };
-    resolve(response);
+    if (!token) {
+      return reject({ status: 401, message: "Unauthorized" });
+    }
+    setTimeout(() => {
+      resolve({ ...article, id: article._id });
+    }, 500);
+    // const response = {
+    //   ok: true,
+    //   status: 200,
+    //   statusText: "OK",
+    // };
+    // resolve(response);
   });
 };
 

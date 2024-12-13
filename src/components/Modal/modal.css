@@ -239,21 +239,23 @@
     left: -50%;
   }
   .modal__form {
+    max-width: 288px;
     margin: 0 16px;
   }
   .modal__title {
     max-width: 158px;
     height: 28px;
-    margin: 16px auto 18px 17px;
+    margin: 16px auto 18px;
   }
   .modal__label {
     margin: 30px 0;
   }
   .modal__submit-container {
+    max-width: 288px;
     margin: 23px 0 auto;
   }
   .modal__input {
-    width: 288px;
+    max-width: 288px;
   }
   .modal__submit-button {
     max-width: 288px;
