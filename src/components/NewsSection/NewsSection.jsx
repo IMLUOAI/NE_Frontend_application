@@ -31,7 +31,7 @@ const NewsSection = ({ newsCards = [], handleSaveOrUnsave }) => {
             console.warn("card or index ${index} is undefined or null");
             return null;
           }
-          const cardKey = card.id || card?._id || index;
+          const cardKey = card.source?.id || card.source?.name || index;
           return (
             <NewsCard
               key={cardKey}

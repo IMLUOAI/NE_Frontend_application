@@ -34,6 +34,7 @@ const Header = ({
           userName={userName}
           onLogout={onLogout}
           onSigninModal={onSigninModal}
+          isSavedArticles={isSavedArticles}
         />
       </div>
     </header>

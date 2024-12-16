@@ -8,20 +8,18 @@ const Navigation = ({
   userName,
   onLogout,
   onSigninModal,
+  isSavedArticles,
 }) => {
   return (
-    <nav className="nav">
+    <nav className={`nav ${isSavedArticles ? "nav__black-theme" : ""}`}>
       {!isMenuOpen && (
-        <a href="/" className="nav__link nav__link-home">
+        <a href="/" className="nav__link_type_home">
           Home
         </a>
       )}
       {isLoggedIn ? (
         <>
-          <Link
-            to="/saved-articles"
-            className="nav__link nav__link-saved-articles"
-          >
+          <Link to="/saved-articles" className="nav__link_type_saved-articles">
             Saved Articles
           </Link>
           <div className="nav__user-bar">

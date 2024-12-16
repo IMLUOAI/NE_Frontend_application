@@ -6,7 +6,7 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import api from "../../utils/api";
 import auth from "../../utils/auth";
-// import { getSearchNews } from "../../utils/NewsApi";
+import { getSearchNews } from "../../utils/NewsApi";
 import SigninModal from "../SigninModal/SigninModal";
 import SignupModal from "../SignupModal/SignupModal";
 import SuccessSignupModal from "../SuccessSignupModal/SuccessSignupModal";
@@ -57,12 +57,6 @@ function App() {
       setIsLoading(false);
       return Promise.reject("Invalid request");
     }
-    //   request()
-    //     .then(() => {
-    //       handleCloseModal();
-    //     })
-    //     .catch(console.error)
-    //     .finally(() => setIsLoading(false));
   };
 
   const handleSignup = ({ email, password, username }) => {
@@ -108,7 +102,7 @@ function App() {
   const handleToggleSaveArticle = (article) => {
     console.log("Article to save:", article);
     const token = getToken();
-    const { _id } = article;
+    const { source } = article;
 
     if (!currentUser) {
       console.log("CurrentUser is not available");
@@ -116,7 +110,9 @@ function App() {
       setActiveModal("signin");
       return;
     }
-    const isSaved = savedArticles?.some((saved) => saved.id === _id);
+    const isSaved = savedArticles?.some(
+      (saved) => saved.source?.id === source?.id
+    );
     const request = !isSaved
       ? api.savedArticles(article, token)
       : api.unsaveArticle(article, token);
@@ -125,7 +121,7 @@ function App() {
         console.log("Updated articles returned by api:", updatedArticle);
         setNewsData((prev) => {
           return isSaved
-            ? prev.filter((saved) => saved._id !== _id)
+            ? prev.filter((saved) => saved.source?._id !== source?.id)
             : [...prev, updatedArticle];
         });
       })
@@ -134,20 +130,33 @@ function App() {
 
   const handleDeletedArticle = (articleId) => {
     console.log("Article to delete:", articleId);
-    const token = getToken();
+
+    if (!articleId) {
+      console.error("No article found for deletion.");
+      return;
+    }
     api
-      .deleteArticle(articleId, token)
+      .deleteArticle(articleId)
       .then((res) => {
         if (res.ok) {
           setSavedArticles((prev) =>
-            prev.filter((saved) => saved._id !== articleId)
+            prev.filter(
+              (saved) =>
+                saved.source?.id !== articleId &&
+                saved.source?.name !== articleId
+            )
           );
+          console.log("Saved articles after filtering:", saved.source);
         }
+
         setNewsData((prev) =>
           prev.map((news) =>
-            news._id === articleId ? { ...news, isSaved: false } : news
+            news.source?.id === articleId && news.source?.name === articleId
+              ? { ...news, isSaved: false }
+              : news
           )
         );
+        console.log("New source id:", news.source?.id);
         console.log("Article deleted successfully");
       })
       .catch((err) => console.error(err));
@@ -155,10 +164,9 @@ function App() {
   const handleSearch = async (query) => {
     setIsLoading(true);
     try {
-      // const fetchedNews = await getSearchNews(query);
-      const fetchedNews = await api.getNews(query);
+      const fetchedNews = await getSearchNews(query);
       setHasSearched(true);
-      setNewsData(fetchedNews || []);
+      setNewsData(fetchedNews.articles || []);
       setError("");
     } catch (err) {
       console.error("Fetching news Error:", err);
@@ -184,7 +192,7 @@ function App() {
       })
       .catch((err) => {
         console.error("Error fetching news:", err);
-        // setNewsData([]);
+        setNewsData([]);
       });
   }, []);
 
@@ -221,7 +229,6 @@ function App() {
   }, [isLoggedIn]);
 
   useEffect(() => {
-    // if (currentUser) {
     api
       .getSavedArticles()
       .then((data) => {
@@ -232,7 +239,6 @@ function App() {
         console.error("Fetching saved articles:", error);
         setSavedArticles([]);
       });
-    // }
   }, []);
 
   return (

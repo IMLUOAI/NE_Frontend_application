@@ -8,6 +8,8 @@ const SavedCard = ({ card, onDelete }) => {
       e.preventDefault();
     }
   };
+  console.log("Card in savedCard:", card);
+  console.log("Card source ID:", card.source?.id);
   return (
     <a
       href={card.url || "#"}
@@ -23,12 +25,12 @@ const SavedCard = ({ card, onDelete }) => {
       />
       <div className="card__feature">
         <div className="card__keywords">
-          <span className="card__keyword">{card.keyword}</span>
+          <span className="card__keyword">{card.source?.name}</span>
         </div>
         <button
           type="button"
           className="card__bin-button"
-          onClick={() => onDelete(card._id)}
+          onClick={() => onDelete(card.source?.id)}
         >
           <img src={binIcon} alt="bin icon" className="card__bin-icon" />
           <div className="card__tooltip">
@@ -43,7 +45,7 @@ const SavedCard = ({ card, onDelete }) => {
       <p className="card__description">
         {card.description || "No available content"}
       </p>
-      <h3 className="card__sourceName">{card.sourceName}</h3>
+      <h3 className="card__sourceName">{card.source?.name}</h3>
     </a>
   );
 };

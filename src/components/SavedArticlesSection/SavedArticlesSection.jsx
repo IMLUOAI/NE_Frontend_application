@@ -6,19 +6,19 @@ import SavedCard from "../SavedCard/SavedCard";
 const SavedArticlesSection = ({ articles = [], handledDeletedArticle }) => {
   const { currentUser } = useContext(CurrentUserContext);
   console.log("articles array:", articles);
+  const sources = articles
+    .map((article) => article.source?.id)
+    .filter((id) => id !== null && id !== undefined);
   return (
     <div className="saved-articles">
       <p className="saved-articles__note">Saved articles</p>
       <h1 className="saved-articles__title">
-        {currentUser?.name}, you have {articles.length}
-        saved articles
+        {currentUser?.name}, you have {articles.length} saved articles
       </h1>
       <p className="saved-articles__keyword-title">
         By Keywords:{" "}
         <span className="saved-articles__keyword-note">
-          {articles.length > 0
-            ? articles.map((article) => article.keyword).join(", ")
-            : "no keywords"}
+          {sources.length > 0 ? sources.join(", ") : "no keywords"}
         </span>
       </p>
       <div className="saved-articles__card-list">
@@ -27,8 +27,8 @@ const SavedArticlesSection = ({ articles = [], handledDeletedArticle }) => {
             console.log("card or index ${index} is undefined or null");
             return null;
           }
-          console.log("Rendering card with keyword:", card.keyword);
-          const cardKey = card.id || card?._id || index;
+          console.log("Rendering card with source:", card.source);
+          const cardKey = card.source?.id || card?.source.name || index;
           return (
             <SavedCard
               key={cardKey}

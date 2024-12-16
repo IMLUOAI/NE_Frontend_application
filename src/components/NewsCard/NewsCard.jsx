@@ -69,7 +69,7 @@ const NewsCard = ({ card, currentUser, handleSaveOrUnsave }) => {
       <p className="card__description">
         {card.description || "No available content"}
       </p>
-      <h3 className="card__sourceName">{card.sourceName}</h3>
+      <h3 className="card__sourceName">{card.source?.name}</h3>
     </a>
   );
 };
