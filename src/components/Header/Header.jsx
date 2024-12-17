@@ -12,7 +12,9 @@ const Header = ({
   handleOpenMobileMenuModal,
 }) => {
   return (
-    <header className={`header ${isSavedArticles ? "header__bar" : ""}`}>
+    <header
+      className={`header ${isSavedArticles ? "header__saved-articles" : ""}`}
+    >
       <div className="header__bar">
         <h1
           className={`header__logo ${isMenuOpen ? "header__logo_hidden" : ""}`}
