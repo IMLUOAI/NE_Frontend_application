@@ -174,4 +174,7 @@
   .nav__signin-button {
     width: 152px;
   }
+  .nav__black-theme .nav__link_type_saved-articles::after {
+    bottom: -20px;
+  }
 }

@@ -24,7 +24,7 @@ function App() {
   const [error, setError] = useState(null);
   const [newsData, setNewsData] = useState([]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [savedArticles, setSavedArticles] = useState([]);
+  const [savedArticlesList, setSavedArticlesList] = useState([]);
 
   const location = useLocation();
   const isSavedArticlesPage = location.pathname === "/saved-articles";
@@ -110,7 +110,7 @@ function App() {
       setActiveModal("signin");
       return;
     }
-    const isSaved = savedArticles?.some(
+    const isSaved = savedArticlesList?.some(
       (saved) => saved.source?.id === source?.id
     );
     const request = !isSaved
@@ -121,7 +121,12 @@ function App() {
         console.log("Updated articles returned by api:", updatedArticle);
         setNewsData((prev) => {
           return isSaved
-            ? prev.filter((saved) => saved.source?._id !== source?.id)
+            ? prev.filter((saved) => saved.source?.id !== article?.id)
+            : [...prev, updatedArticle];
+        });
+        setSavedArticlesList((prev) => {
+          return isSaved
+            ? prev.filter((saved) => saved.source?.id !== article?.id)
             : [...prev, updatedArticle];
         });
       })
@@ -139,7 +144,7 @@ function App() {
       .deleteArticle(articleId)
       .then((res) => {
         if (res.ok) {
-          setSavedArticles((prev) =>
+          setSavedArticlesList((prev) =>
             prev.filter(
               (saved) =>
                 saved.source?.id !== articleId &&
@@ -233,11 +238,11 @@ function App() {
       .getSavedArticles()
       .then((data) => {
         console.log("Saved articles fetched:", data);
-        setSavedArticles(data || []);
+        setSavedArticlesList(data || []);
       })
       .catch((err) => {
         console.error("Fetching saved articles:", error);
-        setSavedArticles([]);
+        setSavedArticlesList([]);
       });
   }, []);
 
@@ -271,7 +276,7 @@ function App() {
             path="/saved-articles"
             element={
               <SavedArticlesSection
-                articles={savedArticles}
+                articles={savedArticlesList}
                 handledDeletedArticle={handleDeletedArticle}
               />
             }

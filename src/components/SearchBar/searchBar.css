@@ -40,6 +40,15 @@
   top: 0;
   right: 0;
 }
+.search-bar__submit-button.idle {
+  color: #b6bcbf;
+}
+.search-bar__submit-button.hover {
+  color: #1a1b22;
+}
+.search-bar__submit-button.click {
+  color: #1a1b22;
+}
 .search-bar__submit-button:hover {
   cursor: pointer;
   border: 1px solid #d1d2d6;

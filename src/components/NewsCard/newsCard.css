@@ -144,18 +144,21 @@
   margin: 18px auto 24px 24px;
 }
 .card__keywords {
-  max-width: 87px;
+  width: auto;
   height: 40px;
-  display: flex;
+  display: inline-block;
   background-color: #ffffff;
   white-space: nowrap;
   border: 1px;
   border-radius: 8px;
+  justify-content: center;
   margin: 0 auto 0 0;
 }
 .card__keyword {
-  max-width: 43px;
+  flex-shrink: 1;
+  width: 43px;
   height: 24px;
+  flex-basis: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -166,6 +169,7 @@
   color: #000000;
   text-align: center;
   text-decoration-skip-ink: none;
+  overflow: 0;
   margin: 8px 20px;
 }
 

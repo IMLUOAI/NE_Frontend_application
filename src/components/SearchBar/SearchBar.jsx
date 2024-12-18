@@ -4,6 +4,7 @@ import React, { useState } from "react";
 const SearchBar = ({ onSearch }) => {
   const [query, setQuery] = useState("");
   const [error, setError] = useState(null);
+  const [searchState, setSearchState] = useState("idle");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,12 +16,16 @@ const SearchBar = ({ onSearch }) => {
     console.log("Searching for:", query);
     setQuery("");
     setError(null);
+    setSearchState("clicked");
   };
 
   const handleInputChange = (e) => {
     setQuery(e.target.value);
     if (error) {
       setError(null);
+    }
+    if (searchState === "idle") {
+      setSearchState("hover");
     }
   };
 
@@ -29,13 +34,20 @@ const SearchBar = ({ onSearch }) => {
       <input
         type="text"
         value={query}
+        onFocus={() => setSearchState("hover")}
         onChange={handleInputChange}
         className="search-bar__input"
-        placeholder="Enter topic"
+        placeholder={
+          searchState === "idle"
+            ? "Text not entered"
+            : searchState === "hover"
+            ? "Entering text"
+            : "Text entered"
+        }
       />
       <button
         type="submit"
-        className="search-bar__submit-button"
+        className={`search-bar__submit-button ${searchState}`}
         id="searchButton"
       >
         Search

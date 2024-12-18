@@ -28,7 +28,8 @@ const SavedArticlesSection = ({ articles = [], handledDeletedArticle }) => {
             return null;
           }
           console.log("Rendering card with source:", card.source);
-          const cardKey = card.source?.id || card?.source.name || index;
+          const cardKey =
+            card.id || card.source?.id || card.source?.name || `index-${index}`;
           return (
             <SavedCard
               key={cardKey}

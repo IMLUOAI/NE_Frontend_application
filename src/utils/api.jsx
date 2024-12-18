@@ -31,7 +31,7 @@ const savedArticles = (articleData) => {
       reject("No token found");
     }
 
-    const newArticle = { ...articleData, id: "articleData.id" };
+    const newArticle = { ...articleData, id: articleData.id };
     savedArticlesList.push(articleData);
 
     resolve(newArticle);
