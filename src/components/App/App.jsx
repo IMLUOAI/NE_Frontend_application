@@ -154,13 +154,13 @@ function App() {
           console.log("Saved articles after filtering:", saved.source);
         }
 
-        setNewsData((prev) =>
-          prev.map((news) =>
-            news.source?.id === articleId && news.source?.name === articleId
-              ? { ...news, isSaved: false }
-              : news
-          )
-        );
+        // setNewsData((prev) =>
+        //   prev.map((news) =>
+        //     news.source?.id === articleId && news.source?.name === articleId
+        //       ? { ...news, isSaved: false }
+        //       : news
+        //   )
+        // );
         console.log("New source id:", news.source?.id);
         console.log("Article deleted successfully");
       })

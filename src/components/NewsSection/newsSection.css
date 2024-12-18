@@ -30,7 +30,7 @@
 .news__expand-button {
   width: 288px;
   height: 64px;
-  background: #e8e8e8;
+  background: #ffffff;
   border-radius: 32px;
   border: none;
   font-family: "Roboto", sans-serif;
@@ -43,6 +43,7 @@
 }
 .news__expand-button:hover {
   cursor: pointer;
+  background: #e8e8e8;
   opacity: 0.5;
 }
 @media screen and (min-width: 320px) and (max-width: 425px) {
