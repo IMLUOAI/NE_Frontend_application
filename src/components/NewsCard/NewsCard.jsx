@@ -5,7 +5,7 @@ import solidPatternHover from "../../images/Group 12.svg";
 import hollowPatternHover from "../../images/Group 14.svg";
 import { useState } from "react";
 
-const NewsCard = ({ card, handleSaveOrUnsave }) => {
+const NewsCard = ({ card, currentUser, handleSaveOrUnsave }) => {
   if (!card) {
     return null;
   }
@@ -23,8 +23,13 @@ const NewsCard = ({ card, handleSaveOrUnsave }) => {
       return isHovered ? hollowPatternHover : hollowPattern;
     }
   };
-  const handelClick = (e) => {
+  const handleClick = (e) => {
+    if (!currentUser) {
+      console.log("User not logged in");
+      return;
+    }
     e.preventDefault();
+    console.log("HandleSaveOrUnsave:", handleSaveOrUnsave);
     handleSaveOrUnsave(card, isSaved)
       .then(() => {
         setIsSaved(!isSaved);
@@ -47,7 +52,7 @@ const NewsCard = ({ card, handleSaveOrUnsave }) => {
         <button
           type="button"
           className={cardSaveButtonClassName}
-          onClick={handelClick}
+          onClick={handleClick}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
@@ -64,7 +69,7 @@ const NewsCard = ({ card, handleSaveOrUnsave }) => {
       <p className="card__description">
         {card.description || "No available content"}
       </p>
-      <h3 className="card__sourceName">{card.sourceName}</h3>
+      <h3 className="card__sourceName">{card.source?.name}</h3>
     </a>
   );
 };

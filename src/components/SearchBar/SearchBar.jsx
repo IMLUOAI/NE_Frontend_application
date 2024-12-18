@@ -4,17 +4,19 @@ import React, { useState } from "react";
 const SearchBar = ({ onSearch }) => {
   const [query, setQuery] = useState("");
   const [error, setError] = useState(null);
+  const [searchState, setSearchState] = useState("idle");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!query.trim()) {
-      setError("please enter a keyword")
+      setError("please enter a keyword");
       return;
     }
     onSearch(query);
     console.log("Searching for:", query);
     setQuery("");
     setError(null);
+    setSearchState("clicked");
   };
 
   const handleInputChange = (e) => {
@@ -22,25 +24,35 @@ const SearchBar = ({ onSearch }) => {
     if (error) {
       setError(null);
     }
-  } 
+    if (searchState === "idle") {
+      setSearchState("hover");
+    }
+  };
 
   return (
-    <form className="search__bar" onSubmit={handleSubmit} >
+    <form className="search-bar" onSubmit={handleSubmit}>
       <input
         type="text"
         value={query}
+        onFocus={() => setSearchState("hover")}
         onChange={handleInputChange}
-        className="search__input"
-        placeholder="Enter topic"
+        className="search-bar__input"
+        placeholder={
+          searchState === "idle"
+            ? "Text not entered"
+            : searchState === "hover"
+            ? "Entering text"
+            : "Text entered"
+        }
       />
       <button
         type="submit"
-        className="search__submit-button"
+        className={`search-bar__submit-button ${searchState}`}
         id="searchButton"
       >
         Search
       </button>
-      {error  && <span className="search__error">{error}</span>}
+      {error && <span className="search-bar__error">{error}</span>}
     </form>
   );
 };

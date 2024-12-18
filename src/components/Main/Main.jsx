@@ -3,7 +3,6 @@ import About from "../About/About";
 import SearchBar from "../SearchBar/SearchBar";
 import NewsSection from "../NewsSection/NewsSection";
 import Preloader from "../Preloader/Preloader";
-
 const Main = ({
   newsData,
   error,
@@ -16,8 +15,9 @@ const Main = ({
     ? newsData.filter((article) => article !== "undefined")
     : [];
   console.log("filtered newsData", filteredNewsData);
+  const noResults = hasSearched && !isLoading && filteredNewsData.length === 0;
   return (
-    <main className="main__section">
+    <main className="main">
       <div className="main__content">
         <h1 className="main__title">What's going on in the world?</h1>
         <h3 className="main__description">
@@ -26,23 +26,17 @@ const Main = ({
         </h3>
         <SearchBar onSearch={handleSearch} />
       </div>
-      {hasSearched && (
-        <div className="news__section">
-          <Preloader isLoading={isLoading} />
-          {!isLoading && filteredNewsData.length > 0 && (
-            <NewsSection
-              newsCards={filteredNewsData}
-              handleSaveOrUnsave={onSaveOrUnsave}
-              isLoading={isLoading}
-              error={error}
-            />
-          )}
-          {!isLoading && filteredNewsData.length === 0 && (
-            <h3 className="preloader__title">Nothing found</h3>
-          )}
-        </div>
+      <Preloader isLoading={isLoading} noResults={noResults} />
+
+      {hasSearched && !isLoading && filteredNewsData.length > 0 && (
+        <NewsSection
+          newsCards={filteredNewsData}
+          handleSaveOrUnsave={onSaveOrUnsave}
+          isLoading={isLoading}
+          error={error}
+        />
       )}
-      <div className="about__section">
+      <div className="about">
         <About />
       </div>
     </main>

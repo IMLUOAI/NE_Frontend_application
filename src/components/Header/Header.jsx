@@ -2,33 +2,29 @@ import "../Header/header.css";
 import Navigation from "..//Navigation/Navigation";
 import menuIcon from "../../images/menu.svg";
 import { useEffect } from "react";
-
 const Header = ({
   userName,
   isMenuOpen,
-  isSavedArticlesPage,
+  isSavedArticles,
   isAuthorized,
   onLogout,
   onSigninModal,
   handleOpenMobileMenuModal,
 }) => {
-  useEffect(() => {
-    const headerElement = document.querySelector(".header");
-    if (isSavedArticlesPage) {
-      headerElement.classList.add("header__saved-articles");
-    } else {
-      headerElement.classList.remove("header__saved-articles");
-    }
-  }, [isSavedArticlesPage]);
-
   return (
-    <header className="header">
+    <header
+      className={`header ${isSavedArticles ? "header__saved-articles" : ""}`}
+    >
       <div className="header__bar">
-        <h1 className={`header__logo ${isMenuOpen ? "hidden" : ""}`}>
+        <h1
+          className={`header__logo ${isMenuOpen ? "header__logo_hidden" : ""}`}
+        >
           NewsExplorer
         </h1>
         <button
-          className={`header__menu-button ${isMenuOpen ? "hidden" : ""}`}
+          className={`header__menu-button ${
+            isMenuOpen ? "header__menu-button_hidden" : ""
+          }`}
           type="button"
           onClick={handleOpenMobileMenuModal}
         >
@@ -40,6 +36,7 @@ const Header = ({
           userName={userName}
           onLogout={onLogout}
           onSigninModal={onSigninModal}
+          isSavedArticles={isSavedArticles}
         />
       </div>
     </header>
