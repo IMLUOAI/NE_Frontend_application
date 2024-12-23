@@ -23,9 +23,9 @@ const NewsSection = ({ newsCards = [], handleSaveOrUnsave }) => {
   };
 
   return (
-    <div id="news-container" className="news">
+    <section id="news-container" className="news">
       <h1 className="news__title">Search results</h1>
-      <div className="news__card-list">
+      <ul className="news__card-list">
         {newsCards.slice(0, visibleItems).map((card, index) => {
           if (!card) {
             console.warn("card or index ${index} is undefined or null");
@@ -34,15 +34,16 @@ const NewsSection = ({ newsCards = [], handleSaveOrUnsave }) => {
           const cardKey =
             card.id || card.source?.id || card.source?.name || `index-${index}`;
           return (
-            <NewsCard
-              key={cardKey}
-              card={card}
-              currentUser={currentUser}
-              handleSaveOrUnsave={handleSaveOrUnsave}
-            />
+            <li key={cardKey} className="news__card-item">
+              <NewsCard
+                card={card}
+                currentUser={currentUser}
+                handleSaveOrUnsave={handleSaveOrUnsave}
+              />
+            </li>
           );
         })}
-      </div>
+      </ul>
       {newsCards.length > 3 && (
         <button
           type="button"
@@ -52,7 +53,7 @@ const NewsSection = ({ newsCards = [], handleSaveOrUnsave }) => {
           {isExpanded ? "Show Less" : "Show more"}
         </button>
       )}
-    </div>
+    </section>
   );
 };
 

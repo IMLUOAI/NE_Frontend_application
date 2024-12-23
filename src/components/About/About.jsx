@@ -3,10 +3,10 @@ import userAvatar from "../../images/IMG_4953.JPG";
 
 const About = () => {
   return (
-    <div className="about">
+    <section className="about">
       <img src={userAvatar} className="about__avatar" alt="avatar" />
       <div className="about__content">
-        <h2 className="about__title">About the Author</h2>
+        <h1 className="about__title">About the Author</h1>
         <ul className="about__userInfo">
           <li className="about__userInfo-list">
             Name: <span className="about__userInfo-list_span">Samuel Luo</span>
@@ -49,7 +49,7 @@ const About = () => {
           </li>
         </ul>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -41,7 +41,7 @@ const SavedCard = ({ card, onDelete }) => {
       <div className="card__publishedAt">
         {card.publishedAt || "Unknown Date"}
       </div>
-      <h2 className="card__title">{card.title || "No available title"}</h2>
+      <h1 className="card__title">{card.title || "No available title"}</h1>
       <p className="card__description">
         {card.description || "No available content"}
       </p>

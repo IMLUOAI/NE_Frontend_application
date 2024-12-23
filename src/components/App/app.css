@@ -22,10 +22,10 @@ body {
   header,
   main,
   footer,
-  .about__section,
-  .news__section,
+  .about,
+  .news,
   .preloader,
-  .search__bar .saved-articles__section {
+  .search__bar .saved-articles {
     width: 100vw;
   }
 }
@@ -33,10 +33,10 @@ body {
   header,
   main,
   footer,
-  .about__section,
-  .news__section,
+  .about,
+  .news,
   .preloader,
-  .search__bar .saved-articles__section {
+  .search__bar .saved-articles {
     width: 100vw;
   }
 }

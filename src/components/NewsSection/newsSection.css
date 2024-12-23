@@ -27,6 +27,10 @@
   gap: 16px;
   margin: 64px auto 64px;
 }
+.news__card-item {
+  max-width: 400px;
+  margin: 0 8px;
+}
 .news__expand-button {
   width: 288px;
   height: 64px;
@@ -60,6 +64,9 @@
     margin: 0 auto 32px;
     gap: 10px;
   }
+  .news__card-item {
+    max-width: 288px;
+  }
   .news__expand-button {
     width: 288px;
     height: 56px;
@@ -89,5 +96,8 @@
     grid-template-columns: repeat(auto-fill, minmax(224px, 1fr));
     margin: 0 auto 32px;
     gap: 8px;
+  }
+  .news__card-item {
+    max-width: 224px;
   }
 }

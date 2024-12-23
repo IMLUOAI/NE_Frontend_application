@@ -13,13 +13,16 @@ const Navigation = ({
   return (
     <nav className={`nav ${isSavedArticles ? "nav__black-theme" : ""}`}>
       {!isMenuOpen && (
-        <a href="/" className="nav__link_type_home">
+        <Link to="/" className="nav__link nav__link-home_active">
           Home
-        </a>
+        </Link>
       )}
       {isLoggedIn ? (
         <>
-          <Link to="/saved-articles" className="nav__link_type_saved-articles">
+          <Link
+            to="/saved-articles"
+            className="nav__link nav__link-saved-article_grey"
+          >
             Saved Articles
           </Link>
           <div className="nav__user-bar">

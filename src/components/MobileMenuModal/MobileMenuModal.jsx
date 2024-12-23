@@ -1,39 +1,47 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import closeButton from "../../images/close.svg";
 import "../MobileMenuModal/mobileMenuModal.css";
+import "../Navigation/nav.css";
+const MobileMenuModal = ({ isOpen, onClose, handleOpenSigninModal }) => {
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 425 && isOpen) {
+        onClose();
+      }
+    };
 
-const MobileMenuModal = ({
-  isOpen,
-  onClose,
-  handleOpenSigninModal,
-  isLoggedIn,
-}) => {
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [isOpen, onClose]);
   if (!isOpen) return null;
 
   return (
-    <div className="mobile-menu">
+    <div className="mobile">
       <div className="mobile__content">
-        <div className="mobile-menu__header">
-          <h1 className="mobile-menu__logo">NewsExplorer</h1>
+        <div className="mobile__header">
+          <h1 className="mobile__logo">NewsExplorer</h1>
           <button
-            className="mobile-menu__close-button"
+            className="mobile__close-button"
             type="button"
             onClick={onClose}
           >
             <img
               src={closeButton}
               alt="close-icon"
-              className="mobile-menu__close-icon"
+              className="mobile__close-button-icon"
             />
           </button>
         </div>
-        <nav className="mobile-menu__nav">
-          <a href="/" className="mobile-menu__link">
+        <nav className="mobile__nav">
+          <Link to="/" className="nav__link mobile__nav-link-home">
             Home
-          </a>
+          </Link>
           <button
             type="button"
-            className="mobile-menu__signin-button"
+            className="mobile__nav-signin-button"
             onClick={() => {
               handleOpenSigninModal();
               onClose();

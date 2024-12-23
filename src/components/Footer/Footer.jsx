@@ -2,6 +2,7 @@ import "../Footer/footer.css";
 import { Link } from "react-router-dom";
 import githubLogo from "../../images/Vector.svg";
 import facebookLogo from "../../images/iconmonstr-facebook-6.svg";
+import "../Navigation/nav.css";
 
 const Footer = () => {
   return (
@@ -10,25 +11,32 @@ const Footer = () => {
         © 2024 Supersite. Powered by News API
       </p>
       <nav className="footer__nav-bar">
-        <a className="nav__link-footer" href="/">
+        <Link className="nav__link nav__link-home_active" to="/">
           Home
-        </a>
-        <a className="nav__link-tripleten" href="https://tripleten.com">
+        </Link>
+        <Link
+          className="nav__link nav__link-tripleten_black"
+          to="https://tripleten.com"
+        >
           TripleTen
-        </a>
+        </Link>
       </nav>
-      <div className="footer__social-links">
-        <a href="https://github.com" className="nav__link">
-          <img src={githubLogo} className="footer__logo-github" alt="github" />
-        </a>
-        <a href="https://facebook.com" className="nav__link">
+      <nav className="footer__social-links">
+        <Link to="https://github.com" className="nav__link">
+          <img
+            src={githubLogo}
+            className="footer__social-icon-github"
+            alt="github"
+          />
+        </Link>
+        <Link to="https://facebook.com" className="nav__link">
           <img
             src={facebookLogo}
-            className="footer__logo-facebook"
+            className="footer__social-icon-fb"
             alt="facebook"
           />
-        </a>
-      </div>
+        </Link>
+      </nav>
     </footer>
   );
 };

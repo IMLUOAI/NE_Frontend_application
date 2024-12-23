@@ -37,40 +37,42 @@ const NewsCard = ({ card, currentUser, handleSaveOrUnsave }) => {
       .catch((err) => console.log(err));
   };
   return (
-    <a
-      href={card.url || "#"}
-      target="_blank"
-      rel="noreferrer noopener"
-      className="card card__link"
-    >
-      <img
-        src={card.urlToImage || "default-image.jpg"}
-        className="card__image"
-        alt={card.title}
-      />
-      <div className="card__feature">
-        <button
-          type="button"
-          className={cardSaveButtonClassName}
-          onClick={handleClick}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
-          <img src={getIcon()} alt="Save" className="card__save-icon" />
-          <div className="card__tooltip">
-            <p className="card__tooltip-text">Sign in to save articles</p>
-          </div>
-        </button>
-      </div>
-      <div className="card__publishedAt">
-        {card.publishedAt || "Unknown Date"}
-      </div>
-      <h2 className="card__title">{card.title || "No available title"}</h2>
-      <p className="card__description">
-        {card.description || "No available content"}
-      </p>
-      <h3 className="card__sourceName">{card.source?.name}</h3>
-    </a>
+    <article className="card">
+      <a
+        href={card.url || "#"}
+        target="_blank"
+        rel="noreferrer noopener"
+        className="card card__link"
+      >
+        <img
+          src={card.urlToImage || "default-image.jpg"}
+          className="card__image"
+          alt={card.title}
+        />
+        <div className="card__feature">
+          <button
+            type="button"
+            className={cardSaveButtonClassName}
+            onClick={handleClick}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            <img src={getIcon()} alt="Save" className="card__save-icon" />
+            <div className="card__tooltip">
+              <p className="card__tooltip-text">Sign in to save articles</p>
+            </div>
+          </button>
+        </div>
+        <div className="card__publishedAt">
+          {card.publishedAt || "Unknown Date"}
+        </div>
+        <h1 className="card__title">{card.title || "No available title"}</h1>
+        <p className="card__description">
+          {card.description || "No available content"}
+        </p>
+        <h3 className="card__sourceName">{card.source?.name}</h3>
+      </a>
+    </article>
   );
 };
 

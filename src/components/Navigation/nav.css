@@ -5,16 +5,19 @@
   align-items: center;
   margin: 0 0 0 auto;
 }
-
-.nav.nav__black-theme .nav__link_type_home,
-.nav.nav__black-theme .nav__link_type_saved-articles,
+.nav__link {
+  text-decoration: none;
+  color: #ffffff;
+}
+.nav.nav__black-theme .nav__link-home_active,
+.nav.nav__black-theme .nav__link-saved-article_grey,
 .nav.nav__black-theme .nav__username {
   color: #1a1b22;
 }
-.nav.nav__black-theme .nav__link_type_home::after {
+.nav.nav__black-theme .nav__link-home_active::after {
   background-color: transparent;
 }
-.nav__black-theme .nav__link_type_saved-articles::after {
+.nav__black-theme .nav__link-saved-article_grey::after {
   content: "";
   position: absolute;
   bottom: -24px;
@@ -30,7 +33,7 @@
 .nav.nav__black-theme .nav__logout-icon {
   filter: invert(1);
 }
-.nav__link_type_home {
+.nav__link-home_active {
   width: 49px;
   height: 24px;
   color: #ffffff;
@@ -44,7 +47,7 @@
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
 }
-.nav__link_type_home::after {
+.nav__link-home_active::after {
   content: "";
   position: absolute;
   bottom: -26px;
@@ -53,7 +56,7 @@
   height: 3px;
   background-color: #ffffff;
 }
-.nav__link_type_home:hover::after {
+.nav__link-home_active:hover::after {
   bottom: 0;
   height: 2px;
 }
@@ -67,7 +70,7 @@
   border: 1px solid #ffffff;
   margin-left: 42px;
 }
-.nav__link_type_saved-articles {
+.nav__link-saved-article_grey {
   width: 114px;
   height: 24px;
   position: relative;
@@ -81,7 +84,7 @@
   color: #b6bcbf;
   margin: 30px 64px 26px 76px;
 }
-.nav__link__type_saved-articles:hover {
+.nav__link-saved-article_grey:hover {
   color: #ffffff;
   text-decoration-line: underline;
   text-decoration-thickness: 2px;
@@ -144,11 +147,12 @@
   cursor: pointer;
   opacity: 0.5;
 }
+
 @media screen and (min-width: 320px) and (max-width: 425px) {
-  .nav__link_type_home {
+  .nav__link-home_active {
     display: none;
   }
-  .nav__link_type_saved-articles {
+  .nav__link-saved-article_grey {
     display: none;
   }
   .nav__user-bar {
@@ -162,10 +166,10 @@
   }
 }
 @media screen and (min-width: 426px) and (max-width: 768px) {
-  .nav__link_type_home::after {
+  .nav__link-home_active::after {
     bottom: -22px;
   }
-  .nav__link_type_saved-articles {
+  .nav__link-saved-article_grey {
     margin: 30px 64px 26px 76px;
   }
   .nav__signin-bar {
@@ -174,7 +178,7 @@
   .nav__signin-button {
     width: 152px;
   }
-  .nav__black-theme .nav__link_type_saved-articles::after {
+  .nav__black-theme .nav__link-saved-article_grey::after {
     bottom: -20px;
   }
 }
