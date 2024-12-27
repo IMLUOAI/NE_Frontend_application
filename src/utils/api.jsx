@@ -72,6 +72,7 @@ const deleteArticle = (articleId) => {
   return new Promise((resolve, reject) => {
     if (!token) {
       reject("No token found");
+      console.log("No token was found:", token);
     }
     if (!articleId) {
       reject("No article id found");

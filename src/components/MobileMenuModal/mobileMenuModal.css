@@ -65,7 +65,7 @@
     align-items: center;
     margin: 0 auto;
   }
-  .mobile__nav-link-home {
+  .mobile__nav-link_home {
     display: block;
     width: 288px;
     height: 56px;

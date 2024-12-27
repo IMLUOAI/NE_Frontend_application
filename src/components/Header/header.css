@@ -4,10 +4,10 @@
   height: 80px;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   align-items: center;
   background: transparent;
   position: absolute;
-  /* background-image: url("../../images/Image.jpg"); */
   box-shadow: 0px -1px 0px 0px #ffffff33 inset;
   top: 0;
   left: 50%;
@@ -55,14 +55,13 @@
     height: 56px;
   }
   .header__bar {
-    width: 393px;
     margin: 16px 16px;
   }
   .header__logo {
     width: 117px;
     height: 24px;
     font-size: 16px;
-    margin: 0 147px 0 0;
+    margin: 16px auto 16px 0;
   }
   .header__menu-button {
     display: flex;
@@ -90,7 +89,6 @@
 @media screen and (min-width: 426px) and (max-width: 768px) {
   .header {
     height: 66px;
-    box-shadow: 0px -1px 0px 0px #ffffff33 inset;
   }
 
   .header__bar {

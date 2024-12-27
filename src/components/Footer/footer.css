@@ -26,7 +26,11 @@
   align-items: center;
   margin: 32px 40px 26px auto;
 }
-.footer .nav__link-home_active {
+.footer__nav-link {
+  text-decoration: none;
+  color: #ffffff;
+}
+.footer__nav-link_home {
   width: 49px;
   height: 24px;
   color: #000;
@@ -37,13 +41,13 @@
   text-align: center;
   text-decoration: none;
 }
-.nav__link-home_active:hover {
+.footer__nav-link_home:hover {
   cursor: pointer;
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 2px;
 }
-.nav__link-tripleten_black {
+.footer__nav-link_tripleten {
   width: 74px;
   height: 24px;
   color: #000;
@@ -54,7 +58,7 @@
   text-align: center;
   text-decoration: none;
 }
-.nav__link-tripleten_black:hover {
+.footer__nav-link_tripleten:hover {
   cursor: pointer;
   text-decoration: underline;
   text-decoration-thickness: 2px;
@@ -69,32 +73,23 @@
   align-items: center;
   margin: 32px 104px 26px 0;
 }
-.footer__social-icon-github {
+
+.footer__social-link img {
   width: 24px;
   height: 24px;
   object-fit: cover;
 }
-.footer__social-icon-github:hover {
-  cursor: pointer;
-  opacity: 0.5;
-}
-.footer__social-icon-fb {
-  width: 24px;
-  height: 24px;
-  object-fit: cover;
-}
-.footer__social-icon-fb:hover {
+.footer__social-link img:hover {
   cursor: pointer;
   opacity: 0.5;
 }
 
 @media screen and (min-width: 320px) and (max-width: 425px) {
   .footer {
-    max-width: 320px;
     height: auto;
     align-items: start;
     display: grid;
-    grid-template-areas: "nav social" "description description";
+    grid-template-areas: "link social" "description description";
     grid-template-columns: 1fr 1fr;
     gap: 38px 16px;
   }
@@ -116,14 +111,15 @@
     justify-content: space-between;
     justify-items: center;
     align-items: flex-start;
-    grid-area: nav;
-    margin: 20px 0 auto 0;
+    grid-area: link;
+    margin: 20px auto auto 0;
   }
-  .footer .nav__link-home_active {
+  .footer__nav-link_home {
+    display: flex;
     font-size: 18px;
     margin-left: 15px;
   }
-  .nav__link-tripleten_black {
+  .footer__nav-link_tripleten {
     font-size: 18px;
     margin-left: 15px;
   }
@@ -154,7 +150,7 @@
     margin: 20px auto 19px 113px;
   }
 
-  .nav__link-tripleten_black {
+  .footer__nav-link_tripleten {
     width: 74px;
     height: 24px;
     font-size: 18px;
@@ -165,10 +161,7 @@
     height: 24px;
     margin: 20px 40px;
   }
-  .footer__social-icon-github {
-    border-radius: 12px;
-  }
-  .footer__social-icon-fb {
+  .footer__social-link img {
     border-radius: 12px;
   }
 }

@@ -13,7 +13,7 @@ const Navigation = ({
   return (
     <nav className={`nav ${isSavedArticles ? "nav__black-theme" : ""}`}>
       {!isMenuOpen && (
-        <Link to="/" className="nav__link nav__link-home_active">
+        <Link to="/" className="nav__link nav__link_home">
           Home
         </Link>
       )}
@@ -21,7 +21,7 @@ const Navigation = ({
         <>
           <Link
             to="/saved-articles"
-            className="nav__link nav__link-saved-article_grey"
+            className="nav__link nav__link_saved-article "
           >
             Saved Articles
           </Link>

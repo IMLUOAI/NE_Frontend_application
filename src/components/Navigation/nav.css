@@ -9,12 +9,12 @@
   text-decoration: none;
   color: #ffffff;
 }
-.nav.nav__black-theme .nav__link-home_active,
+.nav.nav__black-theme .nav__link_home,
 .nav.nav__black-theme .nav__link-saved-article_grey,
 .nav.nav__black-theme .nav__username {
   color: #1a1b22;
 }
-.nav.nav__black-theme .nav__link-home_active::after {
+.nav.nav__black-theme .nav__link_home::after {
   background-color: transparent;
 }
 .nav__black-theme .nav__link-saved-article_grey::after {
@@ -33,7 +33,7 @@
 .nav.nav__black-theme .nav__logout-icon {
   filter: invert(1);
 }
-.nav__link-home_active {
+.nav__link_home {
   width: 49px;
   height: 24px;
   color: #ffffff;
@@ -47,7 +47,7 @@
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
 }
-.nav__link-home_active::after {
+.nav__link_home::after {
   content: "";
   position: absolute;
   bottom: -26px;
@@ -56,7 +56,7 @@
   height: 3px;
   background-color: #ffffff;
 }
-.nav__link-home_active:hover::after {
+.nav__link_home:hover::after {
   bottom: 0;
   height: 2px;
 }
@@ -70,7 +70,7 @@
   border: 1px solid #ffffff;
   margin-left: 42px;
 }
-.nav__link-saved-article_grey {
+.nav__link_saved-article {
   width: 114px;
   height: 24px;
   position: relative;
@@ -84,7 +84,7 @@
   color: #b6bcbf;
   margin: 30px 64px 26px 76px;
 }
-.nav__link-saved-article_grey:hover {
+.nav__link_saved-article:hover {
   color: #ffffff;
   text-decoration-line: underline;
   text-decoration-thickness: 2px;
@@ -149,10 +149,10 @@
 }
 
 @media screen and (min-width: 320px) and (max-width: 425px) {
-  .nav__link-home_active {
+  .nav__link_home {
     display: none;
   }
-  .nav__link-saved-article_grey {
+  .nav__link_saved-article {
     display: none;
   }
   .nav__user-bar {
@@ -166,10 +166,10 @@
   }
 }
 @media screen and (min-width: 426px) and (max-width: 768px) {
-  .nav__link-home_active::after {
+  .nav__link_home::after {
     bottom: -22px;
   }
-  .nav__link-saved-article_grey {
+  .nav__link_saved-article {
     margin: 30px 64px 26px 76px;
   }
   .nav__signin-bar {
@@ -178,7 +178,7 @@
   .nav__signin-button {
     width: 152px;
   }
-  .nav__black-theme .nav__link-saved-article_grey::after {
+  .nav__black-theme .nav__link_saved-article::after {
     bottom: -20px;
   }
 }

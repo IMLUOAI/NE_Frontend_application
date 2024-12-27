@@ -36,7 +36,7 @@ const MobileMenuModal = ({ isOpen, onClose, handleOpenSigninModal }) => {
           </button>
         </div>
         <nav className="mobile__nav">
-          <Link to="/" className="nav__link mobile__nav-link-home">
+          <Link to="/" className="nav__link mobile__nav-link_home">
             Home
           </Link>
           <button

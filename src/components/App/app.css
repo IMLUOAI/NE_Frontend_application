@@ -25,7 +25,8 @@ body {
   .about,
   .news,
   .preloader,
-  .search__bar .saved-articles {
+  .search__bar,
+  .saved-articles {
     width: 100vw;
   }
 }
@@ -36,7 +37,8 @@ body {
   .about,
   .news,
   .preloader,
-  .search__bar .saved-articles {
+  .search__bar,
+  .saved-articles {
     width: 100vw;
   }
 }

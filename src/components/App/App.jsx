@@ -111,7 +111,7 @@ function App() {
       return;
     }
     const isSaved = savedArticlesList?.some(
-      (saved) => saved.source?.id === source?.id
+      (saved) => saved.source?.id === saved.source?.name
     );
     const request = !isSaved
       ? api.savedArticles(article, token)
@@ -124,11 +124,11 @@ function App() {
             ? prev.filter((saved) => saved.source?.id !== article?.id)
             : [...prev, updatedArticle];
         });
-        setSavedArticlesList((prev) => {
-          return isSaved
-            ? prev.filter((saved) => saved.source?.id !== article?.id)
-            : [...prev, updatedArticle];
-        });
+        // setSavedArticlesList((prev) => {
+        //   return isSaved
+        //     ? prev.filter((saved) => saved.source?.id !== article?.id)
+        //     : [...prev, updatedArticle];
+        // });
       })
       .catch((err) => console.log(err));
   };
@@ -154,13 +154,13 @@ function App() {
           console.log("Saved articles after filtering:", saved.source);
         }
 
-        // setNewsData((prev) =>
-        //   prev.map((news) =>
-        //     news.source?.id === articleId && news.source?.name === articleId
-        //       ? { ...news, isSaved: false }
-        //       : news
-        //   )
-        // );
+        setNewsData((prev) =>
+          prev.map((news) =>
+            news.source?.id === articleId && news.source?.name === articleId
+              ? { ...news, isSaved: false }
+              : news
+          )
+        );
         console.log("New source id:", news.source?.id);
         console.log("Article deleted successfully");
       })
