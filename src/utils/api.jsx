@@ -31,7 +31,10 @@ const savedArticles = (articleData) => {
       reject("No token found");
     }
 
-    const newArticle = { ...articleData, id: articleData.id };
+    const newArticle = {
+      ...articleData,
+      _id: `${articleData.source.name}${articleData.publishedAt}`,
+    };
     savedArticlesList.push(articleData);
 
     resolve(newArticle);
@@ -44,7 +47,7 @@ const unsaveArticle = (article) => {
       return reject({ status: 401, message: "Unauthorized" });
     }
     setTimeout(() => {
-      resolve({ ...article, id: article.source?.id });
+      resolve({ ...article, _id: article._id });
     }, 100);
     const response = {
       ok: true,
@@ -62,7 +65,9 @@ const getSavedArticles = () => {
       reject("No token found");
     }
     setTimeout(() => {
-      resolve(savedArticlesList || []);
+      resolve(
+        savedArticlesList.map((article) => ({ ...article, _id: article._id }))
+      );
     }, 100);
   });
 };
@@ -79,7 +84,7 @@ const deleteArticle = (articleId) => {
     }
     const initialLength = savedArticlesList.length;
     savedArticlesList = savedArticlesList.filter(
-      (article) => article.source?.id !== articleId
+      (article) => article._id !== articleId
     );
     if (savedArticlesList.length === initialLength) {
       reject("Articles not found");

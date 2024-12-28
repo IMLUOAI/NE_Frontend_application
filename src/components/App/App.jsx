@@ -111,7 +111,7 @@ function App() {
       return;
     }
     const isSaved = savedArticlesList?.some(
-      (saved) => saved.source?.id === saved.source?.name
+      (saved) => saved._id === article._id
     );
     const request = !isSaved
       ? api.savedArticles(article, token)
@@ -121,14 +121,14 @@ function App() {
         console.log("Updated articles returned by api:", updatedArticle);
         setNewsData((prev) => {
           return isSaved
-            ? prev.filter((saved) => saved.source?.id !== article?.id)
+            ? prev.filter((saved) => saved._id !== article._id)
             : [...prev, updatedArticle];
         });
-        // setSavedArticlesList((prev) => {
-        //   return isSaved
-        //     ? prev.filter((saved) => saved.source?.id !== article?.id)
-        //     : [...prev, updatedArticle];
-        // });
+        setSavedArticlesList((prev) => {
+          return isSaved
+            ? prev.filter((saved) => saved._id !== article.id)
+            : [...prev, updatedArticle];
+        });
       })
       .catch((err) => console.log(err));
   };
@@ -145,23 +145,17 @@ function App() {
       .then((res) => {
         if (res.ok) {
           setSavedArticlesList((prev) =>
-            prev.filter(
-              (saved) =>
-                saved.source?.id !== articleId &&
-                saved.source?.name !== articleId
-            )
+            prev.filter((saved) => saved._id !== articleId)
           );
           console.log("Saved articles after filtering:", saved.source);
         }
 
         setNewsData((prev) =>
           prev.map((news) =>
-            news.source?.id === articleId && news.source?.name === articleId
-              ? { ...news, isSaved: false }
-              : news
+            news._id === articleId ? { ...news, isSaved: false } : news
           )
         );
-        console.log("New source id:", news.source?.id);
+        console.log("New source id:", news._id);
         console.log("Article deleted successfully");
       })
       .catch((err) => console.error(err));

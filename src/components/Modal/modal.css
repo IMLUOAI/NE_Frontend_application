@@ -236,36 +236,38 @@
     width: 100vw;
     height: 568px;
     top: 340px;
-    left: -50%;
   }
   .modal__form {
-    max-width: 288px;
+    /* max-width: 288px;  */
     margin: 0 16px;
   }
   .modal__title {
-    max-width: 158px;
+    width: 158px;
     height: 28px;
-    margin: 16px auto 18px;
+    display: flex;
+    align-items: center;
+    margin: 16px auto 18px 16px;
+  }
+  .modal__input {
+    max-width: 288px;
+    margin: 8px 0 11px;
   }
   .modal__label {
     margin: 30px 0;
   }
   .modal__submit-container {
-    max-width: 288px;
-    margin: 23px 0 auto;
+    margin: 23px auto auto;
   }
-  .modal__input {
-    max-width: 288px;
-  }
+
   .modal__submit-button {
-    max-width: 288px;
+    /* max-width: 393px; */
     height: 64px;
-    margin: 0 0 16px;
+    margin: 0 auto 16px;
   }
   .modal__option-button {
-    max-width: 226px;
+    /* max-width: 393px; */
     height: 20px;
-    margin: 0 31px;
+    /* margin: 0 auto; */
   }
   .modal__close-button {
     width: 24px;
