@@ -7,8 +7,8 @@ const SavedArticlesSection = ({ articles = [], handledDeletedArticle }) => {
   const { currentUser } = useContext(CurrentUserContext);
   console.log("articles array:", articles);
   const sources = articles
-    .map((article) => article.source?.id)
-    .filter((id) => id !== null && id !== undefined);
+    .map((article) => article.source?.name)
+    .filter((name) => name);
   return (
     <div className="saved-articles">
       <p className="saved-articles__note">Saved articles</p>
@@ -22,17 +22,17 @@ const SavedArticlesSection = ({ articles = [], handledDeletedArticle }) => {
         </span>
       </p>
       <div className="saved-articles__card-list">
-        {articles.map((card, index) => {
+        {articles.map((card) => {
           if (!card) {
             console.log("card or index ${index} is undefined or null");
             return null;
           }
           console.log("Rendering card with source:", card.source);
-          const cardKey =
-            card.id || card.source?.id || card.source?.name || `index-${index}`;
+          // const cardKey =
+          //   card.id || card._id || card.source?.name || `index-${index}`;
           return (
             <SavedCard
-              key={cardKey}
+              key={card._id}
               currentUser={currentUser}
               onDelete={handledDeletedArticle}
               card={card}

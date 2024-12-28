@@ -30,7 +30,7 @@ const SavedCard = ({ card, onDelete }) => {
         <button
           type="button"
           className="card__bin-button"
-          onClick={() => onDelete(card.source?.id)}
+          onClick={() => onDelete(card._id)}
         >
           <img src={binIcon} alt="bin icon" className="card__bin-icon" />
           <div className="card__tooltip">
