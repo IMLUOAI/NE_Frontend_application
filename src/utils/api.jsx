@@ -35,7 +35,7 @@ const savedArticles = (articleData) => {
       ...articleData,
       _id: `${articleData.source.name}${articleData.publishedAt}`,
     };
-    savedArticlesList.push(articleData);
+    savedArticlesList.push(newArticle);
 
     resolve(newArticle);
   });

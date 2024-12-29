@@ -73,6 +73,7 @@
     border: none;
     cursor: pointer;
     margin: 16px 0 16px auto;
+    padding: 0;
   }
   .header__logo.header__logo_hidden,
   .header__menu-button.header__menu-button_hidden {

@@ -126,7 +126,7 @@ function App() {
         });
         setSavedArticlesList((prev) => {
           return isSaved
-            ? prev.filter((saved) => saved._id !== article.id)
+            ? prev.filter((saved) => saved._id !== article._id)
             : [...prev, updatedArticle];
         });
       })
@@ -147,7 +147,7 @@ function App() {
           setSavedArticlesList((prev) =>
             prev.filter((saved) => saved._id !== articleId)
           );
-          console.log("Saved articles after filtering:", saved.source);
+          console.log("Saved articles after filtering:", saved);
         }
 
         setNewsData((prev) =>

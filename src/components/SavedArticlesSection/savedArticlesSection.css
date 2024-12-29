@@ -19,7 +19,7 @@
   margin: 120px auto 0 104px;
 }
 .saved-articles__title {
-  width: 530px;
+  max-width: 530px;
   height: 92px;
   font-family: "Roboto Slab", sans-serif;
   font-size: 40px;
@@ -31,7 +31,7 @@
   margin: 28px auto 30px 104px;
 }
 .saved-articles__keyword-title {
-  width: 712px;
+  max-width: 712px;
   height: 24px;
   font-family: "Roboto", sans-serif;
   font-size: 18px;
@@ -56,7 +56,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 16px;
-  margin: 64px auto 64px;
+  place-items: center;
+  margin: 64px auto;
 }
 
 .saved-articles__card {
