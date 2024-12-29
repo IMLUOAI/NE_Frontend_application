@@ -76,18 +76,18 @@ const deleteArticle = (articleId) => {
   const token = getToken();
   return new Promise((resolve, reject) => {
     if (!token) {
-      reject("No token found");
+      return reject("No token found");
       console.log("No token was found:", token);
     }
     if (!articleId) {
-      reject("No article id found");
+      return reject("No article id found");
     }
-    const initialLength = savedArticlesList.length;
+    const updateSavedArticles = savedArticlesList.length;
     savedArticlesList = savedArticlesList.filter(
       (article) => article._id !== articleId
     );
-    if (savedArticlesList.length === initialLength) {
-      reject("Articles not found");
+    if (savedArticlesList.length === updateSavedArticles) {
+      return reject("Articles not found");
     } else {
       resolve({
         ok: true,

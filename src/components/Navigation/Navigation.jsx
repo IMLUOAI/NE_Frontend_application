@@ -21,7 +21,9 @@ const Navigation = ({
         <>
           <Link
             to="/saved-articles"
-            className="nav__link nav__link_saved-article "
+            className={`nav__link nav__link_saved-article ${
+              isMenuOpen ? "nav__link_visible" : ""
+            }`}
           >
             Saved Articles
           </Link>

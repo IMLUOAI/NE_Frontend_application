@@ -144,10 +144,11 @@ function App() {
       .deleteArticle(articleId)
       .then((res) => {
         if (res.ok) {
-          setSavedArticlesList((prev) =>
-            prev.filter((saved) => saved._id !== articleId)
-          );
-          console.log("Saved articles after filtering:", saved);
+          setSavedArticlesList((prev) => {
+            console.log("Previous saved article list:", prev);
+            return prev.filter((saved) => saved._id !== articleId);
+          });
+          console.log("Saved articles updated successfully:", saved);
         }
 
         setNewsData((prev) =>
@@ -155,10 +156,9 @@ function App() {
             news._id === articleId ? { ...news, isSaved: false } : news
           )
         );
-        console.log("New source id:", news._id);
-        console.log("Article deleted successfully");
+        console.log("News data updated successfully");
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.error("Error deleting article:", err));
   };
   const handleSearch = async (query) => {
     setIsLoading(true);

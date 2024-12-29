@@ -10,7 +10,7 @@ const SavedArticlesSection = ({ articles = [], handledDeletedArticle }) => {
     .map((article) => article.source?.name)
     .filter((name) => name);
   return (
-    <div className="saved-articles">
+    <section className="saved-articles">
       <p className="saved-articles__note">Saved articles</p>
       <h1 className="saved-articles__title">
         {currentUser?.name}, you have {articles.length} saved articles
@@ -24,12 +24,9 @@ const SavedArticlesSection = ({ articles = [], handledDeletedArticle }) => {
       <div className="saved-articles__card-list">
         {articles.map((card) => {
           if (!card) {
-            console.log("card or index ${index} is undefined or null");
             return null;
           }
           console.log("Rendering card with source:", card.source);
-          // const cardKey =
-          //   card.id || card._id || card.source?.name || `index-${index}`;
           return (
             <SavedCard
               key={card._id}
@@ -40,7 +37,7 @@ const SavedArticlesSection = ({ articles = [], handledDeletedArticle }) => {
           );
         })}
       </div>
-    </div>
+    </section>
   );
 };
 export default SavedArticlesSection;
