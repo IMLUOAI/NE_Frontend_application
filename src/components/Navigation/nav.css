@@ -30,6 +30,9 @@
 .nav.nav__black-theme .nav__signin-bar {
   border: 1px solid #1a1b22;
 }
+.nav.nav__black-theme .nav__signin-button {
+  color: #1a1b22;
+}
 .nav.nav__black-theme .nav__logout-icon {
   filter: invert(1);
 }
