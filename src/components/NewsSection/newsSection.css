@@ -22,6 +22,7 @@
 }
 .news__card-list {
   max-width: 1232px;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 16px;
@@ -30,6 +31,7 @@
 }
 .news__card-item {
   max-width: 400px;
+  width: 100%;
   height: auto;
   display: flex;
   justify-content: center;
