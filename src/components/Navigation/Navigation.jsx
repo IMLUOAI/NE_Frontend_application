@@ -28,7 +28,7 @@ const Navigation = ({
             Saved Articles
           </Link>
           <div className="nav__user-bar">
-            <h3 className="nav__username">{userName}</h3>
+            <span className="nav__user-name">{userName}</span>
             <button
               type="button"
               onClick={onLogout}

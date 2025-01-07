@@ -1,5 +1,5 @@
 .card {
-  max-width: 400px;
+  width: 400px;
   width: 100%;
   height: 576px;
   display: flex;
@@ -17,14 +17,14 @@
   color: inherit;
 }
 .card__image {
-  max-width: 400px;
+  width: 400px;
   height: 272px;
   overflow: hidden;
   border-radius: 16px 16px 0 0;
   object-fit: cover;
 }
 .card__feature {
-  max-width: 352px;
+  width: 352px;
   height: 40px;
   display: flex;
   flex-direction: row;
@@ -62,7 +62,7 @@
 }
 
 .card__tooltip {
-  max-width: 182px;
+  width: 182px;
   height: 40px;
   border-radius: 10px;
   background-color: #ffffff;
@@ -78,7 +78,7 @@
   display: none;
 }
 .card__tooltip-text {
-  max-width: 142px;
+  width: 142px;
   height: 18px;
   white-space: nowrap;
   font-family: "Roboto", sans-serif;
@@ -96,7 +96,7 @@
 }
 
 .card__publishedAt {
-  max-width: 149px;
+  width: 149px;
   height: 24px;
   font-family: "Source Sans Pro", sans-serif;
   font-size: 18px;
@@ -109,7 +109,7 @@
 }
 
 .card__title {
-  max-width: 352px;
+  width: 352px;
   height: 60px;
   text-decoration: none;
   font-family: "Roboto Slab", sans-serif;
@@ -121,7 +121,7 @@
   margin: 12px 24px 0;
 }
 .card__description {
-  max-width: 352px;
+  width: 352px;
   height: 110px;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
@@ -131,7 +131,7 @@
   margin: 16px 24px 0;
 }
 .card__sourceName {
-  max-width: 121px;
+  width: 121px;
   height: 20px;
   font-family: "Roboto Slab", sans-serif;
   font-size: 16px;
@@ -145,7 +145,7 @@
   margin: 18px auto 24px 24px;
 }
 .card__keywords {
-  width: auto;
+  width: 87px;
   height: 40px;
   display: inline-block;
   background-color: #ffffff;
@@ -200,21 +200,22 @@
 
 @media screen and (min-width: 320px) and (max-width: 425px) {
   .card {
+    width: 100%;
     height: 480px;
   }
   .card__image {
-    width: 288px;
+    width: 100%;
     height: 196px;
   }
   .card__publishedAt {
-    max-width: 256px;
+    width: 256px;
     height: 24px;
     font-size: 18px;
     line-height: 24px;
     margin: 16px auto 0 16px;
   }
   .card__title {
-    max-width: 256px;
+    width: 256px;
     height: 48px;
     font-size: 22px;
     line-height: 24px;
@@ -222,7 +223,7 @@
     overflow: hidden;
   }
   .card__description {
-    max-width: 256px;
+    width: 256px;
     height: 88px;
     font-size: 16px;
     line-height: 22px;
@@ -230,27 +231,27 @@
     overflow: hidden;
   }
   .card__sourceName {
-    max-width: 256px;
+    width: 256px;
     height: 20px;
     font-size: 16px;
     line-height: 20px;
     margin: 0 auto 16px 16px;
   }
   .card__feature {
-    max-width: 256px;
+    width: 100%;
     top: 16px;
     right: 16px;
     left: 16px;
   }
   .card__tooltip {
-    max-width: 132px;
+    width: 132px;
   }
   .card__keywords {
-    max-width: 83px;
-    margin: 0 120px 0 0;
+    width: 83px;
+    margin: 0 auto 0 0;
   }
   .card__bin-button {
-    margin: 0 0 0 auto;
+    margin: 0 auto 0 auto;
   }
 }
 @media screen and (min-width: 426px) and (max-width: 768px) {
@@ -258,18 +259,18 @@
     height: 420px;
   }
   .card__image {
-    max-width: 224px;
+    width: 100%;
     height: 150px;
   }
   .card__publishedAt {
-    max-width: 148px;
+    width: 144px;
     height: 24px;
     font-size: 16px;
     line-height: 24px;
     margin: 20px auto 0 24px;
   }
   .card__title {
-    max-width: 192px;
+    width: 192px;
     height: 48px;
     font-size: 22px;
     line-height: 24px;
@@ -278,7 +279,7 @@
     text-overflow: ellipsis;
   }
   .card__description {
-    max-width: 192px;
+    width: 192px;
     height: 88px;
     font-size: 16px;
     line-height: 22px;
@@ -287,7 +288,7 @@
     overflow: hidden;
   }
   .card__sourceName {
-    max-width: 192px;
+    width: 192px;
     height: 20px;
     font-size: 16px;
     line-height: 20px;
@@ -297,17 +298,17 @@
     margin: 8px 8px auto auto;
   }
   .card__feature {
-    max-width: 208px;
+    width: 100%;
     top: 8px;
     right: 8px;
     left: 8px;
   }
   .card__keywords {
-    max-width: 83px;
+    width: 83px;
     margin: 0 85px 0 0;
   }
 
   .card__bin-button {
-    margin: 0 0 0 auto;
+    margin: 0 8px 0 0;
   }
 }

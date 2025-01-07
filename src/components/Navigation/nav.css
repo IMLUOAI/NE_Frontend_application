@@ -10,14 +10,14 @@
   color: #ffffff;
 }
 .nav.nav__black-theme .nav__link_home,
-.nav.nav__black-theme .nav__link-saved-article_grey,
-.nav.nav__black-theme .nav__username {
+.nav.nav__black-theme .nav__link_saved-article,
+.nav.nav__black-theme .nav__user-name {
   color: #1a1b22;
 }
 .nav.nav__black-theme .nav__link_home::after {
   background-color: transparent;
 }
-.nav__black-theme .nav__link-saved-article_grey::after {
+.nav__black-theme .nav__link_saved-article::after {
   content: "";
   position: absolute;
   bottom: -24px;
@@ -102,7 +102,7 @@
   align-items: center;
   margin: 19px 0 13px auto;
 }
-.nav__username {
+.nav__user-name {
   width: 56px;
   height: 24px;
   font-family: "Roboto", sans-serif;

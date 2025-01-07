@@ -36,9 +36,7 @@ const Main = ({
           error={error}
         />
       )}
-      <div className="about">
-        <About />
-      </div>
+      <About />
     </main>
   );
 };
