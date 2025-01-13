@@ -73,19 +73,17 @@
     margin: 32px auto 24px;
   }
   .about__content {
-    max-width: 288px;
     height: auto;
     margin: 0 auto 0;
+    padding: 0 16px;
   }
   .about__title {
-    width: 288px;
     height: 40px;
     font-size: 30px;
     line-height: 46px;
     margin: 0 auto 16px;
   }
   .about__userInfo {
-    max-width: 288px;
     height: auto;
     white-space: wrap;
     margin: 0 auto 16px 0;

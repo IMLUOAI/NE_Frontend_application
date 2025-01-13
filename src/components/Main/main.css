@@ -20,6 +20,7 @@
   white-space: wrap;
   justify-content: center;
   color: #ffffff;
+  padding: 0 16px;
 }
 .main__title {
   max-width: 608px;
@@ -34,6 +35,7 @@
   margin: 160px auto 32px;
 }
 .main__description {
+  width: 100%;
   max-width: 608px;
   height: 24px;
   font-family: "Roboto", sans-serif;
@@ -55,14 +57,12 @@
     height: 536px;
   }
   .main__title {
-    max-width: 285px;
     height: 80px;
     font-size: 36px;
     line-height: 40px;
     margin: 86px auto 16px;
   }
   .main__description {
-    max-width: 288px;
     height: 72px;
     font-size: 18px;
     line-height: 24px;
@@ -81,17 +81,17 @@
     height: 400px;
   }
   .main__title {
-    max-width: 385px;
+    max-width: 452px;
     height: 80px;
     font-size: 36px;
     line-height: 40px;
-    margin: 104px auto 16px 160px;
+    margin: 104px auto 16px auto;
   }
   .main__description {
     max-width: 452px;
     height: 48px;
     font-size: 18px;
     line-height: 24px;
-    margin: 0 auto 48px 160px;
+    margin: 0 auto 48px auto;
   }
 }
