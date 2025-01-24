@@ -24,7 +24,6 @@
   margin: 131px auto auto 56px;
 }
 .about__title {
-  width: 100%;
   height: 46px;
   font-family: "Roboto Slab", sans-serif;
   font-size: 40px;
@@ -78,6 +77,7 @@
     padding: 0 16px;
   }
   .about__title {
+    width: 100%;
     height: 40px;
     font-size: 30px;
     line-height: 46px;
@@ -101,7 +101,7 @@
     margin: 61px 32px 61px auto;
   }
   .about__content {
-    max-width: 424px;
+    width: 424px;
     height: auto;
     margin: 40px 40px auto 0;
   }
@@ -109,10 +109,11 @@
     height: 34px;
     font-size: 30px;
     line-height: 40px;
-    margin: 0 auto 16px;
+    margin: 0 auto 16px 0;
   }
   .about__userInfo {
-    max-width: 424px;
+    width: 424px;
+    width: 100%;
     margin: 0 auto;
   }
 }

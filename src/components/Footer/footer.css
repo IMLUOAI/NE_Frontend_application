@@ -94,7 +94,8 @@
     gap: 38px 16px;
   }
   .footer__description {
-    max-width: 288px;
+    width: 288px;
+    width: 100%;
     height: 22px;
     font-weight: 400;
     font-size: 16px;
@@ -104,7 +105,8 @@
     margin: 0 auto 22px;
   }
   .footer__nav-bar {
-    max-width: 200px;
+    width: 200px;
+    width: 100%;
     height: 74px;
     display: flex;
     flex-direction: column;
@@ -124,7 +126,7 @@
     margin-left: 15px;
   }
   .footer__social-links {
-    max-width: 72px;
+    width: 72px;
     height: 24px;
     grid-area: social;
     justify-items: center;
@@ -137,7 +139,7 @@
     height: 64px;
   }
   .footer__description {
-    max-width: 300px;
+    width: 300px;
     height: 22px;
     font-weight: 400;
     font-size: 16px;
@@ -145,7 +147,7 @@
     margin: 24px auto 18px 40px;
   }
   .footer__nav-bar {
-    max-width: 163px;
+    width: 163px;
     height: 24px;
     margin: 20px auto 19px 113px;
   }
