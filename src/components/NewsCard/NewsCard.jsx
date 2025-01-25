@@ -42,7 +42,7 @@ const NewsCard = ({ card, currentUser, handleSaveOrUnsave }) => {
         href={card.url || "#"}
         target="_blank"
         rel="noreferrer noopener"
-        className="card card__link"
+        className="card__link"
       >
         <img
           src={card.urlToImage || "default-image.jpg"}
@@ -70,7 +70,7 @@ const NewsCard = ({ card, currentUser, handleSaveOrUnsave }) => {
         <p className="card__description">
           {card.description || "No available content"}
         </p>
-        <h3 className="card__sourceName">{card.source?.name}</h3>
+        <h3 className="card__source-name">{card.source?.name}</h3>
       </a>
     </article>
   );

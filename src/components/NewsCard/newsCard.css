@@ -130,7 +130,7 @@
   overflow: hidden;
   margin: 16px 24px 0;
 }
-.card__sourceName {
+.card__source-name {
   width: 121px;
   height: 20px;
   font-family: "Roboto Slab", sans-serif;
@@ -225,7 +225,7 @@
     margin: 14px 16px auto;
     overflow: hidden;
   }
-  .card__sourceName {
+  .card__source-name {
     height: 20px;
     font-size: 16px;
     line-height: 20px;
@@ -283,7 +283,7 @@
     text-overflow: ellipsis;
     overflow: hidden;
   }
-  .card__sourceName {
+  .card__source-name {
     width: 192px;
     height: 20px;
     font-size: 16px;

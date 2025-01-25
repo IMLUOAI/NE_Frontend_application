@@ -10,7 +10,6 @@
 
 .search-bar__input {
   width: 608px;
-  /* width: 100%; */
   height: 64px;
   border: 1px solid #d1d2d6;
   outline: none;
@@ -110,8 +109,8 @@
     margin: 0 auto 48px;
   }
   .search-bar__input {
-    width: 452px;
-    /* width: 100%; */
+    /* width: 452px; */
+    width: 100%;
     height: 56px;
     font-size: 16px;
     line-height: 22px;
