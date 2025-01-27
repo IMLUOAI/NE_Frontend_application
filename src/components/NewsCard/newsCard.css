@@ -80,6 +80,7 @@
 }
 .card__tooltip-text {
   width: 142px;
+  width: 100%;
   height: 18px;
   white-space: nowrap;
   font-family: "Roboto", sans-serif;
@@ -203,15 +204,18 @@
     height: 480px;
   }
   .card__image {
+    /* width: 288px; */
     height: 196px;
   }
   .card__publishedAt {
+    /* width: 256px; */
     height: 24px;
     font-size: 18px;
     line-height: 24px;
     margin: 16px auto 0 16px;
   }
   .card__title {
+    /* width: 256px; */
     height: 48px;
     font-size: 22px;
     line-height: 24px;
@@ -219,6 +223,7 @@
     overflow: hidden;
   }
   .card__description {
+    /* width: 256px; */
     height: 88px;
     font-size: 16px;
     line-height: 22px;
@@ -226,13 +231,14 @@
     overflow: hidden;
   }
   .card__source-name {
+    /* width: 256px; */
     height: 20px;
     font-size: 16px;
     line-height: 20px;
     margin: 0 auto 16px 16px;
   }
   .card__feature {
-    width: 100%;
+    /* width: 100%; */
     top: 16px;
   }
   .card__tooltip {
@@ -255,18 +261,20 @@
     height: 420px;
   }
   .card__image {
-    width: 100%;
+    /* width: 100%; */
     height: 150px;
   }
   .card__publishedAt {
-    width: 144px;
+    /* width: 144px; */
+    /* width: 100%; */
     height: 24px;
     font-size: 16px;
     line-height: 24px;
     margin: 20px auto 0 24px;
   }
   .card__title {
-    width: 192px;
+    /* width: 192px; */
+    /* width: 100%; */
     height: 48px;
     font-size: 22px;
     line-height: 24px;
@@ -275,7 +283,8 @@
     text-overflow: ellipsis;
   }
   .card__description {
-    width: 192px;
+    /* width: 192px; */
+    /* width: 100%; */
     height: 88px;
     font-size: 16px;
     line-height: 22px;
@@ -284,7 +293,8 @@
     overflow: hidden;
   }
   .card__source-name {
-    width: 192px;
+    /* width: 192px; */
+    /* width: 100%; */
     height: 20px;
     font-size: 16px;
     line-height: 20px;
@@ -294,7 +304,7 @@
     margin: 0 8px auto auto;
   }
   .card__feature {
-    width: 100%;
+    /* width: 100%; */
     top: 8px;
   }
   .card__tooltip {

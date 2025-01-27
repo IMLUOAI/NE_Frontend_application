@@ -3,7 +3,12 @@ import { Link } from "react-router-dom";
 import closeButton from "../../images/close.svg";
 import "../MobileMenuModal/mobileMenuModal.css";
 import "../Navigation/nav.css";
-const MobileMenuModal = ({ isOpen, onClose, handleOpenSigninModal }) => {
+const MobileMenuModal = ({
+  isOpen,
+  onClose,
+  isMenuOpen,
+  handleOpenSigninModal,
+}) => {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 425 && isOpen) {
@@ -38,6 +43,14 @@ const MobileMenuModal = ({ isOpen, onClose, handleOpenSigninModal }) => {
         <nav className="mobile__nav">
           <Link to="/" className="nav__link mobile__nav-link_home">
             Home
+          </Link>
+          <Link
+            to="/saved-articles"
+            className={`nav__link mobile__nav-link_saved-article ${
+              isMenuOpen ? "nav__link_visible" : ""
+            }`}
+          >
+            Saved Articles
           </Link>
           <button
             type="button"

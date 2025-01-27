@@ -12,7 +12,7 @@
   .mobile__content {
     width: 288px;
     width: 100%;
-    height: 230px;
+    height: 300px;
     background: #1a1b22;
     border-radius: 0;
     position: absolute;
@@ -82,7 +82,19 @@
     text-decoration: none;
     margin: 0 auto 22px;
   }
-
+  .mobile__nav-link_saved-article {
+    display: block;
+    width: 288px;
+    width: 100%;
+    height: 56px;
+    color: #ffffff;
+    background: transparent;
+    font-size: 18px;
+    line-height: 56px;
+    text-align: left;
+    text-decoration: none;
+    margin: 0 auto 22px;
+  }
   .mobile__nav-signin-button {
     width: 288px;
     width: 100%;

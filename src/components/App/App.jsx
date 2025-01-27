@@ -307,6 +307,7 @@ function App() {
           <MobileMenuModal
             isOpen={isMenuOpen}
             onClose={handleCloseMobileMenuModal}
+            isMenuOpen={isMenuOpen}
             handleOpenSigninModal={handleOpenSigninModal}
           />
         )}
