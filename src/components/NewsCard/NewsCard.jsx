@@ -42,7 +42,7 @@ const NewsCard = ({ card, currentUser, handleSaveOrUnsave }) => {
         href={card.url || "#"}
         target="_blank"
         rel="noreferrer noopener"
-        className="card__link"
+        className="card_type_link"
       >
         <img
           src={card.urlToImage || "default-image.jpg"}

@@ -24,7 +24,7 @@
   margin: 131px auto auto 56px;
 }
 .about__title {
-  height: 46px;
+  height: auto;
   font-family: "Roboto Slab", sans-serif;
   font-size: 40px;
   font-weight: 400;

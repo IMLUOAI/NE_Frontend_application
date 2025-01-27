@@ -174,9 +174,6 @@
   }
 }
 @media screen and (min-width: 426px) and (max-width: 768px) {
-  .nav {
-    width: 100%;
-  }
   .nav__link_home::after {
     bottom: -22px;
   }
