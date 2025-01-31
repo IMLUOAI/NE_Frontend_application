@@ -11,29 +11,27 @@ const Footer = () => {
         © 2024 Supersite. Powered by News API
       </p>
       <nav className="footer__nav-bar">
-        <Link className="footer__nav-link footer__nav-link_home" to="/">
+        <Link className="footer__nav-link footer__nav-link_home" to="/" >
           Home
         </Link>
-        <Link
-          className="footer__nav-link footer__nav-link_tripleten"
-          to="https://tripleten.com"
+        <a
+          className="footer__nav-link footer__nav-link_tripleten" href
+        ="https://tripleten.com" target="_blank" rel="noreferrer noopener"
         >
           TripleTen
-        </Link>
+        </a>
       </nav>
       <nav className="footer__social-links">
-        <Link
-          to="https://github.com"
+        <a href="https://github.com" target="_blank" rel="noreferrer noopener"
           className="footer__social-link footer__social-link_github"
         >
           <img src={githubLogo} alt="github" />
-        </Link>
-        <Link
-          to="https://facebook.com"
+        </a>
+        <a href="https://facebook.com" target="_blank" rel="noreferrer noopener"
           className="footer__social-link footer__social-link_fb"
         >
           <img src={facebookLogo} alt="facebook" />
-        </Link>
+        </a>
       </nav>
     </footer>
   );

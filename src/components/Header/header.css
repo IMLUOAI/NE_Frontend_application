@@ -34,7 +34,7 @@
   margin: 19px 104px 13px;
 }
 .header__logo {
-  width: 200px;
+  /* width: 200px; */
   height: 24px;
   font-family: "Roboto Slab", sans-serif;
   font-size: 20px;
@@ -99,7 +99,7 @@
     margin: 14px 40px;
   }
   .header__logo {
-    max-width: 200px;
+    /* max-width: 200px; */
     height: 24.8px;
     margin: 7.5px auto 7.5px 0;
   }

@@ -28,7 +28,7 @@ const Header = ({
           type="button"
           onClick={handleOpenMobileMenuModal}
         >
-          <img src={menuIcon} className="header__menu-icon" alt="menu-icon" />
+          <img src={menuIcon}className="header__menu-icon" alt="menu-icon" />
         </button>
         <Navigation
           isLoggedIn={isAuthorized}

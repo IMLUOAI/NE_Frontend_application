@@ -15,7 +15,7 @@ const SavedCard = ({ card, onDelete }) => {
       href={card.url || "#"}
       target="_blank"
       rel="noreferrer noopener"
-      className="card_type_link"
+      className="card__type_link"
       onClick={handleCardClick}
     >
       <img

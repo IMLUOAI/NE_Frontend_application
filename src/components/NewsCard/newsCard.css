@@ -10,7 +10,7 @@
   box-shadow: 0px 10px 22px 0px #3b4a741a;
 }
 
-.card_type_link {
+.card__type_link {
   text-decoration: none;
   color: inherit;
   position: relative;
