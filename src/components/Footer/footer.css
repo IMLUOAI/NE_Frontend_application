@@ -128,8 +128,6 @@
     width: 72px;
     height: 24px;
     grid-area: social;
-    justify-items: center;
-    align-items: flex-end;
     margin: 20px 16px auto auto;
   }
 }
@@ -139,11 +137,11 @@
   }
   .footer__description {
     max-width: 300px;
-    height: 22px;
+    height: 24px;
     font-weight: 400;
     font-size: 16px;
     line-height: 22px;
-    margin: 24px auto 18px 40px;
+    margin: 20px auto 19px 40px;
   }
   .footer__nav-bar {
     width: 163px;
