@@ -11,6 +11,7 @@ const SavedCard = ({ card, onDelete }) => {
   console.log("Card in savedCard:", card);
   console.log("Card source ID:", card.source?.id);
   return (
+    <article className="card">
     <a
       href={card.url || "#"}
       target="_blank"
@@ -47,6 +48,7 @@ const SavedCard = ({ card, onDelete }) => {
       </p>
       <h3 className="card__source-name">{card.source?.name}</h3>
     </a>
+  </article>
   );
 };
 
