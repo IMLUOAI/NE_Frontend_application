@@ -14,7 +14,7 @@ const Preloader = ({ isLoading, noResults }) => {
     return (
       <div className="preloader">
         <div className="preloader__unhappy-icon"></div>
-        <h1 className="preloader__title">Nothing found</h1>
+        <h2 className="preloader__title">Nothing found</h2>
         <p className="preloader__description">
           Sorry, but nothing matched your search terms
         </p>

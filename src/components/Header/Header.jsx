@@ -16,11 +16,11 @@ const Header = ({
       className={`header ${isSavedArticles ? "header__saved-articles" : ""}`}
     >
       <div className="header__bar">
-        <h1
+        <span
           className={`header__logo ${isMenuOpen ? "header__logo_hidden" : ""}`}
         >
           NewsExplorer
-        </h1>
+        </span>
         <button
           className={`header__menu-button ${
             isMenuOpen ? "header__menu-button_hidden" : ""
@@ -28,7 +28,7 @@ const Header = ({
           type="button"
           onClick={handleOpenMobileMenuModal}
         >
-          <img src={menuIcon}className="header__menu-icon" alt="menu-icon" />
+          <img src={menuIcon} className="header__menu-icon" alt="menu-icon" />
         </button>
         <Navigation
           isLoggedIn={isAuthorized}

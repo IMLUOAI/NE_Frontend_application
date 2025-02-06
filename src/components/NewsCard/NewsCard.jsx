@@ -5,7 +5,7 @@ import solidPatternHover from "../../images/Group 12.svg";
 import hollowPatternHover from "../../images/Group 14.svg";
 import { useState } from "react";
 
-const NewsCard = ({ card, currentUser, handleSaveOrUnsave }) => {
+const Newscard = ({ card, currentUser, handleSaveOrUnsave }) => {
   if (!card) {
     return null;
   }
@@ -42,7 +42,7 @@ const NewsCard = ({ card, currentUser, handleSaveOrUnsave }) => {
         href={card.url || "#"}
         target="_blank"
         rel="noreferrer noopener"
-        className="card__type_link"
+        className="card__link"
       >
         <img
           src={card.urlToImage || "default-image.jpg"}
@@ -66,14 +66,14 @@ const NewsCard = ({ card, currentUser, handleSaveOrUnsave }) => {
         <div className="card__publishedAt">
           {card.publishedAt || "Unknown Date"}
         </div>
-        <h1 className="card__title">{card.title || "No available title"}</h1>
+        <h2 className="card__title">{card.title || "No available title"}</h2>
         <p className="card__description">
           {card.description || "No available content"}
         </p>
-        <h3 className="card__source-name">{card.source?.name}</h3>
+        <p className="card__source-name">{card.source?.name}</p>
       </a>
     </article>
   );
 };
 
-export default NewsCard;
+export default Newscard;

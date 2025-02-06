@@ -2,22 +2,22 @@ import React from "react";
 import "../NewsCard/newsCard.css";
 import binIcon from "../../images/trash.svg";
 
-const SavedCard = ({ card, onDelete }) => {
-  const handleCardClick = (e) => {
+const Savedcard = ({ card, onDelete }) => {
+  const handlecardClick = (e) => {
     if (e.target.closest(".card__bin-button")) {
       e.preventDefault();
     }
   };
-  console.log("Card in savedCard:", card);
-  console.log("Card source ID:", card.source?.id);
+  console.log("card in savedcard:", card);
+  console.log("card source ID:", card.source?.id);
   return (
     <article className="card">
     <a
       href={card.url || "#"}
       target="_blank"
       rel="noreferrer noopener"
-      className="card__type_link"
-      onClick={handleCardClick}
+      className="card__link"
+      onClick={handlecardClick}
     >
       <img
         src={card.urlToImage || "default-image.jpg"}
@@ -42,14 +42,14 @@ const SavedCard = ({ card, onDelete }) => {
       <div className="card__publishedAt">
         {card.publishedAt || "Unknown Date"}
       </div>
-      <h1 className="card__title">{card.title || "No available title"}</h1>
+      <h2 className="card__title">{card.title || "No available title"}</h2>
       <p className="card__description">
         {card.description || "No available content"}
       </p>
-      <h3 className="card__source-name">{card.source?.name}</h3>
+      <p className="card__source-name">{card.source?.name}</p>
     </a>
   </article>
   );
 };
 
-export default SavedCard;
+export default Savedcard;

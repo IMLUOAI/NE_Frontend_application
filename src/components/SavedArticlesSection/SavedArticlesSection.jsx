@@ -1,7 +1,7 @@
 import "../SavedArticlesSection/savedArticlesSection.css";
 import React, { useContext } from "react";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
-import SavedCard from "../SavedCard/SavedCard";
+import Savedcard from "../SavedCard/SavedCard";
 
 const SavedArticlesSection = ({ articles = [], handledDeletedArticle }) => {
   const { currentUser } = useContext(CurrentUserContext);
@@ -12,9 +12,9 @@ const SavedArticlesSection = ({ articles = [], handledDeletedArticle }) => {
   return (
     <section className="saved-articles">
       <p className="saved-articles__note">Saved articles</p>
-      <h1 className="saved-articles__title">
+      <h2 className="saved-articles__title">
         {currentUser?.name}, you have {articles.length} saved articles
-      </h1>
+      </h2>
       <p className="saved-articles__keyword-title">
         By Keywords:{" "}
         <span className="saved-articles__keyword-note">
@@ -28,7 +28,7 @@ const SavedArticlesSection = ({ articles = [], handledDeletedArticle }) => {
           }
           console.log("Rendering card with source:", card.source);
           return (
-            <SavedCard
+            <Savedcard
               key={card._id}
               currentUser={currentUser}
               onDelete={handledDeletedArticle}

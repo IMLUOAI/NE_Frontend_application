@@ -11,9 +11,9 @@ const SuccessSignupModal = ({
   return (
     <Modal onClose={handleCloseModal} isOpen={isOpen}>
       <div className="modal__successSignup-container">
-        <h1 className="modal__successSignup-title">
+        <h2 className="modal__successSignup-title">
           Registration successfully completed!
-        </h1>
+        </h2>
         <button
           type="button"
           className="modal__signin-button"
