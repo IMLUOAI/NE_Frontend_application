@@ -5,6 +5,7 @@ import { useEffect } from "react";
 const Header = ({
   userName,
   isMenuOpen,
+  setIsMENUOpen,
   isSavedArticles,
   isAuthorized,
   onLogout,
@@ -13,7 +14,7 @@ const Header = ({
 }) => {
   return (
     <header
-      className={`header ${isSavedArticles ? "header__saved-articles" : ""}`}
+      className={`header ${isSavedArticles ? "header_saved-articles" : ""}`}
     >
       <div className="header__bar">
         <span
@@ -33,6 +34,7 @@ const Header = ({
         <Navigation
           isLoggedIn={isAuthorized}
           isMenuOpen={isMenuOpen}
+          setIsMENUOpen={setIsMENUOpen}
           userName={userName}
           onLogout={onLogout}
           onSigninModal={onSigninModal}

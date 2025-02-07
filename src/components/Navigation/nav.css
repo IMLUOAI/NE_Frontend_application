@@ -9,15 +9,15 @@
   text-decoration: none;
   color: #ffffff;
 }
-.nav.nav__black-theme .nav__link_home,
-.nav.nav__black-theme .nav__link_saved-article,
-.nav.nav__black-theme .nav__user-name {
+.nav.nav_black-theme .nav__link_home,
+.nav.nav_black-theme .nav__link_saved-article,
+.nav.nav_black-theme .nav__user-name {
   color: #1a1b22;
 }
-.nav.nav__black-theme .nav__link_home::after {
+.nav.nav_black-theme .nav__link_home::after {
   background-color: transparent;
 }
-.nav__black-theme .nav__link_saved-article::after {
+.nav_black-theme .nav__link_saved-article::after {
   content: "";
   position: absolute;
   bottom: -24px;
@@ -26,14 +26,14 @@
   height: 3px;
   background-color: #1a1b22;
 }
-.nav.nav__black-theme .nav__user-bar,
-.nav.nav__black-theme .nav__signin-bar {
+.nav.nav_black-theme .nav__user-bar,
+.nav.nav_black-theme .nav__signin-bar {
   border: 1px solid #1a1b22;
 }
-.nav.nav__black-theme .nav__signin-button {
+.nav.nav_black-theme .nav__signin-button {
   color: #1a1b22;
 }
-.nav.nav__black-theme .nav__logout-icon {
+.nav.nav_black-theme .nav__logout-icon {
   filter: invert(1);
 }
 .nav__link_home {
@@ -151,6 +151,61 @@
   opacity: 0.5;
 }
 
+.hamburger {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 25px;
+  height: 18px;
+  cursor: pointer;
+}
+.hamburger div {
+  width: 100%;
+  height: 24px;
+  background-color: #ffffff;
+}
+
+.nav__links {
+  display: flex;
+  flex-direction: row;
+}
+
+.nav__links_active {
+  display: flex;
+}
+
+@media screen  and (min-width: 561px) {
+  .nav__links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .hamburger {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .hamburger {
+    display: flex;
+  }
+  .nav__link_home,
+  .nav__link_saved-article,
+  .nav__user-bar,
+  .nav__signin-bar,
+  .nav__signin-button {
+    display: none;
+  }
+  .nav__links {
+    display: none;
+  }
+  .nav__links_active {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
 @media screen and (min-width: 320px) and (max-width: 425px) {
   .nav__link_home {
     width: 100%;
@@ -215,7 +270,7 @@
     width: 128px;
     font-size: 16px;
   }
-  .nav__black-theme .nav__link_saved-article::after {
+  .nav_black-theme .nav__link_saved-article::after {
     bottom: -22px;
   }
 }

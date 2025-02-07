@@ -5,18 +5,24 @@ import logoutIcon from "../../images/Union.svg";
 const Navigation = ({
   isLoggedIn,
   isMenuOpen,
+  setIsMenuOpen,
   userName,
   onLogout,
   onSigninModal,
   isSavedArticles,
 }) => {
+  const onMenuClick = () => {setIsMenuOpen(!isMenuOpen);};
   return (
-    <nav className={`nav ${isSavedArticles ? "nav__black-theme" : ""}`}>
-      {!isMenuOpen && (
+    <nav className={`nav ${isSavedArticles ? "nav_black-theme" : ""}`}>
+      <div cladssName="hamburger" onClick={onMenuClick}>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div className={`nav__links ${isMenuOpen ? "nav__links_active" : ""}`} >
         <Link to="/" className="nav__link nav__link_home">
           Home
         </Link>
-      )}
       {isLoggedIn ? (
         <>
           <Link
@@ -49,6 +55,7 @@ const Navigation = ({
           </button>
         </div>
       )}
+      </div>
     </nav>
   );
 };

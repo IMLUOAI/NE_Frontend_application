@@ -12,9 +12,9 @@ const SavedArticlesSection = ({ articles = [], handledDeletedArticle }) => {
   return (
     <section className="saved-articles">
       <p className="saved-articles__note">Saved articles</p>
-      <h2 className="saved-articles__title">
+      <h1 className="saved-articles__title">
         {currentUser?.name}, you have {articles.length} saved articles
-      </h2>
+      </h1>
       <p className="saved-articles__keyword-title">
         By Keywords:{" "}
         <span className="saved-articles__keyword-note">

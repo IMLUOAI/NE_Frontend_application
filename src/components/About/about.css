@@ -1,5 +1,5 @@
 .about {
-  width: 100vw;
+  width: 100%;
   max-width: 1440px;
   height: auto;
   display: flex;
@@ -98,10 +98,10 @@
   .about__avatar {
     width: 232px;
     height: 232px;
-    margin: 61px 32px 61px auto;
+    margin: 61px 32px 61px 40px;
   }
   .about__content {
-    max-width: 424px;
+    width: 424px;
     height: auto;
     margin: 40px 40px auto 0;
   }
