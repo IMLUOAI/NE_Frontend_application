@@ -13,13 +13,13 @@ const Navigation = ({
 }) => {
   const onMenuClick = () => {setIsMenuOpen(!isMenuOpen);};
   return (
-    <nav className={`nav ${isSavedArticles ? "nav_black-theme" : ""}`}>
-      <div cladssName="hamburger" onClick={onMenuClick}>
+    <nav className={`nav ${isSavedArticles ? "nav_theme_black" : ""}`}>
+       <div cladssName="hamburger" onClick={onMenuClick}>
         <div></div>
         <div></div>
         <div></div>
-      </div>
-      <div className={`nav__links ${isMenuOpen ? "nav__links_active" : ""}`} >
+      </div> 
+       <div className={`nav__links ${isMenuOpen ? "nav__links_active" : ""}`} > 
         <Link to="/" className="nav__link nav__link_home">
           Home
         </Link>

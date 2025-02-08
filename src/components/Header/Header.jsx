@@ -14,7 +14,7 @@ const Header = ({
 }) => {
   return (
     <header
-      className={`header ${isSavedArticles ? "header_saved-articles" : ""}`}
+      className={`header ${isSavedArticles ? "header_location_saved-articles" : ""}`}
     >
       <div className="header__bar">
         <span
