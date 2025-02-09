@@ -1,0 +1,111 @@
+@media screen and (min-width: 320px) and (max-width: 560px) {
+  .mobile {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 999;
+    margin: 0;
+  }
+  .mobile__content {
+    width: 288px;
+    width: 100%;
+    height: 300px;
+    background: #1a1b22;
+    border-radius: 0;
+    position: absolute;
+    flex-direction: column;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    padding: 0 16px;
+  }
+  .mobile__header {
+    width: 288px;
+    width: 100%;
+    height: 56px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px -1px 0px 0px #ffffff33 inset;
+    margin: 0 0 16px;
+  }
+
+  .mobile__logo {
+    width: 117px;
+    height: 24px;
+    font-family: "Roboto Slab", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: left;
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+    margin: 16px 0;
+  }
+
+  .mobile__close-button {
+    width: 24px;
+    height: 24px;
+    border: none;
+    background-color: transparent;
+    margin: 16px 0;
+  }
+
+  .mobile__close-button-icon {
+    width: 17px;
+    height: 17px;
+  }
+  .mobile__nav {
+    height: 134px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+  }
+  .mobile__nav-link_home {
+    display: block;
+    width: 288px;
+    width: 100%;
+    height: 56px;
+    color: #ffffff;
+    background: transparent;
+    font-size: 18px;
+    line-height: 56px;
+    text-align: left;
+    text-decoration: none;
+    margin: 0 auto;
+  }
+  .mobile__nav-link_saved-article {
+    display: block;
+    width: 288px;
+    width: 100%;
+    height: 56px;
+    color: #ffffff;
+    background: transparent;
+    font-size: 18px;
+    line-height: 56px;
+    text-align: left;
+    text-decoration: none;
+    margin: 0 auto 22px;
+  }
+  .mobile__nav-signin-button {
+    width: 288px;
+    width: 100%;
+    height: 56px;
+    border-radius: 28px;
+    border: 1px solid #ffffff;
+    background: transparent;
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 24px;
+    margin: 0 16px;
+    text-align: center;
+  }
+}

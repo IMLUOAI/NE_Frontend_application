@@ -1,0 +1,107 @@
+.header {
+  width: 100%;
+  max-width: 1440px;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  position: absolute;
+  box-shadow: 0px -1px 0px 0px #f5f6f7 inset;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  box-sizing: border-box;
+}
+
+.header.header_location_saved-articles {
+  box-shadow: 0px -1px 0px 0px #d1d2d6 inset;
+}
+.header.header_location_saved-articles .header__logo {
+  color: #1a1b22;
+}
+.header.header_location_saved-articles .header__menu-button {
+  filter: invert(1);
+}
+.header__bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 1232px;
+  height: 48px;
+  margin: 19px 104px 13px;
+}
+.header__logo {
+  /* width: 200px; */
+  height: 24px;
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: left;
+  background-color: transparent;
+  color: #ffffff;
+  border: none;
+  margin: 0 auto 0 0;
+}
+.header__menu-button {
+  display: none;
+}
+
+@media screen and (min-width: 320px) and (max-width: 560px) {
+  .header {
+    height: 56px;
+  }
+  .header__bar {
+    margin: 16px 16px;
+    width: 100%;
+  }
+  .header__logo {
+    width: 117px;
+    width: 100%;
+    height: 24px;
+    font-size: 16px;
+    margin: 16px auto 16px 0;
+  }
+  .header__menu-button {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin: 16px 0 16px auto;
+    padding: 0;
+  }
+  /* .header__logo.header__logo_hidden,
+  .header__menu-button.header__menu-button_hidden {
+    display: none;
+  } */
+
+  .header__menu-icon {
+    width: 24px;
+    height: 24px;
+    filter: invert(100%);
+  }
+}
+
+@media screen and (min-width: 426px) and (max-width: 768px) {
+  .header {
+    height: 66px;
+  }
+
+  .header__bar {
+    height: 40px;
+    margin: 14px 40px;
+  }
+  .header__logo {
+    /* max-width: 200px; */
+    height: 24.8px;
+    margin: 7.5px auto 7.5px 0;
+  }
+}
