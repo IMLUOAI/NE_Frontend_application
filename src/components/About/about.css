@@ -90,7 +90,35 @@
   }
 }
 
-@media screen and (min-width: 426px) and (max-width: 768px) {
+@media screen and (min-width: 426px) and (max-width: 630px) {
+  .about {
+    height: auto;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+  .about__avatar {
+    width: 272px;
+    height: 272px;
+    margin: 32px auto 24px;
+  }
+  .about__content {
+    height: auto;
+    margin: 0 40px;
+  }
+  .about__title {
+    height: auto;
+    font-size: 30px;
+    line-height: 40px;
+    margin: 0 auto 16px 0;
+  }
+  .about__userInfo {
+    width: 424px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 631px) and (max-width: 768px) {
   .about {
     height: auto;
     margin: 0 auto;
